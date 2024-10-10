@@ -1,11 +1,11 @@
-# **Formulario**
+<h1 align=center><b>Formulario</b></h1>
 ---
-## **Preview** 
+<h2 align=center><b>Preview:</b></h2>
 [![preview](capt.png)](https://qqhgi39b.forms.app/la-perla-del-sur)
 
 ---
 
-### Diagrama de Flujo:
+<h3 align=center><b>Diagrama de Flujo:</b></h3>
 
 ```mermaid
 %%{init:{'theme':'base', 'themeVariables':{'primaryColor': '#356bca','edgeLabelBackground': '#738a97', 'primaryTextColor': '#bbe2ec', 'lineColor': '#ffffff','primaryBorderColor': '#ffffff'}}}%%
