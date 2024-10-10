@@ -9,60 +9,59 @@
 ---
 
 ```mermaid
+%%{init:{'theme':'base', 'themeVariables':{'primaryColor': '#356bca','edgeLabelBackground': '#738a97', 'primaryTextColor': '#bbe2ec', 'lineColor': '#ffffff','primaryBorderColor': '#ffffff'}}}%%
 flowchart TD
-    A[Rango de Edad]
-    B{¿Cuál es tu género?}
-    C[Conoce a Perla]
-    D{¿Qué elegirías?}
-    E{¿Estaría en tus planes futuros emigrar en algún momento?}
-    F{¿Cómo sería tu proceso migratorio?}
-    G{¿Intermunicipal o interprovincial?}
-    H{¿Cuál sería tu destino?}
-    I{¿Por qué crees que decidirías emigrar?}
-    J{¿Cómo les ofrecerías apoyo a la familia?}
-    K{¿Buscarías a tu padre?}
-    L{¿Cuál sería tu lugar de destino?}
-    M{¿Hacia dónde irías?}
-    N{¿Te llamó la atención la imagen de la chica al principio del cuestionario?}
-    X[FIN]
 
+    A[Rango de Edad]--10-16 --> B{¿Cuál es tu género?}
+    A --17-25 -->B
+    A --26-50 -->B
+    A --51-66 -->B
+    A --68 o más -->B
 
-    A --> [10-16] B
-    A --> [17-25] B
-    A --> [26-50] B
-    A --> [51-66] B
-    A --> [>=68] B
+    B --Masculino -->C[Conoce a Perla...]
+    B --Femenino  -->C
+    B --Otro  -->C
 
-    B --> [Masculino] C
-    B --> [Femenino] C
-    B --> [Otro] C
+    C --Lic. Bioquímica en la UH -->D{¿Qué elegirías?}
+    C --Medicina Veterinaria en Cienfuegos -->D
+    C --Otro  -->D
 
-    C --> [Lic. Bioquímica en la UH] D
-    C --> [Medicina Veterinaria en Cienfuegos] D
-    C --> [Otro] D
+    D --¿Por qué? -->E{¿Estaría en tus planes futuros emigrar en algún momento?}
 
-    D --> [¿Por qué?] E
+    E --Sí... ¿Por qué? -->F{¿Cómo sería tu proceso migratorio?}
+    E --No... ¿Por qué? -->K{¿Buscarías a tu padre?}
 
-    E --> [Sí... ¿Por qué?] F
-    E --> [No... ¿Por qué?] K
+    F --Interno -->G{¿Intermunicipal o interprovincial?}
+    F --Externo -->M{¿Hacia dónde irías?}
 
-    F --> [Interno] G
-    F --> [Externo] M
+    G --Intermunicipal -->L{¿Cuál sería tu lugar de destino?}
+    G --Interprovincial -->H{¿Cuál sería tu destino?}
 
-    G --> [Intermunicipal] L
-    G --> [Interprovincial] H
+    H --Provincia -->I{¿Por qué crees que decidirías emigrar?}
 
-    H --> [Provincia] I
+    I  --> J{¿Cómo les ofrecerías apoyo a la familia?}
+    J  --> K
 
-    I --> J
-    J --> K
+    K --Sí... ¿Por qué? -->N{¿Te llamó la atención la imagen de la chica al principio del cuestionario?}
+    K --No... ¿Por qué? -->N
 
-    K --> [Sí... ¿Por qué?] N
-    K --> [No... ¿Por qué?] N
-
-    N --> X
-    L --> [La capital de mi provincia natal] I
-    L --> [Otro municipio] I
+    N  --> X[FIN]
+    L --La capital de mi provincia natal -->I
+    L --Otro municipio -->I
+    M --> I
+    style A font-size:20px,font-family:monospace, monaco
+    style B font-size:20px,font-family:monospace, monaco
+    style C font-size:20px,font-family:monospace, monaco
+    style D font-size:20px,font-family:monospace, monaco
+    style E font-size:20px,font-family:monospace, monaco
+    style F font-size:20px,font-family:monospace, monaco
+    style G font-size:20px,font-family:monospace, monaco
+    style H font-size:20px,font-family:monospace, monaco
+    style I font-size:20px,font-family:monospace, monaco
+    style J font-size:20px,font-family:monospace, monaco
+    style K font-size:20px,font-family:monospace, monaco
+    style L font-size:20px,font-family:monospace, monaco
+    style M font-size:20px,font-family:monospace, monaco
+    style N font-size:20px,font-family:monospace, monaco
+    style X font-size:20px,font-family:monospace, monaco
 ```
-
----
