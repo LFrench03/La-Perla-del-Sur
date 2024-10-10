@@ -26,49 +26,49 @@ flowchart TD
     N{¿Te llamó la atención la imagen de la chica al principio del cuestionario? (Contexto)}
 
 
-    A --> [10-16] --> B
+    A --> [10-16] B
 
-    A --> [17-25] --> B
+    A --> [17-25] B
 
-    A --> [26-50] --> B
+    A --> [26-50] B
 
-    A --> [51-66] --> B
+    A --> [51-66] B
 
-    A --> [>=68] --> B
-
-
-    B --> [Masculino] --> C
-
-    B --> [Femenino] --> C
-
-    B --> [Otro] --> C
+    A --> [>=68] B
 
 
-    C --> [Lic. Bioquimica(UH)] --> D
+    B --> [Masculino] C
 
-    C --> [Medicina Veterinaria(Cienfuegos)] --> D
+    B --> [Femenino] C
 
-    C --> [Otro] --> D
-
-
-    D -- [¿Porqué?] --> E
+    B --> [Otro] C
 
 
-    E --> [Si] --> [¿Porqué?] --> F
+    C --> [Lic. Bioquimica(UH)] D
 
-    E --> [No] --> [¿Porqué?] --> K
+    C --> [Medicina Veterinaria(Cienfuegos)] D
 
-
-    F --> [Interno] --> G
-
-    F --> [Externo] --> M
+    C --> [Otro] D
 
 
-    G --> [Intermunicipal] --> L
+    D -- [¿Porqué?] E
 
-    G --> [Interprovincial] --> H
 
-    H --> [Provincia] --> I
+    E --> [Si...¿Porqué?] F
+
+    E --> [No...¿Porqué?] K
+
+
+    F --> [Interno] G
+
+    F --> [Externo] M
+
+
+    G --> [Intermunicipal] L
+
+    G --> [Interprovincial] H
+
+    H --> [Provincia] I
 
 
     I --> J
@@ -77,16 +77,16 @@ flowchart TD
     J --> K
 
 
-    K --> [Si] --> [¿Porqué?] --> N
+    K --> [Si...¿Porqué?] N
 
-    K --> [No] --> [¿Porqué?] --> N
+    K --> [No...¿Porqué?] N
 
 
     N--> X[FIN]
 
-    L--> [La capital de mi provincia natal (Cienfuegos)] --> I
+    L--> [La capital de mi provincia natal (Cienfuegos)] I
 
-    L--> [Otro municipio] --> I
+    L--> [Otro municipio] I
 
 ```
 ---
