@@ -36,8 +36,8 @@ flowchart TD
     B --> |Femenino| C
     B --> |Otro| C
 
-    C --> |Lic. Bioquímica (UH)| D
-    C --> |Medicina Veterinaria (Cienfuegos)| D
+    C --> |Lic. Bioquímica en la UH| D
+    C --> |Medicina Veterinaria en Cienfuegos| D
     C --> |Otro| D
 
     D -- |¿Por qué?| E
@@ -60,7 +60,7 @@ flowchart TD
     K --> |No... ¿Por qué?| N
 
     N --> X
-    L --> |La capital de mi provincia natal (Cienfuegos)| I
+    L --> |La capital de mi provincia natal| I
     L --> |Otro municipio| I
 ```
 
