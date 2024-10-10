@@ -9,7 +9,7 @@
 ---
 
 ```mermaid
-graph TD
+flowchart TD
     A[Rango de Edad]
     B{¿Cuál es tu género?}
     C[Conoce a Perla]
@@ -25,6 +25,7 @@ graph TD
     M{¿Hacia dónde irías?}
     N{¿Te llamó la atención la imagen de la chica al principio del cuestionario?}
     X[FIN]
+
 
     A --> [10-16] B
     A --> [17-25] B
