@@ -23,7 +23,7 @@ flowchart TD
     K{¿Buscarías a tu padre?}
     L{¿Cuál sería tu lugar de destino?}
     M{¿Hacia donde irias?}
-    N{¿Te llamó la atención la imagen de la chica al principio del cuestionario? (Contexto)}
+    N{¿Te llamó la atención la imagen de la chica al principio del cuestionario?}
 
 
     A --> [10-16] B
