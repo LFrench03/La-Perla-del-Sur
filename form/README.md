@@ -26,42 +26,42 @@ graph TD
     N{¿Te llamó la atención la imagen de la chica al principio del cuestionario?}
     X[FIN]
 
-    A --> |10-16| B
-    A --> |17-25| B
-    A --> |26-50| B
-    A --> |51-66| B
-    A --> |>=68| B
+    A --> [10-16] B
+    A --> [17-25] B
+    A --> [26-50] B
+    A --> [51-66] B
+    A --> [>=68] B
 
-    B --> |Masculino| C
-    B --> |Femenino| C
-    B --> |Otro| C
+    B --> [Masculino] C
+    B --> [Femenino] C
+    B --> [Otro] C
 
-    C --> |Lic. Bioquímica en la UH| D
-    C --> |Medicina Veterinaria en Cienfuegos| D
-    C --> |Otro| D
+    C --> [Lic. Bioquímica en la UH] D
+    C --> [Medicina Veterinaria en Cienfuegos] D
+    C --> [Otro] D
 
-    D -- |¿Por qué?| E
+    D --> [¿Por qué?] E
 
-    E --> |Sí... ¿Por qué?| F
-    E --> |No... ¿Por qué?| K
+    E --> [Sí... ¿Por qué?] F
+    E --> [No... ¿Por qué?] K
 
-    F --> |Interno| G
-    F --> |Externo| M
+    F --> [Interno] G
+    F --> [Externo] M
 
-    G --> |Intermunicipal| L
-    G --> |Interprovincial| H
+    G --> [Intermunicipal] L
+    G --> [Interprovincial] H
 
-    H --> |Provincia| I
+    H --> [Provincia] I
 
     I --> J
     J --> K
 
-    K --> |Sí... ¿Por qué?| N
-    K --> |No... ¿Por qué?| N
+    K --> [Sí... ¿Por qué?] N
+    K --> [No... ¿Por qué?] N
 
     N --> X
-    L --> |La capital de mi provincia natal| I
-    L --> |Otro municipio| I
+    L --> [La capital de mi provincia natal] I
+    L --> [Otro municipio] I
 ```
 
 ---
