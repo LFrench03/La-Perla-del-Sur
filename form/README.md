@@ -9,7 +9,7 @@
 ---
 
 ```mermaid
-flowchart TD
+graph TD
     A[Rango de Edad]
     B{¿Cuál es tu género?}
     C[Conoce a Perla]
