@@ -15,78 +15,53 @@ flowchart TD
     C[Conoce a Perla]
     D{¿Qué elegirías?}
     E{¿Estaría en tus planes futuros emigrar en algún momento?}
-    F{¿Cómo seria tu proceso migratorio?}
+    F{¿Cómo sería tu proceso migratorio?}
     G{¿Intermunicipal o interprovincial?}
-    H{¿Cual sería tu destino?}
+    H{¿Cuál sería tu destino?}
     I{¿Por qué crees que decidirías emigrar?}
     J{¿Cómo les ofrecerías apoyo a la familia?}
     K{¿Buscarías a tu padre?}
     L{¿Cuál sería tu lugar de destino?}
-    M{¿Hacia donde irias?}
+    M{¿Hacia dónde irías?}
     N{¿Te llamó la atención la imagen de la chica al principio del cuestionario?}
+    X[FIN]
 
+    A --> |10-16| B
+    A --> |17-25| B
+    A --> |26-50| B
+    A --> |51-66| B
+    A --> |>=68| B
 
-    A --> [10-16] B
+    B --> |Masculino| C
+    B --> |Femenino| C
+    B --> |Otro| C
 
-    A --> [17-25] B
+    C --> |Lic. Bioquímica (UH)| D
+    C --> |Medicina Veterinaria (Cienfuegos)| D
+    C --> |Otro| D
 
-    A --> [26-50] B
+    D -- |¿Por qué?| E
 
-    A --> [51-66] B
+    E --> |Sí... ¿Por qué?| F
+    E --> |No... ¿Por qué?| K
 
-    A --> [>=68] B
+    F --> |Interno| G
+    F --> |Externo| M
 
+    G --> |Intermunicipal| L
+    G --> |Interprovincial| H
 
-    B --> [Masculino] C
-
-    B --> [Femenino] C
-
-    B --> [Otro] C
-
-
-    C --> [Lic. Bioquimica(UH)] D
-
-    C --> [Medicina Veterinaria(Cienfuegos)] D
-
-    C --> [Otro] D
-
-
-    D -- [¿Porqué?] E
-
-
-    E --> [Si...¿Porqué?] F
-
-    E --> [No...¿Porqué?] K
-
-
-    F --> [Interno] G
-
-    F --> [Externo] M
-
-
-    G --> [Intermunicipal] L
-
-    G --> [Interprovincial] H
-
-    H --> [Provincia] I
-
+    H --> |Provincia| I
 
     I --> J
-
-
     J --> K
 
+    K --> |Sí... ¿Por qué?| N
+    K --> |No... ¿Por qué?| N
 
-    K --> [Si...¿Porqué?] N
-
-    K --> [No...¿Porqué?] N
-
-
-    N--> X[FIN]
-
-    L--> [La capital de mi provincia natal (Cienfuegos)] I
-
-    L--> [Otro municipio] I
-
+    N --> X
+    L --> |La capital de mi provincia natal (Cienfuegos)| I
+    L --> |Otro municipio| I
 ```
+
 ---
