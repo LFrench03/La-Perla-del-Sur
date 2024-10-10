@@ -6,7 +6,6 @@
 ---
 
 ### Diagrama de Flujo:
----
 
 ```mermaid
 %%{init:{'theme':'base', 'themeVariables':{'primaryColor': '#356bca','edgeLabelBackground': '#738a97', 'primaryTextColor': '#bbe2ec', 'lineColor': '#ffffff','primaryBorderColor': '#ffffff'}}}%%
