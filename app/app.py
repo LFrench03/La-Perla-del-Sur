@@ -2,7 +2,6 @@
 import streamlit as st
 import folium
 import csv
-import json
 from streamlit_folium import st_folium
 import pandas as pd
 from folium import Map, GeoJson, GeoJsonPopup, GeoJsonTooltip, Choropleth, LayerControl
@@ -26,7 +25,11 @@ with st.container(border=True):
     st.divider()
     st.markdown("",unsafe_allow_html=True)
 
-
+# Dialect to CSV's
+csv.register_dialect("my_dialect",
+                     delimiter = ",",
+                     skipinitialspace = True,
+                     quoting = csv.QUOTE_ALL)
 
 
 

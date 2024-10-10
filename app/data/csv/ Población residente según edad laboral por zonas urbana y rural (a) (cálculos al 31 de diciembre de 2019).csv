@@ -1,4 +1,4 @@
-PROVINCIA/MUNICIPIOS,Total*,Zona urbana*,Zona rural*,Total,Zona urbana,Zona rural
+PROVINCIA/MUNICIPIOS,Total(Edad Laboral),Zona urbana(Edad Laboral),Zona rural(Edad Laboral),Total,Zona urbana,Zona rural
 Provincia(2019),260252,213569,46683,146053,121376,24677
 Aguada,19898,17719,2179,11945,10716,1229
 Rodas,21501,14589,6912,12010,8340,3670
@@ -35,4 +35,4 @@ Cruces,18263,9938,8325,10714,4805,5909
 Cumanayagua,29864,16286,13578,17254,7953,9301
 Cienfuegos,114147,59650,54497,64221,27913,36308
 Abreus,19381,10530,8851,10896,5122,5774
-,,,,,,*edad laboral
+
