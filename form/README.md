@@ -1,14 +1,14 @@
-<h1 align=center><b>Formulario</b></h1>
+# <h1 align=center><b>Formulario</b></h1>
 
 ---
 
-<h2 align=center><b>Preview:</b></h2>
+## <h2 align=center><b>Preview:</b></h2>
 
 [![preview](capt.png)](https://qqhgi39b.forms.app/la-perla-del-sur)
 
 ---
 
-<h3 align=center><b>Diagrama de Flujo:</b></h3>
+## <h2 align=center><b>Diagrama de Flujo:</b></h2>
 
 ```mermaid
 %%{init:{'theme':'base', 'themeVariables':{'primaryColor': '#356bca','edgeLabelBackground': '#738a97', 'primaryTextColor': '#bbe2ec', 'lineColor': '#ffffff','primaryBorderColor': '#ffffff'}}}%%
@@ -20,7 +20,7 @@ flowchart TD
     A --51-66 -->B
     A --68 o más -->B
 
-    B --Masculino -->C[Conoce a Perla...]
+    B --Masculino -->C[Conoce a Perla]
     B --Femenino  -->C
     B --Otro  -->C
 
@@ -50,7 +50,7 @@ flowchart TD
     N  --> X[FIN]
     L --La capital de mi provincia natal -->I
     L --Otro municipio -->I
-    M --> I
+    M -- Región --> I
     style A font-size:20px,font-family:monospace, monaco
     style B font-size:20px,font-family:monospace, monaco
     style C font-size:20px,font-family:monospace, monaco
