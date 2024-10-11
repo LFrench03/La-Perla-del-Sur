@@ -54,7 +54,7 @@ with st.container(border=True):
             st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Salario medio mensual:</b> Es el importe de las retribuciones directas devengadas como promedio por un trabajador en un mes. Se calcula dividiendo el salario devengado en un territorio y período determinados entre el promedio de trabajadores y lo obtenido se divide entre el número del mes que se esté analizando.</p>', unsafe_allow_html=True)
 
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En la pintoresca localidad de Rodas, perteneciente a la provincia de Cienfuegos, vivía <b style="color:#5665E2;">Perla</b>, una joven de espíritu indomable que se esforzaba por forjar su propio destino entre el vaivén de las adversidades cotidianas. Su existencia se sostenía sobre tres pilares esenciales: la educación, el trabajo de su madre Marta Segunda y el abrazo cálido de su familia..</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En la pintoresca localidad de Rodas, perteneciente a la provincia de Cienfuegos, vivía <b style="color:#5665E2;">Perla</b>, una joven de espíritu indomable que se esforzaba por forjar su propio destino entre el vaivén de las adversidades cotidianas. Su existencia se sostenía sobre tres pilares esenciales: la educación, el trabajo de su madre Lucía y el abrazo cálido de su familia..</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Rodas</b>, alejada del bullicio del centro urbano, se encontraba en un rincón donde las limitaciones de la infraestructura pública eran evidentes y las posibilidades económicas parecían un horizonte distante. Esta lejanía del municipio cabecera traía consigo la llegada tardía de servicios básicos y una conectividad con el resto de la ciudad que dejaba mucho que desear. El municipio enfrentaba numerosos problemas. La infraestructura urbana estaba en deterioro, lo que hacía difícil el acceso a servicios básicos como agua corriente y electricidad. Además, la escasez de transporte público dificultaba el movimiento entre municipios, limitando las oportunidades de trabajo y estudio.. Sin embargo, <b style="color:#5665E2;">Perla</b> no se dejaba desanimar; en su corazón ardía la determinación de transformar su realidad y abrirse paso hacia un futuro mejor.</p>', unsafe_allow_html=True) 
 
 #######################
@@ -140,7 +140,7 @@ skipinitalspace_csv(files[-3])
 df_sm = pd.read_csv(files[-3])
 df_sm = migratory_movements(df_sm, 'etc')#
 
-# Graduados y matricula inicial 
+# Graduados y matrícula inicial 
 df_gm = pd.read_csv(files[2]) #
 df_gm.set_index("Periodo", inplace=True)
 df_gm.index.name = None
@@ -187,9 +187,9 @@ if year in years[-4:]:
     
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">De esta forma se aprecia una clara prioridad municipal y un apartado de minoria que sufre la mayor parte de la carga de las dificultades. Más concretamente, para Rodas vemos que representa apenas un 8.21 porciento de la distribucion poblacional en edad laboral de ese territorio.</p>', unsafe_allow_html=True)    
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> vivía con sus dos abuelos (Andrés y Marta Primera), a quienes cuidaba con dedicación. Por otro lado, su madre trabajaba incansablemente para mantener a la familia, realizando diversos empleos temporales y precarios. Esta situación le permitía a <b style="color:#5665E2;">Perla</b>  enfocarse en sus estudios, pero también le enseñaba la importancia del trabajo duro y la perseverancia..</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> vivía con sus dos abuelos (Andrés y Marta), a quienes cuidaba con dedicación. Por otro lado, su madre trabajaba incansablemente para mantener a la familia, realizando diversos empleos temporales y precarios. Esta situación le permitía a <b style="color:#5665E2;">Perla</b>  enfocarse en sus estudios, pero también le enseñaba la importancia del trabajo duro y la perseverancia..</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación era para <b style="color:#5665E2;">Perla</b>  su única salida real para mejorar su situación económica; trabajaba arduamente en sus estudios, sin embargo, la falta de recursos en el municipio afectaba significativamente su acceso a materiales didácticos y a profesores calificados. Su madre, aunque trabajadora incansable, encontraba empleos precarios y mal remunerados, esto llevó a <b style="color:#5665E2;">Perla</b> a reflexionar sobre la relación entre educación y empleo. Veía cómo su madre, con menos educación, tenía pocas opciones de trabajo mejor remunerado, mientras que ella, con más conocimientos, podría acceder a mejores oportunidades.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Perla, en período de examenes de ingreso, se sentía emocionada y un poco nerviosa al pensar en su futuro académico. Con un buen promedio en las pruebas de ingreso, tenía la oportunidad de elegir libremente su carrera universitaria. Sin embargo, esta decisión no era tan sencilla como parecía. Por un lado, siempre había soñado con estudiar en la capital del país...imaginaba caminar por las calles famosas, conocer gente de diferentes partes del mundo y tener acceso a recursos y experiencias que solo la capital podía ofrecer; pero al mismo tiempo, el pensamiento de dejar atrás a su familia y amigos en Rodas le causaba angustia.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Perla, en período de exámenes de ingreso, se sentía emocionada y un poco nerviosa al pensar en su futuro académico. Con un buen promedio en las pruebas de ingreso, tenía la oportunidad de elegir libremente su carrera universitaria. Sin embargo, esta decisión no era tan sencilla como parecía. Por un lado, siempre había soñado con estudiar en la capital del país...imaginaba caminar por las calles famosas, conocer gente de diferentes partes del mundo y tener acceso a recursos y experiencias que solo la capital podía ofrecer; pero al mismo tiempo, el pensamiento de dejar atrás a su familia y amigos en Rodas le causaba angustia.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Mientras tanto, otra opción comenzaba a ganar terreno en su mente. En  <b style="color:#5665E2;">Cienfuegos</b>, específicamente en el municipio cabecera, se ofrecía la posibilidad de estudiar medicina veterinaria. Esta opción tenía algo especial para <b style="color:#5665E2;">Perla</b>: algunas asignaturas afines a sus gustos y pasiones, como los animales y la bioquímica.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con respecto a dicho asunto, se propone evaluar, mediante una visualización que nos muestre el contraste de matriculas iniciales con los graduados de la educación superior en  <b style="color:#5665E2;">Cienfuegos</b>...</p>', unsafe_allow_html=True)
 df_gm = np.transpose(df_gm)
@@ -401,7 +401,7 @@ st.markdown("Respuesta: {}".format(random("¿Por qué?.2")))
 st.divider()
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:25px;"><b style="color:black;">Referencias</b></l></div', unsafe_allow_html=True)
-st.markdown('* *Repositorio del proyecto [Entrar aquí](https://github.com/LFrench03/Ganaderia-en-Cuba)*')
+st.markdown('* *Repositorio del proyecto [Entrar aquí](https://github.com/LFrench03/La-Perla-del-Sur)*')
 st.markdown('* *Sitio web de la Oficina Nacional de Estadísticas e Información [Entrar aquí](https://www.onei.gob.cu/)*')
 st.markdown('* *Repositorio de Yudivian Almeida con los datos geolocalizables en formato geojson de las provincias y municipios de Cuba [Entrar aquí](https://github.com/yudivian/cuba-geojsons/tree/master)*')
 st.markdown('* *Documentación de Plotly [Entra aquí](https://plotly.com/python/)*')
@@ -428,9 +428,9 @@ with st.popover("Descargar CSV's",use_container_width=True):
             mime="text/csv")  
     with d3:
         st.download_button( 
-            label="Graduados&Matricula",
+            label="Graduados&matrícula",
             data=csv3,
-            file_name="graduados y matricula inicial.csv",
+            file_name="graduados y matrícula inicial.csv",
             mime="text/csv")
     with d4:
         st.download_button( 
