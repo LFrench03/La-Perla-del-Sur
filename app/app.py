@@ -6,6 +6,7 @@ from streamlit_folium import st_folium
 import pandas as pd
 from folium import Map, GeoJson, GeoJsonPopup, GeoJsonTooltip, Choropleth, LayerControl
 from geopandas import read_file, GeoDataFrame
+from random import randint
 import numpy as np
 import plotly_express as px
 import plotly.graph_objects as go
@@ -27,10 +28,10 @@ def skipinitalspace_csv(path:str):
         writer = writer(f)
         writer.writerows(data)
 
-#Page configuration
+# Page configuration
 st.set_page_config(page_title="La Perla del Sur", page_icon="app/img/perla.jpeg", layout="centered")
 
-#Header
+# Header
 st.markdown('<h1 align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=60&duration=4000&lines=La+Perla+del+Sur+⚪️;" /> </h1>',unsafe_allow_html=True)
 with st.container(border=True):
     st.image(image="app/img/cienfuegos2.jpeg", use_column_width=True)
@@ -49,9 +50,10 @@ files = ["app/data/csv/ Población residente según edad laboral por zonas urban
          "app/data/csv/Saldos migratorios y tasas de migración interna y externa, por municipios.csv",
          "app/form/data/La-Perla-del-Sur-Form.csv"]
 
-
-# I-Migratory movments:
-df_mm = pd.read_csv(files[4]) #Read csv
+#######################
+# I - Data Initialice #
+#######################
+df_mm = pd.read_csv(files[3]) #Read csv
 def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd.core.frame.DataFrame]:
     if type == "prov":
         year2012, year2013, year2014, year2015, year2016, year2017, year2018, year2019, year2020, year2021, year2022 = 0,0,0,0,0,0,0,0,0,0,0
@@ -72,9 +74,19 @@ def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd
             dfs[index] = df.iloc[i:j,:]
             dfs[index].set_index("AÑOS", inplace=True)
             dfs[index].index.name=None
-            i = j + 1        
+            i = j + 1
+    elif type == "etc":
+        prov1, prov2, prov3, prov4, prov5, prov6, prov7, prov8, prov9, prov10, prov11, prov12, prov13, prov14, prov15 = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+        dfs = [prov1, prov2, prov3, prov4, prov5, prov6, prov7, prov8, prov9, prov10, prov11, prov12, prov13, prov14, prov15]
+        i = 1
+        for index in range(len(dfs)):
+            j = i + 12
+            dfs[index] = df.iloc[i:j,:]
+            dfs[index].set_index("PROVINCIAS/AÑOS", inplace=True)
+            dfs[index].index.name=None
+            i = j + 1                    
     return dfs
-df_mm = migratory_movements(df_mm)
+df_mm = migratory_movements(df_mm) #Movimientos migratorios
 
 #Load Geojson
 with open("app/data/geojsons/cuba.geojson") as json_file:
@@ -92,7 +104,8 @@ for df, year in list(zip(values, [x for x in range(2012, 2023)])):
             df[i][id] = int(value) if value != "-" else 0
 
 # Movimientos migratorios intermunicipales 
-df_mun = migratory_movements(df, "mun")
+df_mun = pd.read_csv(files[-2])
+df_mun = migratory_movements(df_mun, "mun") #
 
 # Saldo & tasa de migracion interprovincial total
 df_smt = pd.read_csv(files[6])
@@ -100,33 +113,36 @@ prov_order = list(df_smt.iloc[::13]["PROVINCIAS/AÑOS"])
 df_smt = migratory_movements(df_smt, 'etc')
 
 # Saldo & tasa de migracion interprovincial interno & externo
-skipinitalspace_csv(files[7])
-df_sm = pd.read_csv(files[7])
-df_sm = migratory_movements(df_sm, 'etc')
+skipinitalspace_csv(files[-3])
+df_sm = pd.read_csv(files[-3])
+df_sm = migratory_movements(df_sm, 'etc')#
 
-# Graduadios y matricula inicial 
-df_gm = pd.read_csv(files[3])
+# Graduados y matricula inicial 
+df_gm = pd.read_csv(files[2]) #
 df_gm.set_index("Periodo", inplace=True)
 df_gm.index.name = None
-df_gm
 
 # Salario medio por municipios
-df_sal_mun = pd.read_csv(files[2])
+df_sal_mun = pd.read_csv(files[1]) #
 df_sal_mun.set_index("PROVINCIA/MUNICIPIOS(Pesos)", inplace=True)
 df_sal_mun.index.name = None
 
 # Salario medio por provnicias
-df_sal_total = pd.read_csv(files[5])
+df_sal_total = pd.read_csv(files[4]) #
 df_sal_total.set_index("PROVINCIA", inplace=True)
 df_sal_total.index.name = None
 
 # Poblacion residente por municipios
 skipinitalspace_csv(files[0])
-df_poblacion = pd.read_csv(files[0])
+df_poblacion = pd.read_csv(files[0]) #
 df_poblacion = migratory_movements(df_poblacion, 'mun')
 
+##### Encuesta ######
+df_form = pd.read_csv(files[-1]) #
 
-
+#######################
+# II - Data visualice #
+#######################
 
 
 
