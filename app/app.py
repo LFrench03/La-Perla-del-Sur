@@ -39,10 +39,9 @@ with st.container(border=True):
     st.markdown("",unsafe_allow_html=True)
 
 # CSV's paths
-files = ["app/data/csv/ Matrícula inicial educacion superior por curso.csv",
-         "app/data/csv/ Población residente según edad laboral por zonas urbana y rural (a) (cálculos al 31 de diciembre de 2019).csv",
+files = ["app/data/csv/ Población residente según edad laboral por zonas urbana y rural (a) (cálculos al 31 de diciembre de 2019).csv",
          "app/data/csv/ Salario medio mensual en entidades estatales por municipios.csv",
-         "app/data/csv/Graduados educacion superior por cursos.csv",
+         "app/data/csv/Graduados educacion superiory matricula inicial.csv",
          "app/data/csv/Movimiento migratorio interno por sexos y provincias.csv",
          "app/data/csv/Salario medio mensual en entidades estatales y mixtas por provincias.csv",
          "app/data/csv/Saldos migratorios y tasa de saldo migratorio total por provincias.csv",
@@ -104,6 +103,27 @@ df_smt = migratory_movements(df_smt, 'etc')
 skipinitalspace_csv(files[7])
 df_sm = pd.read_csv(files[7])
 df_sm = migratory_movements(df_sm, 'etc')
+
+# Graduadios y matricula inicial 
+df_gm = pd.read_csv(files[3])
+df_gm.set_index("Periodo", inplace=True)
+df_gm.index.name = None
+df_gm
+
+# Salario medio por municipios
+df_sal_mun = pd.read_csv(files[2])
+df_sal_mun.set_index("PROVINCIA/MUNICIPIOS(Pesos)", inplace=True)
+df_sal_mun.index.name = None
+
+# Salario medio por provnicias
+df_sal_total = pd.read_csv(files[5])
+df_sal_total.set_index("PROVINCIA", inplace=True)
+df_sal_total.index.name = None
+
+# Poblacion residente por municipios
+skipinitalspace_csv(files[0])
+df_poblacion = pd.read_csv(files[0])
+df_poblacion = migratory_movements(df_poblacion, 'mun')
 
 
 
