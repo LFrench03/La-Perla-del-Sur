@@ -3,7 +3,7 @@ import streamlit as st
 from json import load
 from streamlit_folium import st_folium
 import pandas as pd
-from folium import Map, GeoJson, GeoJsonPopup, GeoJsonTooltip, Choropleth, LayerControl
+from folium import Map, GeoJson, GeoJsonTooltip, Choropleth
 from geopandas import read_file, GeoDataFrame
 from random import randint
 import numpy as np
@@ -34,10 +34,10 @@ st.set_page_config(page_title="La Perla del Sur", page_icon="app/img/perla.jpeg"
 st.markdown('<h1 align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=60&duration=4000&lines=La+Perla+del+Sur+⚪️;" /> </h1>',unsafe_allow_html=True)
 with st.container(border=True):
     st.image(image="app/img/perla4.jpeg", use_column_width=True)
-    st.markdown('<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#236d7f;">Análisis migratorio de la provincia de Cienfuegos. <br><l style= "color:gray;">Los factores del empleo, la educación y la familia.</l></b></l></div', unsafe_allow_html=True)
+    st.markdown('<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#236d7f;">Un análisis de los procesos migratorios de la provincia de Cienfuegos. <br><l style= "color:gray;font-size:15px;">Los factores del empleo, la educación y la familia.</l></b></l></div', unsafe_allow_html=True)
     st.divider()
     st.markdown("",unsafe_allow_html=True)
-    with st.expander("**Definciones**", icon="📚"):
+    with st.expander("**Conceptos**", icon="📚"):
         tab1, tab2, tab3 = st.tabs(["Población", "Educación", "Salario"])
         with tab1:
             st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Población residente:</b> Se refiere a la población que residencia permanentemente en el nivel de la División Político Administrativa .</p>', unsafe_allow_html=True)
@@ -80,7 +80,7 @@ def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd
             j = i + 49
             dfs[index] = df.iloc[i:j:3,:]
             dfs[index].set_index("PROCEDENCIA/DESTINO", inplace=True)
-            dfs[index].index.name=None
+            dfs[index].index.name='Año'
             i = j + 3
     elif type == "mun":
         year2019, year2020, year2021, year2022 = 0,0,0,0
@@ -90,7 +90,7 @@ def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd
             j = i + 8
             dfs[index] = df.iloc[i:j,:]
             dfs[index].set_index("AÑOS", inplace=True)
-            dfs[index].index.name=None
+            dfs[index].index.name='Año'
             i = j + 1
     elif type == "etc":
         prov1, prov2, prov3, prov4, prov5, prov6, prov7, prov8, prov9, prov10, prov11, prov12, prov13, prov14, prov15 = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -100,7 +100,7 @@ def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd
             j = i + 12
             dfs[index] = df.iloc[i:j,:]
             dfs[index].set_index("PROVINCIAS/AÑOS", inplace=True)
-            dfs[index].index.name=None
+            dfs[index].index.name='Año'
             i = j + 1                    
     return dfs
 
@@ -126,7 +126,7 @@ df_mun = pd.read_csv(files[-2])
 df_mun = migratory_movements(df_mun, "mun") #
 
 # Saldo & tasa de migracion interprovincial total
-df_smt = pd.read_csv(files[6])
+df_smt = pd.read_csv(files[5])
 prov_order = list(df_smt.iloc[::13]["PROVINCIAS/AÑOS"])
 df_smt = migratory_movements(df_smt, 'etc')
 
@@ -166,6 +166,8 @@ ids = ["art","cam","cav","cfg", "gra", "gtm", "hol" , "ijv" ,"lha","ltu" ,"mat",
 with st.popover("Filtrado de datos"):
     provincia = st.selectbox("Provincia", lista_prov,index = 3)
     year = st.select_slider("Año",[x for x in range(2012, 2023)])
+    
+st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">{provincia} en el año {year}</b></l></div', unsafe_allow_html=True)
 def mapa(city:str,year:int):
         #Instanciando Mapa
     m = Map(location=[21.3, -79.6], tiles="CartoDB positron", zoom_start=6, no_touch=True)        
@@ -176,35 +178,127 @@ def mapa(city:str,year:int):
     city_data = pd.DataFrame({"ID":list(mapdata.keys()),
                              "Val":list(mapdata.values())})  
     Choropleth(
-                geo_data="app/data/geojsons/cuba.geojson",
-                name="Entidades",
-                data=city_data,
-                columns = ['ID', 'Val'],
-                key_on='feature.properties.province_id',
-                fill_color='YlGnBu',
-                fill_opacity=0.7,
-                line_opacity=0.2,
-                legend_name='Movimientos Migratorios (Unidad)',
-                reset=True,
-                control=False
+            geo_data="app/data/geojsons/cuba.geojson",
+            name="Entidades",
+            data=city_data,
+            columns = ['ID', 'Val'],
+            key_on='feature.properties.province_id',
+            fill_color='YlGnBu',
+            fill_opacity=0.7,
+            line_opacity=0.2,
+            legend_name='Movimientos Migratorios (Unidad)',
+            reset=True,
+            control=False
         ).add_to(m)     
     #Tooltip
     geo_data = read_file("app/data/geojsons/cuba.geojson")
     geodf = GeoDataFrame.from_features(geo_data)
     geodf.crs = "EPSG:4326"    
     tooltip = GeoJsonTooltip(fields=["province", str(provincia)+str(year)], 
-                                    aliases=["<strong>Provincia:</strong>", "<strong>Valor:</strong>"],
-                                        sticky=False)
+                            aliases=["<strong>Provincia:</strong>", "<strong>Valor:</strong>"],
+                            sticky=False)
     GeoJson(
-                geodf,
-                name="Datos",
-                style_function=lambda feature: {"color":"#767676"},
-                highlight_function=lambda feature: {"fillColor": "#ffff00"},
-                tooltip=tooltip,
-                control=False  
+            geodf,
+            name="Datos",
+            style_function=lambda feature: {"color":"#767676"},
+            highlight_function=lambda feature: {"fillColor": "#ffff00"},
+            tooltip=tooltip,
+            control=False  
     ).add_to(m)
+    
     return st_folium(m, use_container_width=True, height=550)
-map_data = mapa(provincia, year)
+    
+map_data = mapa(provincia, year) #Mapa
+
+#Scatter plot con tasas y saldos migrorios
+toggle = st.toggle("Tasa") # Interruptor para evaluar la tasa en lugar del saldo
+if toggle:
+    fig = px.scatter(df_sm[prov_order.index(provincia)].iloc[:,1::2], color_discrete_sequence=["#f7eb5b", "#d2952c"],hover_name='value', hover_data={'variable':None,'value':None})
+    fig.update_layout(width=1200, height=400,
+                                        yaxis_title = "Tasa de Migración",xaxis_title="Años",
+                                        legend=dict(title=dict(text="Leyenda")))      
+else:
+    fig = px.scatter(df_sm[prov_order.index(provincia)].iloc[:,::2], color_discrete_sequence=["#0c367f", "#5b94f7"],hover_name='value', hover_data={'variable':None,'value':None})
+    fig.update_layout(width=1200, height=400,
+                                        yaxis_title = "Saldo migratorio",xaxis_title="Años",
+                                        legend=dict(title=dict(text="Leyenda")))  
+try:
+    st.plotly_chart(fig)
+except Exception as e:
+    raise(f"Error: {e}")
+
+df_sal_mun.index.name = "Municipio"
+df_sal_total.index.name = "Municipio"
+
+bar1, bar2 = st.tabs(["Por municipios", "Por provincias"])
+with bar1:
+    toggle2 = st.toggle("Excluir año 2021")
+    dataframe = np.transpose(df_sal_mun).iloc[:-1,1:] if toggle2 else np.transpose(df_sal_mun).iloc[:,1:]
+    fig2 = px.bar(dataframe, hover_name='value', hover_data={'value':None}, orientation='h')
+    fig2.update_layout(
+                yaxis_title = "Años", xaxis_title = "Salario medio por municipios de Cienfuegos (Pesos)", legend=dict(title=dict(text="Leyenda")))       
+    fig2.update_traces(width=0.7,
+                        marker_line_color="black",
+                        marker_line_width=1.5, opacity=0.4,
+                        showlegend = True)
+    try:
+        st.plotly_chart(fig2)
+    except Exception as e:
+        raise(f"Error: {e}")
+with bar2:
+    toggle2 = st.toggle("Excluir año 2021 & 2022")
+    dataframe = np.transpose(df_sal_total).iloc[:-2,1:] if toggle2 else np.transpose(df_sal_total).iloc[:,1:]
+    fig3 = px.bar(dataframe, hover_name='value', hover_data={'value':None}, orientation='h')
+    fig3.update_layout(
+                yaxis_title = "Años", xaxis_title = "Salario medio por provincias de Cuba (Pesos)", legend=dict(title=dict(text="Leyenda")))       
+    fig3.update_traces(width=0.7,
+                        marker_line_color="black",
+                        marker_line_width=1.5, opacity=0.4,
+                        showlegend = True)      
+    try:
+        st.plotly_chart(fig3)
+    except Exception as e: 
+        raise(f"Error: {e}")    
+    
+
+df_gm = np.transpose(df_gm)
+df_gm.index.name = "Curso"
+fig4 = px.area(df_gm,markers=True,color_discrete_sequence=["#0c367f", "#5b94f7"], hover_name='value', hover_data={'value':None})
+fig4.update_layout(width=1300, height=600, 
+        yaxis_title = "Cantidad", xaxis_title = "Años", 
+        legend=dict(title=dict(text="Tipo de ganado"))) 
+st.plotly_chart(fig4)
+
+if year in years[-4:]:
+    colors = ['#00a498','#002b43','#261c93','#2aecde','#5ba5cf', '#366078', '#1d2f39']
+    toggle3 = st.toggle("Edad laboral")
+    data_poblacion = np.transpose(df_poblacion[years[-4:].index(year)]).iloc[3,:] if toggle3 else np.transpose(df_poblacion[years[-4:].index(year)]).iloc[0,:]   
+    fig5 = go.Figure(data = go.Pie(labels=list(data_poblacion.index), values = data_poblacion, pull= 0.1, textposition="outside", hoverinfo='value',textinfo='label+percent', 
+        marker=dict(colors=colors, line=dict(color='black', width=3))))
+    fig5.update_layout(
+        width=1300,  
+        height=500,  
+        margin=dict(l=100, r=100, t=100, b=100))
+    try:
+        st.plotly_chart(fig5)
+    except Exception as e: 
+        raise(f"Error: {e}")
+
+st.divider()
+st.markdown('<div align=center><l style="font-family: serif;font-size:60px;"><b style="color:#236d7f;">Encuesta</b></l></div', unsafe_allow_html=True)
+
+st.divider()
+st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Audiencia</b></l></div', unsafe_allow_html=True)
+
+st.divider()
+st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Resultados</b></l></div', unsafe_allow_html=True)
+
+st.divider()
+st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Opiniones</b></l></div', unsafe_allow_html=True)
+
+st.divider()
+st.divider()
+st.markdown('<div align=center><l style="font-family: serif;font-size:25px;"><b style="color:gray;">Referenciass</b></l></div', unsafe_allow_html=True)
 
 
 
