@@ -1,11 +1,4 @@
-AÑOS,Saldo migratorio interno (U),Tasa de migración interna (0/00 hab),Saldo migratorio externo (U),Tasa de migración externa (0/00 hab),Saldo migratorio externo (U),Tasa de migración externa (0/00 hab)
-2012,482,1.2,-1862,-4.6, 5854,14.6
-2013,1939,4.8,131,0.3,2070,5.1
-2014,230,0.6,71,0.2,301,0.7
-2015,12,0.0,-775,-1.9,-763,-1.9
-2016,602,1.5,-468,-1.1,134,0.3
-2017,301,0.7,-992,-2.4,-691,-1.7
-2018,28,0.1,-888,-2.2,-860,-2.1
+AÑOS,Saldo migratorio interno (U),Tasa de migración interna (0/00 hab),Saldo migratorio externo (U),Tasa de migración externa (0/00 hab),Saldo migratorio Total (U),Tasa de migración Total (0/00 hab)
 Provincia(2019),241,0.6,-537,-1.3,-296,-0.7
 Aguada,-40,-1.3,-52,-1.6,-92,-2.9
 Rodas,-111,-3.3,8,0.2,-103,-3.1
