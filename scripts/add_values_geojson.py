@@ -41,15 +41,12 @@ lista_prov = ["La Habana","Matanzas","Cienfuegos","Sancti Spíritus","Las Tunas"
               ,"Camagüey","Ciego de Ávila","Villa Clara","Guantánamo","Pinar del Río","Artemisa","Mayabeque"] 
 
 index = 0
-n = len(list(df[0].index))
-for year in years:
-    for i in range(n):
-        values = list(df[years.index(year)].iloc[i])[1:]
-        for prov in lista_prov:
-            index = lista_prov.index(prov)
-            for k, j in list(zip(provincias,values)):
-                if j == "-":
-                    data["features"][index]["properties"][f"{k}{year}"] = j    
+n = list(df[0].index)
+for year in years:    
+    for index, prov in enumerate(lista_prov):
+        values = list(df[years.index(year)].iloc[:,n.index(prov)])[1:]
+        for k, j in list(zip(provincias,values)):
+            data["features"][index]["properties"][f"{k}{year}"] = j    
 try:
     with open("app/data/geojsons/cuba.geojson", 'w') as archivo_json:
         json.dump(data, archivo_json, indent=4)

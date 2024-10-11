@@ -187,7 +187,22 @@ def mapa(city:str,year:int):
                 legend_name='Movimientos Migratorios (Unidad)',
                 reset=True,
                 control=False
-        ).add_to(m)        
+        ).add_to(m)     
+    #Tooltip
+    geo_data = read_file("app/data/geojsons/cuba.geojson")
+    geodf = GeoDataFrame.from_features(geo_data)
+    geodf.crs = "EPSG:4326"    
+    tooltip = GeoJsonTooltip(fields=["province", str(provincia)+str(year)], 
+                                    aliases=["<strong>Provincia:</strong>", "<strong>Valor:</strong>"],
+                                        sticky=False)
+    GeoJson(
+                geodf,
+                name="Datos",
+                style_function=lambda feature: {"color":"#767676"},
+                highlight_function=lambda feature: {"fillColor": "#ffff00"},
+                tooltip=tooltip,
+                control=False  
+    ).add_to(m)
     return st_folium(m, use_container_width=True, height=550)
 map_data = mapa(provincia, year)
 
