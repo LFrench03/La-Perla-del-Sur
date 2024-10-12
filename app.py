@@ -371,7 +371,7 @@ try:
 except Exception as e: 
     raise(f"Error: {e}")
 
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Luego, con fines de ahondar más en el asunto de los intereses migratorios de la audiencia se tuvo que (al no considerar los "-" -respuestas vacias-) que alrededor de un <b style="color:#5665E2;">95%</b> prefirieron un carácter <b style="color:#5665E2;">externo</b>, algo bastante normal considerando la situación de descontento general de la población del país y que se evidencia además en los hallazgos referentes a nuestro objeto de estudio.</p',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Luego, con fines de ahondar más en el asunto de los intereses migratorios de la audiencia se tuvo (al no considerar los "-" -respuestas vacias-) que alrededor de un <b style="color:#5665E2;">95%</b> prefirieron un carácter <b style="color:#5665E2;">externo</b>, algo bastante normal considerando la situación de descontento general de la población del país y que se evidencia además en los hallazgos referentes a nuestro objeto de estudio.</p',unsafe_allow_html=True)
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Cómo seria tu proceso migratorio?</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("¿Cómo seria tu proceso migratorio?"))
