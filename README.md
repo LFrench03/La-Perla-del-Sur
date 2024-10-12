@@ -1,3 +1,2 @@
 # <div align=center><l style="font-family: serif;font-size:30px;color:SkyBlue;"> [**La Perla del Sur**](https://la-perla-del-sur.streamlit.app/)</l></b></l></div>
-<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#236d7f;">Un análisis de los procesos migratorios de la provincia de Cienfuegos. <br><l style= "color:gray;font-size:15px;">Los factores del empleo, la educación y la familia.</l></b></l></div
 <div align=center><img src = "app/img/perla4.jpeg"></div>
