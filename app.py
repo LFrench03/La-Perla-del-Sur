@@ -135,7 +135,7 @@ df_sm = pd.read_csv(files[-3])
 prov_order_2 = list(df_sm.iloc[::13]["PROVINCIAS/AÑOS"])[1:]
 df_sm = migratory_movements(df_sm, 'etc')[1:]#
 
-# Graduados y matrícula inicial 
+# Graduados & matrícula inicial 
 df_gm = pd.read_csv(files[2]) #
 df_gm.set_index("Periodo", inplace=True)
 df_gm.index.name = None
@@ -145,7 +145,7 @@ df_sal_mun = pd.read_csv(files[1]) #
 df_sal_mun.set_index("PROVINCIA/MUNICIPIOS(Pesos)", inplace=True)
 df_sal_mun.index.name = None
 
-# Salario medio por provnicias
+# Salario medio por provincias
 df_sal_total = pd.read_csv(files[4]) #
 df_sal_total.set_index("PROVINCIA", inplace=True)
 df_sal_total.index.name = None
@@ -155,9 +155,8 @@ skipinitalspace_csv(files[0])
 df_poblacion = pd.read_csv(files[0]) #
 df_poblacion = migratory_movements(df_poblacion, 'mun')
 
-##### Encuesta ######
+# Resultados de la encuesta 
 df_form = pd.read_csv(files[-1]) #
-#####################
 
 
 #######################
@@ -225,7 +224,7 @@ def mapa(city:str,year:int):
     for i,j in zip(ids, lista_prov):
         mapdata[i] = int(df_mm[years.index(year)].loc[city,j])
     city_data = pd.DataFrame({"ID":list(mapdata.keys()),
-                             "Val":list(mapdata.values())})  
+                                "Val":list(mapdata.values())})  
     Choropleth(
             geo_data="app/data/geojsons/cuba.geojson",
             name="Entidades",
@@ -278,7 +277,7 @@ try:
 except Exception as e:
     raise(f"Error: {e}")
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Sin embargo, al analizar la dinámica migratoria a nivel municipal, se evidencia una tendencia significativa hacia el municipio de cabecera,  <b style="color:#5665E2;">Cienfuegos</b>, dominando la densidad poblacional del municipio agrupando a mas del  <b style="color:#5665E2;">40%</b> de la población residente. Este dato revela que, a pesar de la estabilidad general de  <b style="color:#5665E2;">Cienfuegos</b>, existe un posible desbalance intermunicipal que podría estar impulsado por la búsqueda de mejores oportunidades laborales, educación y calidad de vida</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Sin embargo, al analizar la dinámica migratoria a nivel municipal, se evidencia una tendencia significativa hacia el municipio de cabecera,  <b style="color:#5665E2;">Cienfuegos</b>, dominando la densidad poblacional del municipio agrupando a más del  <b style="color:#5665E2;">40%</b> de la población residente. Este dato revela que, a pesar de la estabilidad general de  <b style="color:#5665E2;">Cienfuegos</b>, existe un posible desbalance intermunicipal que podría estar impulsado por la búsqueda de mejores oportunidades laborales, educación y calidad de vida</p>', unsafe_allow_html=True)
 
 mun_year = st.select_slider("Año:  ", mun_years)
 #Scatter plot con tasas y saldos migrorios
@@ -317,18 +316,17 @@ with bar1:
                         showlegend = True)
     try:
         st.plotly_chart(fig2)
+        with st.expander("**Explicación**"):
+            st.info('Aunque ciertamente esta representación a priori puede que no presente un caracter visualmente significativo, se considera emplear este recurso y la interactividad del mismo para aprovechar el formato de pila barras y reflejar las diferencias de cada municipio con respecto al resto (y de forma general también el desarrollo anual del salario medio del municipio entre los considerados). Para evaluar de forma independiente cada provincia pulse dos veces en el cuadrado de color en la leyenda correspondiente al municipio deseado (y pulse una vez para agregar o quitar de la gráfica). Para conocer el valor del salario correspondiente a cada municipio deslice el cursor (pulse si es desde un celular) sobre la representación en la barra que le corresponda con su color y año, se mostrará en un tooltip.', icon="ℹ️")
     except Exception as e:
         raise(f"Error: {e}")
+    
 with bar2:
     toggle2 = st.toggle("Excluir años 2021 & 2022")
     dataframe = np.transpose(df_sal_total).iloc[:-2,1:] if toggle2 else np.transpose(df_sal_total).iloc[:,1:]
-    fig3 = px.bar(dataframe, hover_name='value', hover_data={'value':None}, orientation='h')
+    fig3 = px.line(dataframe, hover_name='value', hover_data={'value':None}, markers=True)
     fig3.update_layout(
-                yaxis_title = "Años", xaxis_title = "Salario medio por provincias de Cuba (Pesos)", legend=dict(title=dict(text="Leyenda")))       
-    fig3.update_traces(width=0.7,
-                        marker_line_color="black",
-                        marker_line_width=1.5, opacity=0.4,
-                        showlegend = True)      
+                yaxis_title = "Salario medio por provincias de Cuba (Pesos)", xaxis_title = "Años", legend=dict(title=dict(text="Leyenda")))          
     try:
         st.plotly_chart(fig3)
     except Exception as e: 
@@ -341,7 +339,12 @@ st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">
 st.divider()
 st.divider()
 
-# Encuesta
+
+###################
+# III - Interview #
+###################
+
+
 st.markdown('<div align=center><l style="font-family: serif;font-size:60px;"><b style="color:#236d7f;">Encuesta</b></l></div', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Con el objetivo de recopilar perspectivas sobre el tema en cuestión, se llevó a cabo una encuesta online utilizando la aplicación <b style="color:#5665E2;">forms.app</b>, la cual fue realizada por <b style="color:#5665E2;">45 personas</b>. Aunque es importante señalar que los resultados de esta encuesta no poseen valor estadístico general debido a su carácter no representativo, no obstante la cantidad de participantes y la estructura intuitiva del cuestionario fomentaron interacciones valiosas y significativas.</p',unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">La encuesta fue diseñada para facilitar la participación y animar a los encuestados a compartir sus opiniones, lo que permitió obtener una variedad de respuestas que enriquecen el análisis del tema. A pesar de no ser un conjunto de datos estadísticamente válido, la diversidad de voces y experiencias recogidas brinda un panorama interesante que puede ser considerado para profundizar en la discusión. A continuación, procederé a presentar los resultados y las opiniones surgidas durante este ejercicio, resaltando las temáticas que han captado más atención entre los participantes y las luces que aportan al entendimiento del fenómeno estudiado.</p',unsafe_allow_html=True)
@@ -382,7 +385,7 @@ try:
     st.plotly_chart(form_chart("¿Qué elegirías?"))
 except Exception as e: 
     raise(f"Error: {e}")
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">En un contexto mas personal para descubrir intereses personales con respecto a la migración se tuvo que el <b style="color:#5665E2;">93.6%</b> de las personas presentaban intereses migratorios, resaltando el claro deseo común de mejora por migración mencionado anteriormente.</p',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">En un contexto más personal, para descubrir el caracter de las inclinaciones de la audiencia con respecto a la migración, se tuvo que el <b style="color:#5665E2;">93.6%</b> de las personas presentaban intereses migratorios, resaltando el deseo común de mejora mencionado anteriormente.</p',unsafe_allow_html=True)
 
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Estaría en tus planes futuros emigrar en algún momento?</b></l></div', unsafe_allow_html=True)
@@ -397,7 +400,7 @@ try:
 except Exception as e: 
     raise(f"Error: {e}")
 
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, para concluir con las respuestas se le quiso plantear al público, en función de evaluar desde el punto de la historia como seguirían su desarrollo en el ambiente delicado que se presentó y así ver reflejadas de forma general que dirección predomina. De esta forma se tuvo una respuesta equilibrada con respecto a la consideración de la situación futura con respecto a su padre Andrés, con una ligera superioridad positiva con un <b style="color:#5665E2;">52.4%</b> al deseo de reencontrarse con el.</p>',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, para concluir con las respuestas se le quiso plantear al público, en función de evaluar desde el punto de la historia como seguirían su desarrollo en el ambiente delicado que se presentó y así ver reflejadas de forma general que dirección predomina. De esta forma se tuvo una respuesta equilibrada a la consideración de la situación futura su padre Andrés, con una ligera superioridad resultante de un <b style="color:#5665E2;">52.3f%</b> de afirmación al deseo de reencontrarse con el.</p>',unsafe_allow_html=True)
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">Y por último, ¿buscarías a tu padre?</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("¿Buscarías a tu padre?"))
@@ -405,7 +408,7 @@ except Exception as e:
     raise(f"Error: {e}")
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Opiniones</b></l></div', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Se considera dedicar un apartado especifico para las opiniones particulares de los internautas, empleando un sistema de selección aleatoria para mostrar algunas de las razones y luces de los participantes en el cuestionario.</p>',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Se considera dedicar un apartado específico para las opiniones particulares de los internautas, empleando un sistema de selección aleatoria para mostrar algunas de las razones y luces de los participantes en el cuestionario.</p>',unsafe_allow_html=True)
 
 def random(cuestion):
     cuestion_1 = list(df_form[cuestion])
@@ -432,9 +435,18 @@ with cuestion2:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
 st.divider()
 
+###############
+# IV - Ending #
+###############
+
 st.markdown('<l style="font-family: serif;font-size:55px;"><b style="color:#236d7f;">Gracias por tu atención :)</b></l>', unsafe_allow_html=True)
 st.divider()
 st.divider()
+
+##################
+# V - References #
+##################
+
 st.markdown('<div align=center><l style="font-family: serif;font-size:25px;"><b style="color:black;">Referencias</b></l></div', unsafe_allow_html=True)
 st.markdown('* *Repositorio del proyecto [Entrar aquí](https://github.com/LFrench03/La-Perla-del-Sur)*')
 st.markdown('* *Sitio web de la Oficina Nacional de Estadísticas e Información [Entrar aquí](https://www.onei.gob.cu/)*')
@@ -443,6 +455,11 @@ st.markdown('* *Documentación de Plotly [Entra aquí](https://plotly.com/python
 st.markdown("* *Panorámica del comportamiento de la movilidad intermunicipal en la provincia de Cienfuegos.[Entra aquí](http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S1817-40782021000100038#B10)*")
 st.markdown('* *Documentación de Streamlit [Entra aquí](https://docs.streamlit.io/develop/api-reference)*')
 st.divider()
+
+#############################
+# VI - Downloadble contents #
+#############################
+
 st.markdown('<div align=center><l style="font-family: serif;font-size:25px;"><b style="color:gray;">Contenido descargable</b></l></div', unsafe_allow_html=True)
 
 csv1, csv2, csv3, csv4, csv5, csv7, csv8 = convert_df(pd.read_csv(files[0])), convert_df(pd.read_csv(files[1])), convert_df(pd.read_csv(files[2])), convert_df(pd.read_csv(files[3])), convert_df(pd.read_csv(files[4])), convert_df(pd.read_csv(files[6])), convert_df(pd.read_csv(files[7]))
@@ -491,3 +508,7 @@ with st.popover("Descargar CSV's",use_container_width=True):
             data=csv8,
             file_name="Saldo&Tasa municipal.csv",
             mime="text/csv")             
+
+#############
+# VII - End #
+#############
