@@ -48,152 +48,154 @@
     \vspace{0.2cm}
     {\itshape\Large {\large{\textit{Procesos migratorios en Cienfuegos}}} \par}
     \vspace{0.8cm}
-    {\large Integrantes: \\ \normalsize{Luis Ernesto Serras Rimada} \par}
+    {\large Autor: \\ \normalsize{Luis Ernesto Serras Rimada} \par}
     \vspace{0.5cm}
     {\includegraphics[width=0.85\textwidth]{img/perla.png}}
     \end{center}
 \end{titlepage}
 \newpage
 \section{Introducción}
-Los procesos pecuarios en Cuba han estado sometidos a constantes cambios y experimentación desde antes del triunfo de la revolución. De forma general cada acontecimiento significativo de la historia ha 
+La búsqueda de mejores oportunidades de empleo y educación es un impulso fundamental que motiva a las personas a migrar, tanto a nivel interno como externo. Este fenómeno refleja no solo la aspiración individual de alcanzar una vida más digna y satisfactoria, sino también un contexto socioeconómico que, en muchos casos, limita el desarrollo personal y profesional en sus lugares de origen. La decisión de emprender este camino, aunque a menudo dolorosa y compleja, simboliza la lucha por la superación y el deseo de construir un futuro mejor. Al mismo tiempo, pone de manifiesto las disparidades entre regiones, donde lugares como La Habana ofrecen un abanico más amplio de oportunidades comparado con provincias como \textcolor{blue}{Cienfuegos}. En última instancia, este deseo de progreso se convierte en una fuerza dinámica que puede transformar realidades, tanto para los individuos como para las comunidades a las que pertenecen.
 
 
 \section{Desarrollo}
 \subsection{Recopilación y procesamiento de los datos}
-La fuente principal de los datos manejados fueron las series estadísticas y anuarios de la Oficina Nacional de Estadosisticas e Información. Los excel, (llevados a formato csv) fueron procesados y 
-limpiados a mano mayormente, automatizando sólo parte de los procesos por medio de scripts. \\
-También fueron llevados de formato csv a json concentrando todos los datos en el archivo json inventario\_ganado para pasar a procesarlos.
+La fuente principal de los datos manejados fueron las series estadísticas y anuarios de la \textcolor{blue}{Oficina Nacional de Estadosisticas e Información (ONEI)}. Las series estadísticas empleadas en formato .xls (llevados a formato csv) fueron reacomodados a mano mayormente para luego limpiarlos haciendo uso del modulo \textcolor{green}{csv} de \textcolor{blue}{Python}.\\ 
+El análisis en su totalidad fue realizado manejando datos procesados y cargados unicamente desde la manipulación directa de los \textcolor{green}{csv} por medio del módulo de \textcolor{blue}{pandas}.
 
-\begin{lstlisting}[language=Python, caption=Script para convertir CSV en Json]
-import pandas as pd
-import json
-'''
-Script que se utilizo para convertir los csv en una plantilla estructurada de diccionario (luego de limpiarlos) para luego desde esa estructura inicial ir reestructurando el 'inventraio_ganado.json'
-'''
-orient = ['dict','list','series','split','records','index']# Distintos tipos de orient para la generacion del diccionario 
-def csv_to_json(ruta_csv, ruta_json):
-    try:
-        df = pd.read_csv(ruta_csv)    
-        titanic_json = df.to_dict(orient=orient[0])    
-        with open(ruta_json, 'w') as archivo_json:
-            json.dump(titanic_json, archivo_json, indent=4)
-            
-        print("Archivo JSON creado exitosamente.")
-    except Exception as e:
-        print(f"Error al procesar el archivo CSV: {e}")
-    
-ruta_csv = "ruta csv"
-ruta_json = 'scripts/result.json'
-csv_to_json(ruta_csv,ruta_json)
+\begin{lstlisting}[language=Python, caption=Funcion para la limpieza de los csv (eliminar espacios adicionales)]
+# Function to skip initial space on csv's files
+def skipinitalspace_csv(path:str):
+    from csv import reader, writer
+    data = []
+    with open(path, "r") as f:
+        reader = reader(f, skipinitialspace=True)
+        for i in reader:
+            data.append(i)
+    with open(path, 'w') as f:
+        writer = writer(f)
+        writer.writerows(data)
 \end{lstlisting}
 
-Luego para la historia se utilizo otro programa para generar una plantilla básica con la estructura necesaria para que el modulo streamlit\_timeline reconociera los eventos. 
-Los acontecimientos y partes de la historia fueron luego añadidos y modificados manualmente con los resultados de la investigación.
 
-\begin{lstlisting}[language=Python, caption=Script para plantilla básica del Json de la historia]
-    import json
-    '''
-    Script para generar la plantilla basica de la disposicion de los eventos de la historia a partir de solamente el title
-    '''
-    def generate_json(path):
-        try:
-            with open (path, encoding="utf8") as json_data:
-                data = json.load(json_data)
-            year = 1985
-            data["events"] = []
-            for _ in range(38):
-                data["events"].append({"text":{"headline": f"Anno {year}.", "text":f"<p>Esto ocurrio en el anno {year}.</p"},"start_date": {"year": year}})
-                year +=1
-            with open(path, 'w') as archivo_json:
-                json.dump(data, archivo_json, indent=4)
-                print("a")
-    
-        except Exception as e:
-            print(f"Error al procesar el archivo Json: {e}")
-    path = "events.json"
-    generate_json(path)
-
+\begin{lstlisting}[language=Python, caption=Funcion utilizada para parte del procesamiento de algunos datos]
+    def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd.core.frame.DataFrame]:
+    #Funcion para el procesamiento de los datos
+    if type == "prov":
+        year2012, year2013, year2014, year2015, year2016, year2017, year2018, year2019, year2020, year2021, year2022 = 0,0,0,0,0,0,0,0,0,0,0
+        dfs = [year2012, year2013, year2014, year2015, year2016, year2017, year2018, year2019, year2020, year2021, year2022]
+        i = 1
+        for index in range(len(dfs)):
+            j = i + 49
+            dfs[index] = df.iloc[i:j:3,:]
+            dfs[index].set_index("PROCEDENCIA/DESTINO", inplace=True)
+            dfs[index].index.name='Anno'
+            i = j + 3
+    elif type == "mun":
+        year2019, year2020, year2021, year2022 = 0,0,0,0
+        dfs = [year2019, year2020, year2021, year2022]
+        i = 1
+        for index in range(len(dfs)):
+            j = i + 8
+            dfs[index] = df.iloc[i:j,:]
+            dfs[index].set_index("ANNOS", inplace=True)
+            dfs[index].index.name='Anno'
+            i = j + 1
+    elif type == "etc":
+        prov1, prov2, prov3, prov4, prov5, prov6, prov7, prov8, prov9, prov10, prov11, prov12, prov13, prov14, prov15 = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+        dfs = [prov1, prov2, prov3, prov4, prov5, prov6, prov7, prov8, prov9, prov10, prov11, prov12, prov13, prov14, prov15]
+        i = 1
+        for index in range(len(dfs)):
+            j = i + 12
+            dfs[index] = df.iloc[i:j,:]
+            dfs[index].set_index("PROVINCIAS/ANNOS", inplace=True)
+            dfs[index].index.name='Anno'
+            i = j + 1                    
+    return dfs
 \end{lstlisting}
-Y finalmente para el mapa de densidad del dataproduct se trabajó con la fuente del repositorio de geojsons de Cuba de Yudivian Almeida. A partir de ellos, además de establecer 
+
+Para manejar los datos se hizo uso de la historia de \textcolor{blue}{Perla}, una joven cienfueguera quien; como parte de su desarollo como estudiante de 12mo grado de Preuniversitario, situación familiar y residencial; se enfrenta a los dilemas que se desean exponer, y de esa forma según se avanza en la historia se van presentando los datos visualizandolos de forma natural interactiva siguiendo su historia.\\\\
+
+Y finalmente para el mapa de densidad se trabajó con la fuente del repositorio de \textcolor{orange}{geojsons} de Cuba de \textcolor{blue}{Yudivian Almeida}. A partir de ellos, además de establecer 
 las divisiones del territorio nacional y por provincias, se fueron agregando los valores que se quisieron representar en el mapa y en el tooltip por medio del siguiente script:
 \begin{lstlisting}[language=Python, caption=Script para agregar valores al geojson]
     import json 
+    import pandas as pd
     '''
-    Script para agregar los valores que se mostrarian en el tooltip del mapa al 'data/geojsons/cuba.geojson'
+    Script para agregar los valores que se mostrarian en el tooltip del mapa al geojson
     '''
-    with open("data/geojsons/cuba.geojson") as json_file:
+    with open("app/data/geojsons/cuba.geojson") as json_file:
         data = json.load(json_file)
-    with open("inventario_ganado.json") as json_file2:
-        data2 = json.load(json_file2)
+    path = "app/data/csv/Movimiento migratorio interno por sexos y provincias.csv"
     
+    def skipinitalspace_csv(path:str):
+        from csv import reader, writer
+        data = []
+        with open(path, "r") as f:
+            reader = reader(f, skipinitialspace=True)
+            for i in reader:
+                data.append(i)
+        with open(path, 'w') as f:
+            writer = writer(f)
+            writer.writerows(data)
+    skipinitalspace_csv(path)
+    
+    df = pd.read_csv(path)
+    def migratory_movements(df: pd.core.frame.DataFrame) -> list[pd.core.frame.DataFrame]:
+        year2012, year2013, year2014, year2015, year2016, year2017, year2018, year2019, year2020, year2021, year2022 = 0,0,0,0,0,0,0,0,0,0,0
+        dfs = [year2012, year2013, year2014, year2015, year2016, year2017, year2018, year2019, year2020, year2021, year2022]
+        i = 1
+        for index in range(len(dfs)):
+            j = i + 49
+            dfs[index] = df.iloc[i:j:3,:]
+            dfs[index].set_index("PROCEDENCIA/DESTINO", inplace=True)
+            dfs[index].index.name=None
+            i = j + 3
+        return dfs
+    
+    df = migratory_movements(df)
+    years = [x for x in range(2012,2023)] #Ordederd list of years
+    provincias = list(df[0].columns)[1:]
+    
+    #Provincias en el orden que aparece en la estructura del GeoJson
     lista_prov = ["La Habana","Matanzas","Cienfuegos","Sancti Spiritus","Las Tunas","Holguin","Granma","Santiago de Cuba","Isla de la Juventud"
-                  ,"Camaguey","Ciego de Avila","Villa Clara","Guantanamo","Pinar del Rio","Artemisa","Mayabeque"] #Provincias en el orden que aparece en la estructura del GeoJson
+                  ,"Camaguey","Ciego de Avila","Villa Clara","Guantanamo","Pinar del Rio","Artemisa","Mayabeque"] 
     
-    
-    tierras=data2["Instituciones"]["Tenientes de tierras"]  #Luego "Por Provincias"
     index = 0
-    for i, j  in list(zip([x for x in range(16)], lista_prov)):
-        for year in tierras:
-            values = data2["Instituciones"]["Tenientes de tierras"][year][j]  #Luego "Por Provincias"
-            for key in values:
-                if key == "Cooperativas" and (isinstance(values[key], dict)):
-                    for k in values[key]:
-                        data["features"][i]["properties"]["Tierras"+year+k] = values[key][k]   #Luego "Entidades"
-                else:
-                    data["features"][i]["properties"]["Tierras"+year+key] = values[key]   #Luego "Entidades"
-    
-    
+    n = list(df[0].index)
+    for year in years:    
+        for index, prov in enumerate(lista_prov):
+            values = list(df[years.index(year)].iloc[:,n.index(prov)])[1:]
+            for k, j in list(zip(provincias,values)):
+                data["features"][index]["properties"][f"{k}{year}"] = j    
     try:
-        with open("data/geojsons/cuba.geojson", 'w') as archivo_json:
+        with open("app/data/geojsons/cuba.geojson", 'w') as archivo_json:
             json.dump(data, archivo_json, indent=4)
             print("GeoJson Actualizado de forma exitosa")
     except Exception as e:
-        print(f"Error al procesar el GeoJson: {e}")    
+        print(f"Error al procesar el GeoJson: {e}") 
 \end{lstlisting}
 
-\newpage
-
 \subsection{Visualizaciones}
-Como parte principal de este análisis se procede a visualizar los datos recopilados en el dataproduct para valorar su comportamiento.
+Como parte principal de este análisis se procede a visualizar los datos recopilados para valorar su comportamiento.
 
-\subsubsection{Métricas}
-\includegraphics[width=1.0\textwidth]{img/metrics.png}
-Por medio de esta representación se facilitaron los cálculos de las diferencias entre dos años para llegar a resultados como por ejemplo que con respecto a 1990 en 1995 se 
-resulta en una diferencia de -170.6 MCabz de ganado vacuno producto de los efectos de la crisis de los 90, pero, por otro lado, en 1998 con respecto al 1995 se tiene un 
-ligero incremento de +11.7 MCabz, que fue el período de recuperacióm post-crisis en la isla.
-\subsubsection{Existencias del ganado por tipos y sectores}
-Resulta necesario considerar evaluar por comparaciones para identificar patrones, tendencias y tomar decisiones de forma acertada de forma general en cualquier aspeceto. Por
-esta razón se plantearon representación interactivas para dividir el análisis por sectores (generalmente en total, estatal  y no estatal) y por grupos de sexo, especies o 
-tipos de ganado cuando se necesito excluir algun grupo.\\
+\subsubsection{Población}
+\includegraphics[width=1.0\textwidth]{img/fig1.png}
+Se desea partir de analizar la distribución territorial del municipio que se quiere estudiar, por lo que con esta representación \textcolor{blue}{(dividida por edad laboral a la izquierda y edad no laboral a la derecha)} se descubre el predominio de densidad del municipio cabecera con respecto al resto reflejando un claro desblanace de gestión de recursos municipales.
 
-De esta forma se encontraron patrones en las existencias por tipos de rebaño:
+\subsubsection{Educación superior en Cienfuegos}
+Siguiendo el devenir de la narrativa expuesta se introduce una observación referente al número de matriculas iniciales y graduados en comparación para cada año en \textcolor{blue}{Cienfuegos} de la educación superior (la cual cabe resaltar que sólo cuenta con 3 universidades y todas en el municipio cabecera)\\\\
+Alcanzando a reflejarse el poco volumen de matrículas y la enorme diferencia referente al número de graduados para cada año en una provincia cuyas unicas instituciones de educación superior radican en la cabecera, por lo que claramente las características del entorno para el escenario de quedarse en su provincia natal van esfumando toda idea o interés por seguir en ese sitio.
 \begin{center}
-\includegraphics[width=1.0\textwidth]{img/2.png}
+\includegraphics[width=0.7\textwidth]{img/fig2.png}
 \end{center}
-Se considera excluir a las aves por el crecimiento de escala que produce al ser mayores en cantidades de ganado menor. Y se observa una superioridad general del rebaño de bovino
-con respecto al resto, exceptuando 2005-2010 que fueron los resultados producto de que el gobierno cubano comenzó a fomentar más la producción de leches de cabra y carne de cordero 
-y cabra debido a su menor dependencia de importaciones.\\
+En medio de esta problemática nace la problemática de la toma de una decisión crucial para la chica, estudiar en la capital lo que quiere o conformarse con lo que su municipio le ofrece, cada alternativa con sus características particulares descritas.\\\\
 
-Luego, aislandolos por tipos de ganado productores principales:
-\begin{center}
-    \includegraphics[width=1.0\textwidth]{img/plots_exist.png}
-\end{center}
-Se logran apreciar (con distribución de colores de amarillo para aves, azul para bovinos, rosa para porcinos y gris para ovino-caprinos por si no se alcanza a ver) varias cosas:
-\begin{itemize}
-    \item Una caída desproporcional para el sector de las avícola y bovino durante el período de 1990-1995 como parte de la crisis (los vacunos se mantuvieron mucho mas estables en comparación y hubo hasta un ligero crecimiento para el 1994).
-    \item Un crecimiento casi vertical del grupo de las aves como resultado del período de recuperación que casi triplico la existencia de aves. El resto de rebaños tambien tuvieron un incremento en este período.
-    \item Unas lineas de crecimiento estables para los porcinos y ovino-caprinos. Estos sectores presentaron un comportamiento diametralmente opuesto al resto. Mientras que el ganado bovino y avícola continuaba sufriendo una reducción en las 
-    entregas de sacrificio y existencias de forma períodica, estos lograron mantenerse estables, incluso, experimentar un crecimiento sostenido hasta el año 2018 para los porcinos y 2006 para los ovinos-caprinos. Esta disparidad entre los diferentes 
-    tipos de ganado refleja las particularidades de cada sector dentro del contexto económico cubano. Históricamente han sido los resistente a las condiciones adversas. 
-    \item El decrecimiento general constante del ganado vacuno, sólo en recuperación en los años 2005 hasta 2014.
-    \item Las pérdidas generales para finales de la segunda decada y comienzos de la tercera del 2000 (exceptuando a los equidos excluidos que mantuvieron su crecimiento). Producto de los simultaneos cambios económicos y condiciones climáticas y epidemiologicas por los que fue atravesando el país 
-\end{itemize}
+Luego, acto seguido a introducir al personaje del padre de la joven, con su acción de migrar en el pasado, se procede a analizar los procesos migratorios del territorio cubano, y del municipio en profundidad.
+\subsubsection{Procesos migratorios}
+Dentro de este apartado se plantea comenzar analizando los movimientos migratorios en la isla por provincias para así evaluar de forma nacional y realizar comparaciones aprovechando la interactividad del recurso presentado en un mapa de densidad desarrollado con el módulo \textcolor{blue}{folium} con el \textcolor{orange}{geojson} anteriormente obtenido.
+\subsubsection{Movimientos migratorios}
 
-De igual forma para las entregas a sacrificio se mantuvieron patrones generalmente similares a los de existencia, exceptuando por los ovino-caprinos que de las fuentes de la ONEI se desconocen los valores hasta 2007.
-Probablemente producto de aquellos años de intensificación de la producción y reproducción de este tipo de rebaño.\\
-\newpage
-\subsubsection{Producción}
-Dentro de este apartado, comenzando con la producción de leche, se logran percibir las siguientes particularidades principales:
 \begin{center}
     \includegraphics[width=1.0\textwidth]{img/lechee.png}
 \end{center}

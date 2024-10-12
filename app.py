@@ -135,8 +135,10 @@ df_mun = migratory_movements(df_mun, "mun") #
 # Saldo & tasa de migracion interprovincial interno & externo
 skipinitalspace_csv(files[-3])
 df_sm = pd.read_csv(files[-3])
-prov_order_2 = list(df_sm.iloc[::13]["PROVINCIAS/AÑOS"])[1:]
-df_sm = migratory_movements(df_sm, 'etc')[1:]#
+prov_order_2 = list(df_sm.iloc[::13]["PROVINCIAS/AÑOS"])[:-1]
+df_sm = migratory_movements(df_sm, 'etc')#
+df_sm[prov_order_2.index("Guantánamo")] = df_sm[prov_order_2.index("Guantánamo")].iloc[:-1,:]
+df_sm[prov_order_2.index("Guantánamo")] 
 
 # Graduados & matrícula inicial 
 df_gm = pd.read_csv(files[2]) #
