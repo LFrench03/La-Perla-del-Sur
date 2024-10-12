@@ -1,4 +1,7 @@
-#Dependences
+###################
+# I - Dependences #
+###################
+
 import streamlit as st
 from json import load
 from streamlit_folium import st_folium
@@ -57,9 +60,9 @@ with st.container(border=True):
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En la pintoresca localidad de Rodas, perteneciente a la provincia de Cienfuegos, vivía <b style="color:#5665E2;">Perla</b>, una joven de espíritu indomable que se esforzaba por forjar su propio destino entre el vaivén de las adversidades cotidianas. Su existencia se sostenía sobre tres pilares esenciales: la educación, el trabajo de su madre Lucía y el abrazo cálido de su familia.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Rodas</b>, alejada del bullicio del centro urbano, se encontraba en un rincón donde las limitaciones de la infraestructura pública eran evidentes y las posibilidades económicas parecían un horizonte distante. Esta lejanía del municipio cabecera traía consigo la llegada tardía de servicios básicos y una conectividad con el resto de la ciudad que dejaba mucho que desear, y, además por si fuera poco, la escasez de transporte público dificultaba el desplazamiento intermunicipal, limitando las oportunidades de trabajo y estudio. Sin embargo, <b style="color:#5665E2;">Perla</b> no se dejaba desanimar; en su corazón ardía la determinación de transformar su realidad y abrirse paso hacia un futuro mejor.</p>', unsafe_allow_html=True) 
 
-#######################
-# I - Data Initialice #
-#######################
+########################
+# II - Data Initialice #
+########################
 
 # CSV's paths
 files = ["app/data/csv/ Población residente según edad laboral por zonas urbana y rural (a) (cálculos al 31 de diciembre de 2019).csv",
@@ -159,9 +162,9 @@ df_poblacion = migratory_movements(df_poblacion, 'mun')
 df_form = pd.read_csv(files[-1]) #
 
 
-#######################
-# II - Data visualice #
-#######################
+########################
+# III - Data visualice #
+########################
 
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En este contexto si consideramos los datos que nos ofrecen los anuarios estadísticos provinciales en la sección de distribución poblacional general de la provincia según edad laboral por grupos de zonas urbanas y rurales, se muestra de manera clara que más del <b style="color:#5665E2;">40%</b> de la población del municipio reside en la cabecera municipal (<b style="color:#5665E2;">Cienfuegos</b>), lo que indica una concentración significativa de habitantes en esta área. Este comportamiento resalta la atracción que ejerce la cabecera por ofrecer mayores oportunidades de empleo, educación y servicios en comparación con las zonas periféricas. A medida que se desciende en la jerarquía de los asentamientos, la población se dispersa, lo que sugiere que las localidades más alejadas enfrentan retos asociados a la falta de infraestructura y recursos. Esto se ve reflejado diréctamente para <b style="color:#5665E2;">Rodas</b>, que representa apenas un <b style="color:#5665E2;">40%</b> de la distribucion poblacional en edad laboral de ese territorio. Esta tendencia hacia la centralización demográfica resalta la importancia de desarrollar políticas que fomenten el crecimiento equilibrado y la mejora de las condiciones de vida en todas las áreas del municipio.</p>', unsafe_allow_html=True)
 
@@ -340,9 +343,9 @@ st.divider()
 st.divider()
 
 
-###################
-# III - Interview #
-###################
+##################
+# IV - Interview #
+##################
 
 
 st.markdown('<div align=center><l style="font-family: serif;font-size:60px;"><b style="color:#236d7f;">Encuesta</b></l></div', unsafe_allow_html=True)
@@ -354,12 +357,9 @@ st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">
 
 def form_chart(column:str):
     data = list(df_form[column])
-
     age_counts = Counter(data)
-
     labels = list(age_counts.keys())
     values = list(age_counts.values())
-
     fig6 = go.Figure(data = go.Pie(labels=labels, values = values, pull= 0.1, textposition="outside", hoverinfo='value',textinfo='label+percent', marker=dict(colors= ['#002b43','#261c93','#2aecde','#5ba5cf', '#366078', '#1d2f39', '#00a498'], line=dict(color='black', width=3))))
     fig6.update_layout(
             width=1300,  
@@ -369,6 +369,7 @@ def form_chart(column:str):
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">Selecciona tu grupo de edad, por favor</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("Selecciona tu grupo de edad, por favor."))
+    
 except Exception as e: 
     raise(f"Error: {e}")
 try:
@@ -410,11 +411,10 @@ st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Opiniones</b></l></div', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Se considera dedicar un apartado específico para las opiniones particulares de los internautas, empleando un sistema de selección aleatoria para mostrar algunas de las razones y luces de los participantes en el cuestionario.</p>',unsafe_allow_html=True)
 
-def random(cuestion):
-    cuestion_1 = list(df_form[cuestion])
-    cuestion_1 = [x for x in cuestion_1 if x!="-"]
-    value = randint(0,len(cuestion_1)-1)
-    return cuestion_1[value]
+def random(cuestion:str) -> str:
+    cuestion = [x for x in list(df_form[cuestion]) if x!="-"]
+    value = randint(0,len(cuestion)-1)
+    return cuestion[value]
 
 cuestion1, cuestion2 = st.tabs(["¿Qué elegirías?", "¿Buscarías a tu padre?"])
 with cuestion1:
@@ -434,10 +434,6 @@ with cuestion2:
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
 st.divider()
-
-###############
-# IV - Ending #
-###############
 
 st.markdown('<l style="font-family: serif;font-size:55px;"><b style="color:#236d7f;">Gracias por tu atención :)</b></l>', unsafe_allow_html=True)
 st.divider()
@@ -461,11 +457,11 @@ st.divider()
 #############################
 
 st.markdown('<div align=center><l style="font-family: serif;font-size:25px;"><b style="color:gray;">Contenido descargable</b></l></div', unsafe_allow_html=True)
-
 csv1, csv2, csv3, csv4, csv5, csv7, csv8 = convert_df(pd.read_csv(files[0])), convert_df(pd.read_csv(files[1])), convert_df(pd.read_csv(files[2])), convert_df(pd.read_csv(files[3])), convert_df(pd.read_csv(files[4])), convert_df(pd.read_csv(files[6])), convert_df(pd.read_csv(files[7]))
 with st.popover("Descargar CSV's",use_container_width=True):
     d1, d2, d3, d4 = st.columns(4)
     d5, d7, d8 = st.columns(3)
+    
     with d1:
         st.download_button( 
             label="Poblacion residente",
