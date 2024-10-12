@@ -320,7 +320,7 @@ with bar1:
     try:
         st.plotly_chart(fig2)
         with st.expander("**Explicación**"):
-            st.info('Aunque ciertamente esta representación a priori puede que no presente un caracter visualmente significativo, se considera emplear este recurso y la interactividad del mismo para aprovechar el formato de pila barras y reflejar las diferencias de cada municipio con respecto al resto (y de forma general también el desarrollo anual del salario medio del municipio entre los considerados). Para evaluar de forma independiente cada provincia pulse dos veces en el cuadrado de color en la leyenda correspondiente al municipio deseado (y pulse una vez para agregar o quitar de la gráfica). Para conocer el valor del salario correspondiente a cada municipio deslice el cursor (pulse si es desde un celular) sobre la representación en la barra que le corresponda con su color y año, se mostrará en un tooltip.', icon="ℹ️")
+            st.info('Aunque ciertamente esta representación a priori puede que no presente un caracter visualmente significativo, se considera emplear este recurso y la interactividad del mismo para aprovechar el formato de pila barras y reflejar las diferencias de cada municipio con respecto al resto (y de forma general también el desarrollo anual del salario medio del municipio entre los considerados). Para evaluar de forma independiente cada municipio pulse dos veces en el cuadrado de color en la leyenda correspondiente al deseado (y pulse una vez para agregar o quitar de la gráfica). Para conocer el valor del salario correspondiente a cada municipio deslice el cursor (pulse si es desde un celular) sobre la representación en la barra que le corresponda con su color y año, se mostrará en un tooltip.', icon="ℹ️")
     except Exception as e:
         raise(f"Error: {e}")
     
@@ -461,7 +461,7 @@ csv1, csv2, csv3, csv4, csv5, csv7, csv8 = convert_df(pd.read_csv(files[0])), co
 with st.popover("Descargar CSV's",use_container_width=True):
     d1, d2, d3, d4 = st.columns(4)
     d5, d7, d8 = st.columns(3)
-    
+
     with d1:
         st.download_button( 
             label="Poblacion residente",
