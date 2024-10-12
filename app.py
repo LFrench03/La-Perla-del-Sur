@@ -42,20 +42,20 @@ with st.container(border=True):
     with st.expander("**Conceptos**", icon="📚"):
         tab1, tab2, tab3 = st.tabs(["Población", "Educación", "Salario"])
         with tab1:
-            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Población residente:</b> Se refiere a la población que residencia permanentemente en el nivel de la División Político Administrativa .</p>', unsafe_allow_html=True)
-            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Población en edad laboral:</b> Corresponde a la población masculina de 17 a 64 años y a la femenina de 17 a 59 años.</p>', unsafe_allow_html=True)
-            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Movimiento migratorio:</b> Es el movimiento de la población, en el cual se trespasa una línea de migración que implica un cambio de la residencia habitual.</p>', unsafe_allow_html=True)
-            st.markdown('- <p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;">Es <b style="color:black;">interno</b> cuando se lleva a cabo entre los términos de la División Político Administrativa del país. La migración <b style="color:black;">externa<b style="color:gray;">, por otro lado, implica un cambio de la residencia habitual en el que se traspasan los límites fronterizos del país.</p>', unsafe_allow_html=True)
-            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Saldo migratorio:</b> Es la diferencia entre los inmigrantes (entradas) y los emigrantes (salidas) en un territorio dado para un período de tiempo definido conocido como intervalo de migración. y que regularmente es un año.</p>', unsafe_allow_html=True)
-            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Tasa de migración:</b> Es la relación por cociente entre la diferencia del número de inmigrantes y emigrantes de un territorio dado, con respecto a su población media, durante un intervalo de migración.</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:#5665E2;">Población residente:</b> Se refiere a la población que residencia permanentemente en el nivel de la División Político Administrativa.</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:#5665E2;">Población en edad laboral:</b> Corresponde a la población masculina de 17 a 64 años y a la femenina de 17 a 59 años.</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:#5665E2;">Movimiento migratorio:</b> Es el movimiento de la población, en el cual se trespasa una línea de migración que implica un cambio de la residencia habitual.</p>', unsafe_allow_html=True)
+            st.markdown('- <p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;">Es <b style="color:#5665E2;">interno</b> cuando se lleva a cabo entre los términos de la División Político Administrativa del país. La migración <b style="color:#5665E2;">externa<b style="color:gray;">, por otro lado, implica un cambio de la residencia habitual en el que se traspasan los límites fronterizos del país.</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:#5665E2;">Saldo migratorio:</b> Es la diferencia entre los inmigrantes (entradas) y los emigrantes (salidas) en un territorio dado para un período de tiempo definido conocido como intervalo de migración. y que regularmente es un año.</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:#5665E2;">Tasa de migración:</b> Es la relación por cociente entre la diferencia del número de inmigrantes y emigrantes de un territorio dado, con respecto a su población media, durante un intervalo de migración.</p>', unsafe_allow_html=True)
         with tab2:
-            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Graduados:</b> Alumnos que han finalizado satisfactoriamente los estudios correspondientes a un nivel o tipo de educación..</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:#5665E2;">Graduados:</b> Alumnos que han finalizado satisfactoriamente los estudios correspondientes a un nivel o tipo de educación.</p>', unsafe_allow_html=True)
         with tab3:
-            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:black;">Salario medio mensual:</b> Es el importe de las retribuciones directas devengadas como promedio por un trabajador en un mes. Se calcula dividiendo el salario devengado en un territorio y período determinados entre el promedio de trabajadores y lo obtenido se divide entre el número del mes que se esté analizando.</p>', unsafe_allow_html=True)
+            st.markdown('<p style="font-family: sans-serif;font-size:12px;font-weight:bold;color:gray;"><b style="color:#5665E2;">Salario medio mensual:</b> Es el importe de las retribuciones directas devengadas como promedio por un trabajador en un mes. Se calcula dividiendo el salario devengado en un territorio y período determinados entre el promedio de trabajadores y lo obtenido se divide entre el número del mes que se esté analizando.</p>', unsafe_allow_html=True)
 
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En la pintoresca localidad de Rodas, perteneciente a la provincia de Cienfuegos, vivía <b style="color:#5665E2;">Perla</b>, una joven de espíritu indomable que se esforzaba por forjar su propio destino entre el vaivén de las adversidades cotidianas. Su existencia se sostenía sobre tres pilares esenciales: la educación, el trabajo de su madre Lucía y el abrazo cálido de su familia..</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Rodas</b>, alejada del bullicio del centro urbano, se encontraba en un rincón donde las limitaciones de la infraestructura pública eran evidentes y las posibilidades económicas parecían un horizonte distante. Esta lejanía del municipio cabecera traía consigo la llegada tardía de servicios básicos y una conectividad con el resto de la ciudad que dejaba mucho que desear. El municipio enfrentaba numerosos problemas. La infraestructura urbana estaba en deterioro, lo que hacía difícil el acceso a servicios básicos como agua corriente y electricidad. Además, la escasez de transporte público dificultaba el movimiento entre municipios, limitando las oportunidades de trabajo y estudio.. Sin embargo, <b style="color:#5665E2;">Perla</b> no se dejaba desanimar; en su corazón ardía la determinación de transformar su realidad y abrirse paso hacia un futuro mejor.</p>', unsafe_allow_html=True) 
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En la pintoresca localidad de Rodas, perteneciente a la provincia de Cienfuegos, vivía <b style="color:#5665E2;">Perla</b>, una joven de espíritu indomable que se esforzaba por forjar su propio destino entre el vaivén de las adversidades cotidianas. Su existencia se sostenía sobre tres pilares esenciales: la educación, el trabajo de su madre Lucía y el abrazo cálido de su familia.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Rodas</b>, alejada del bullicio del centro urbano, se encontraba en un rincón donde las limitaciones de la infraestructura pública eran evidentes y las posibilidades económicas parecían un horizonte distante. Esta lejanía del municipio cabecera traía consigo la llegada tardía de servicios básicos y una conectividad con el resto de la ciudad que dejaba mucho que desear, y, además por si fuera poco, la escasez de transporte público dificultaba el desplazamiento intermunicipal, limitando las oportunidades de trabajo y estudio. Sin embargo, <b style="color:#5665E2;">Perla</b> no se dejaba desanimar; en su corazón ardía la determinación de transformar su realidad y abrirse paso hacia un futuro mejor.</p>', unsafe_allow_html=True) 
 
 #######################
 # I - Data Initialice #
@@ -162,12 +162,14 @@ df_poblacion = migratory_movements(df_poblacion, 'mun')
 
 ##### Encuesta ######
 df_form = pd.read_csv(files[-1]) #
+#####################
+
 
 #######################
 # II - Data visualice #
 #######################
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En este contexto si consideramos desde el anuario estadistico la distribución poblacional general de la provincia, se observa desde el año 2019 como los valores del resto de municipios es muy pequeña en comparación con la cabecera de  <b style="color:#5665E2;">Cienfuegos</b>.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En este contexto si consideramos los datos que nos ofrecen los anuarios estadísticos provinciales en la sección de distribución poblacional general de la provincia según edad laboral por grupos de zonas urbanas y rurales, se muestra de manera clara que más del <b style="color:#5665E2;">40%</b> de la población del municipio reside en la cabecera municipal (<b style="color:#5665E2;">Cienfuegos</b>), lo que indica una concentración significativa de habitantes en esta área. Este comportamiento resalta la atracción que ejerce la cabecera por ofrecer mayores oportunidades de empleo, educación y servicios en comparación con las zonas periféricas. A medida que se desciende en la jerarquía de los asentamientos, la población se dispersa, lo que sugiere que las localidades más alejadas enfrentan retos asociados a la falta de infraestructura y recursos. Esto se ve reflejado diréctamente para <b style="color:#5665E2;">Rodas</b>, que representa apenas un <b style="color:#5665E2;">40%</b> de la distribucion poblacional en edad laboral de ese territorio. Esta tendencia hacia la centralización demográfica resalta la importancia de desarrollar políticas que fomenten el crecimiento equilibrado y la mejora de las condiciones de vida en todas las áreas del municipio.</p>', unsafe_allow_html=True)
 
 yearr = st.select_slider("Año: ",[x for x in range(2019,2023)])
 if year in years[-4:]:
@@ -185,33 +187,36 @@ if year in years[-4:]:
     except Exception as e: 
         raise(f"Error: {e}")
     
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">De esta forma se aprecia una clara prioridad municipal y un apartado de minoria que sufre la mayor parte de la carga de las dificultades. Más concretamente, para Rodas vemos que representa apenas un 8.21 porciento de la distribucion poblacional en edad laboral de ese territorio.</p>', unsafe_allow_html=True)    
-
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> vivía con sus dos abuelos (Andrés y Marta), a quienes cuidaba con dedicación. Por otro lado, su madre trabajaba incansablemente para mantener a la familia, realizando diversos empleos temporales y precarios. Esta situación le permitía a <b style="color:#5665E2;">Perla</b>  enfocarse en sus estudios, pero también le enseñaba la importancia del trabajo duro y la perseverancia..</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> vivía con sus dos abuelos (Andrés y Marta), a quienes cuidaba con dedicación. Por otro lado, su madre trabajaba incansablemente para mantener a la familia, realizando diversos empleos temporales y precarios. Esta situación le permitía a <b style="color:#5665E2;">Perla</b>  enfocarse en sus estudios, pero también le enseñaba la importancia del trabajo duro y la perseverancia.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación era para <b style="color:#5665E2;">Perla</b>  su única salida real para mejorar su situación económica; trabajaba arduamente en sus estudios, sin embargo, la falta de recursos en el municipio afectaba significativamente su acceso a materiales didácticos y a profesores calificados. Su madre, aunque trabajadora incansable, encontraba empleos precarios y mal remunerados, esto llevó a <b style="color:#5665E2;">Perla</b> a reflexionar sobre la relación entre educación y empleo. Veía cómo su madre, con menos educación, tenía pocas opciones de trabajo mejor remunerado, mientras que ella, con más conocimientos, podría acceder a mejores oportunidades.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Perla, en período de exámenes de ingreso, se sentía emocionada y un poco nerviosa al pensar en su futuro académico. Con un buen promedio en las pruebas de ingreso, tenía la oportunidad de elegir libremente su carrera universitaria. Sin embargo, esta decisión no era tan sencilla como parecía. Por un lado, siempre había soñado con estudiar en la capital del país...imaginaba caminar por las calles famosas, conocer gente de diferentes partes del mundo y tener acceso a recursos y experiencias que solo la capital podía ofrecer; pero al mismo tiempo, el pensamiento de dejar atrás a su familia y amigos en Rodas le causaba angustia.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b>, en período de exámenes de ingreso, se sentía emocionada y un poco nerviosa al pensar en su futuro académico. Con un buen promedio en las pruebas de ingreso, tenía la oportunidad de elegir libremente su carrera universitaria. Sin embargo, esta decisión no era tan sencilla como parecía. Por un lado, siempre había soñado con estudiar en la capital del país,imaginaba caminar por las calles famosas, conocer gente de diferentes partes del mundo y tener acceso a recursos y experiencias que solo la capital podía ofrecer; pero al mismo tiempo, el pensamiento de dejar atrás a su familia y amigos en Rodas le causaba angustia.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Mientras tanto, otra opción comenzaba a ganar terreno en su mente. En  <b style="color:#5665E2;">Cienfuegos</b>, específicamente en el municipio cabecera, se ofrecía la posibilidad de estudiar medicina veterinaria. Esta opción tenía algo especial para <b style="color:#5665E2;">Perla</b>: algunas asignaturas afines a sus gustos y pasiones, como los animales y la bioquímica.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con respecto a dicho asunto, se propone evaluar, mediante una visualización que nos muestre el contraste de matriculas iniciales con los graduados de la educación superior en  <b style="color:#5665E2;">Cienfuegos</b>...</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con respecto a dicho asunto, se propone evaluar, mediante una visualización que nos muestre el contraste de matriculas iniciales en relación con los graduados de la educación superior en  <b style="color:#5665E2;">Cienfuegos</b>.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Alcanzando a reflejarse el poco volumen de matrículas y la enorme diferencia referente al número de graduados para cada año en una provincia cuyas unicas instituciones de educación superior radican en la cabecera, por lo que claramente las características del entorno para el escenario de quedarse en su provincia natal van esfumando toda idea o interés por seguir en ese sitio.</p>', unsafe_allow_html=True)
+
+
 df_gm = np.transpose(df_gm)
 df_gm.index.name = "Curso"
 fig4 = px.area(df_gm,markers=True,color_discrete_sequence=["#0c367f", "#5b94f7"], hover_name='value', hover_data={'value':None})
 fig4.update_layout(width=1300, height=600, 
         yaxis_title = "Cantidad", xaxis_title = "Cursos", 
         legend=dict(title=dict(text="Leyenda"))) 
-st.plotly_chart(fig4)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Alcanzando a reflejarse visualmente el poco volumen de matrículas y más aún de graduados para cada año en una provincia cuyas unicas instituciones de educación superior radican en la capital, por lo que claramente las características del entorno para el escenario de quedarse en su provincia natal van esfumando toda idea o interés por seguir en ese sitio.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;"><b style="color:#5665E2;">¿Podría encontrar mejores oportunidades laborales en  <b style="color:#5665E2;">Cienfuegos</b> que en la capital? ¿Qué impacto tendría esta elección en su futuro personal y profesional?.</p>', unsafe_allow_html=True)
+try:
+    st.plotly_chart(fig4)
+except Exception as e: 
+    raise(f"Error: {e}")
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Mientras reflexionaba sobre estas opciones, <b style="color:#5665E2;">Perla</b> no podía evitar pensar en su padre, Andrés, quien desde que ella era pequeña, no había vuelto a verla. Se rumoreaba que se había ido a otra región del país por trabajo, dejando atrás a su familia sin explicaciones. Esta ausencia había marcado profundamente su infancia y adolescencia por lo que la idea de estudiar en la capital parecía representar una especie de escapismo, alejándola de las heridas del pasado y ofreciendo nuevas posibilidades. Por otro lado, quedarse en  <b style="color:#5665E2;">Cienfuegos</b> representaba una conexión más fuerte con su familia y su historia personal, pero también podía significar quedarse atrás en términos profesionales.</p>', unsafe_allow_html=True)
-
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Perla sabía que esta decisión iba a marcar un punto de inflexión importante en su vida. Mientras tanto, seguía cuidando a sus abuelos, ayudando a su madre con los trabajos domésticos y manteniendo sus estudios como prioridad. Con cada nuevo día, se acercaba más a tomar una decisión que cambiaría el rumbo de su futuro académico y profesional.</p>', unsafe_allow_html=True)
-
+st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;"><b style="color:#5665E2;">¿Podría encontrar mejores oportunidades en la capital que en <b style="color:#5665E2;">Cienfuegos</b>? ¿Qué impacto tendría esta elección en su futuro personal y profesional?.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Mientras reflexionaba sobre estas opciones, <b style="color:#5665E2;">Perla</b> no podía evitar pensar en su padre, Andrés, quien desde que ella era pequeña no ha vuelto a verla. Se rumoreaba que se había trasladado a otra región del país por trabajo, dejando atrás a su familia sin explicaciones. Esta ausencia había marcado profundamente la infancia y adolescencia de <b style="color:#5665E2;">Perla</b>, por lo que la idea de estudiar en la capital parecía representar una especie de escapismo, alejándola de las heridas del pasado y ofreciendo nuevas posibilidades. Por otro lado, quedarse en  <b style="color:#5665E2;">Cienfuegos</b> representaba una conexión más fuerte con su familia y su historia personal, pero también podía significar quedarse atrás en términos profesionales.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> sabía que esta decisión iba a marcar un punto de inflexión importante en su vida. Mientras tanto, seguía cuidando a sus abuelos, ayudando a su madre con los trabajos domésticos y manteniendo sus estudios como prioridad. Con cada nuevo día, se acercaba más a tomar una decisión que cambiaría el rumbo de su futuro académico y profesional.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación, que siempre había sido su escapismo y su esperanza, ahora se convertía en un dilema personal y emocional. <b style="color:#5665E2;">¿Qué camino elegiría?</b>.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con el objetivo de abordar estas cuestiones se realiza un estudio provincial migratorio para abordar este tema que tanto carcome a la joven de <b style="color:#5665E2;">Perla</b>. Por ello es que se desarrollo este recurso interactivo para analizar de forma interactiva y con precision utilizando datos reales de parte de la cobertura anual de la Oficina Nacional de Estadísticas e Información (ONEI) y así apreciar mejor la situación.</p>', unsafe_allow_html=True)
 ids = ["art","cam","cav","cfg", "gra", "gtm", "hol" , "ijv" ,"lha","ltu" ,"mat","may","pri","ssp","stg","vcl"]
-with st.popover("Filtro de datos"):
+with st.popover("Filtrado de datos"):
     provincia = st.selectbox("Provincia", lista_prov,index = 3)
     year = st.select_slider("Año",[x for x in range(2012, 2023)])
+    if year:
+        st.info('El año también varía para la gráfica de abajo', icon="ℹ️")
 st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Movimientos migratorios de {provincia} en el año {year}</b></l></div', unsafe_allow_html=True)
 def mapa(city:str,year:int):
         #Instanciando Mapa
@@ -276,7 +281,7 @@ except Exception as e:
 
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En el contexto migratorio de  <b style="color:#5665E2;">Cienfuegos</b>, se observa que los flujos más significativos se dirigen principalmente hacia las provincias de  <b style="color:#d2952c;">Villa Clara</b>,  <b style="color:#d2952c;">Matanzas</b> y  <b style="color:#d2952c;">La Habana</b>.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">A diferencia de otras regiones de Cuba,  <b style="color:#5665E2;">Cienfuegos</b> presenta una notable estabilidad en su saldo migratorio interno, lo que significa que los movimientos migratorios interprovinciales se equilibran de manera más favorable en comparación con el típico saldo negativo que caracteriza al país en su conjunto de forma general. Sin embargo, al analizar la dinámica migratoria a nivel municipal, se evidencia una tendencia significativa hacia el municipio de cabecera,  <b style="color:#5665E2;">Cienfuegos</b>, dominando la densidad poblacional del municipio agrupando a mas del  <b style="color:#5665E2;">40%</b> de la población residente. Este dato revela que, a pesar de la estabilidad general de  <b style="color:#5665E2;">Cienfuegos</b>, existe un posible desbalance intermunicipal que podría estar impulsado por la búsqueda de mejores oportunidades laborales, educación y calidad de vida.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Además, al considerar los diferentes tipos de saldos migratorios, se concluye que, en términos generales, el saldo externo es el que predomina. Esto sugiere que, si bien  <b style="color:#5665E2;">Cienfuegos</b> mantiene un equilibrio interno más sólido, la migración hacia el extranjero también juega un papel crucial en la configuración de su demografía y, por ende, en el futuro desarrollo de la región</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Además, al considerar los diferentes tipos de saldos migratorios, se concluye que, en términos generales, el saldo externo es el que predomina. Esto sugiere que, si bien  <b style="color:#5665E2;">Cienfuegos</b> mantiene un equilibrio interno más sólido, la migración hacia el extranjero también juega un papel crucial en la configuración de su demografía y, por ende, en el futuro desarrollo de la región.</p>', unsafe_allow_html=True)
 df_sal_mun.index.name = "Municipio"
 df_sal_total.index.name = "Municipio"
 
@@ -311,24 +316,19 @@ with bar2:
         raise(f"Error: {e}")    
 
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">En el ámbito de las oportunidades laborales,  <b style="color:#d2952c;">La Habana</b> se posiciona como un imán para quienes buscan una mejor calidad de trabajo y un nivel de vida más elevado. En comparación con  <b style="color:#5665E2;">Cienfuegos</b>, la capital ofrece mayores posibilidades de empleo, con una variedad más amplia de sectores y empresas que garantizan salarios medios más altos. Además, en  <b style="color:#d2952c;">La Habana</b>, es más común acceder a créditos y a una gama de servicios que facilitan el desarrollo personal y profesional, lo que atrae a muchos migrantes de otras provincias en busca de un futuro más prometedor.</p>', unsafe_allow_html=True)
-
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Este contexto de oportunidades podría explicar, aunque de manera dolorosa, la decisión de Andrés, el padre de <b style="color:#5665E2;">Perla</b>, de abandonar a su familia. La búsqueda de una vida mejor, repleta de mayores oportunidades laborales y económicas, puede haberle hecho sentir que su única opción para subsistir y prosperar era dejar atrás su hogar en busca de esos beneficios en la capital. Su partida, aunque injusta para <b style="color:#5665E2;">Perla</b> y su madre, refleja una realidad compleja en la que la atracción de  <b style="color:#d2952c;">La Habana</b> por sus mejores condiciones de trabajo y calidad de vida puede haber superado su responsabilidad familiar, llevándolo a tomar una decisión que dejó una marca profunda en su familia.</p>', unsafe_allow_html=True)
+st.divider()
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">La búsqueda de mejores oportunidades de empleo y educación es un impulso fundamental que motiva a las personas a migrar, tanto a nivel interno como externo. Este fenómeno refleja no solo la aspiración individual de alcanzar una vida más digna y satisfactoria, sino también un contexto socioeconómico que, en muchos casos, limita el desarrollo personal y profesional en sus lugares de origen. La decisión de emprender este camino, aunque a menudo dolorosa y compleja, simboliza la lucha por la superación y el deseo de construir un futuro mejor. Al mismo tiempo, pone de manifiesto las disparidades entre regiones, donde lugares como La Habana ofrecen un abanico más amplio de oportunidades comparado con provincias como <b style="color:#5665E2;">Cienfuegos</b>. En última instancia, este deseo de progreso se convierte en una fuerza dinámica que puede transformar realidades, tanto para los individuos como para las comunidades a las que pertenecen.</p>', unsafe_allow_html=True)
+st.divider()
+st.divider()
 
-st.divider()
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">La búsqueda de mejores oportunidades de empleo y educación es un impulso fundamental que motiva a las personas a migrar, tanto a nivel interno como externo. Este fenómeno refleja no solo la aspiración individual de alcanzar una vida más digna y satisfactoria, sino también un contexto socioeconómico que, en muchos casos, limita el desarrollo personal y profesional en sus lugares de origen. La decisión de emprender este camino, aunque a menudo dolorosa y compleja, simboliza la lucha por la superación y el deseo de construir un futuro mejor. Al mismo tiempo, pone de manifiesto las disparidades entre regiones, donde lugares como La Habana ofrecen un abanico más amplio de oportunidades comparado con provincias como Cienfuegos. En última instancia, este deseo de progreso se convierte en una fuerza dinámica que puede transformar realidades, tanto para los individuos como para las comunidades a las que pertenecen.</p>', unsafe_allow_html=True)
-st.divider()
-
-st.divider()
+# Encuesta
 st.markdown('<div align=center><l style="font-family: serif;font-size:60px;"><b style="color:#236d7f;">Encuesta</b></l></div', unsafe_allow_html=True)
-
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Con el objetivo de recopilar perspectivas sobre el tema en cuestión, se llevó a cabo una encuesta online utilizando la aplicación <b style="color:#5665E2;">forms.app</b>, la cual fue respondida por <b style="color:#5665E2;">45 personas</b>. Aunque es importante señalar que los resultados de esta encuesta no poseen valor estadístico general debido a su carácter no representativo, no obstante la cantidad de participantes y la estructura intuitiva del cuestionario fomentaron interacciones valiosas y significativas.</p',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Con el objetivo de recopilar perspectivas sobre el tema en cuestión, se llevó a cabo una encuesta online utilizando la aplicación <b style="color:#5665E2;">forms.app</b>, la cual fue realizada por <b style="color:#5665E2;">45 personas</b>. Aunque es importante señalar que los resultados de esta encuesta no poseen valor estadístico general debido a su carácter no representativo, no obstante la cantidad de participantes y la estructura intuitiva del cuestionario fomentaron interacciones valiosas y significativas.</p',unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">La encuesta fue diseñada para facilitar la participación y animar a los encuestados a compartir sus opiniones, lo que permitió obtener una variedad de respuestas que enriquecen el análisis del tema. A pesar de no ser un conjunto de datos estadísticamente válido, la diversidad de voces y experiencias recogidas brinda un panorama interesante que puede ser considerado para profundizar en la discusión. A continuación, procederé a presentar los resultados y las opiniones surgidas durante este ejercicio, resaltando las temáticas que han captado más atención entre los participantes y las luces que aportan al entendimiento del fenómeno estudiado.</p',unsafe_allow_html=True)
-
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Audiencia</b></l></div', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Como parte de la audiencia, como fue comentado anteriormente, se contó con la participación de 45 personas con interacciones completas para la mayoría.</p',unsafe_allow_html=True)
-
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">De ellas se tiene que:</p',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Como parte de la audiencia, como fue comentado anteriormente, se contó con la participación de 45 personas con interacciones completas para la mayoría. De ellas se tiene que, en respuesta a las primeras preguntas de identificación, hubo un predominio de edad entre los <b style="color:#5665E2;">17-25</b> años y de <b style="color:#5665E2;">masculino</b> como parte del género. Como se observa visualmente presentado por la órden de las preguntas como encabezado.</p',unsafe_allow_html=True)
 
 def form_chart(column:str):
     data = list(df_form[column])
@@ -349,7 +349,6 @@ try:
     st.plotly_chart(form_chart("Selecciona tu grupo de edad, por favor."))
 except Exception as e: 
     raise(f"Error: {e}")
-
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Cuál es tu género?</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("¿Cuál es tu género?"))
@@ -357,22 +356,29 @@ except Exception as e:
     raise(f"Error: {e}")
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Resultados</b></l></div', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Con respecto al tema de los resultados se tienen a las preguntas referentes a la naturaleza de la problemática en cuestión obteniendose: </p',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Con respecto al tema de los resultados se tienen a las preguntas referentes a la naturaleza de la problemática en cuestión obteniendose que prefirieron optar por el futuro académico de <b style="color:#5665E2;">Perla</b> con una mayoría de votos para la <b style="color:#5665E2;">Licenciatura en Bioquimica</b> en <b style="color:#5665E2;">LaUniversidad de La Habana</b>.</p',unsafe_allow_html=True)
+
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Qué elegirías?</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("¿Qué elegirías?"))
 except Exception as e: 
     raise(f"Error: {e}")
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">En un contexto mas personal para descubrir intereses personales con respecto a la migración se tuvo que el <b style="color:#5665E2;">93.6%</b> de las personas presentaban intereses migratorios, resaltando el claro deseo común de mejora por migración mencionado anteriormente.</p',unsafe_allow_html=True)
+
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Estaría en tus planes futuros emigrar en algún momento?</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("¿Estaría en tus planes futuros emigrar en algún momento?"))
 except Exception as e: 
     raise(f"Error: {e}")
+
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Luego, con fines de ahondar más en el asunto de los intereses migratorios de la audiencia se tuvo que (al no considerar los "-" -respuestas vacias-) que alrededor de un <b style="color:#5665E2;">95%</b> prefirieron un carácter <b style="color:#5665E2;">externo</b>, algo bastante normal considerando la situación de descontento general de la población del país y que se evidencia además en los hallazgos referentes a nuestro objeto de estudio.</p',unsafe_allow_html=True)
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Cómo seria tu proceso migratorio?</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("¿Cómo seria tu proceso migratorio?"))
 except Exception as e: 
     raise(f"Error: {e}")
+
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, para concluir con las respuestas se le quiso plantear al público, en función de evaluar desde el punto de la historia como seguirían su desarrollo en el ambiente delicado que se presentó y así ver reflejadas de forma general que dirección predomina. De esta forma se tuvo una respuesta equilibrada con respecto a la consideración de la situación futura con respecto a su padre Andrés, con una ligera superioridad positiva con un <b style="color:#5665E2;">52.4%</b> al deseo de reencontrarse con el.</p>',unsafe_allow_html=True)
 try:
     st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">Y por último, ¿buscarías a tu padre?</b></l></div', unsafe_allow_html=True)
     st.plotly_chart(form_chart("¿Buscarías a tu padre?"))
@@ -380,7 +386,7 @@ except Exception as e:
     raise(f"Error: {e}")
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Opiniones</b></l></div', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Se considera dedicar un apartado especifico para las opiniones particulares de los internautas, empleando un sistema de selección aleatoria para mostrar algunas de las razones y luces de los participantes en el cuestionario.</p',unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Se considera dedicar un apartado especifico para las opiniones particulares de los internautas, empleando un sistema de selección aleatoria para mostrar algunas de las razones y luces de los participantes en el cuestionario.</p>',unsafe_allow_html=True)
 
 def random(cuestion):
     cuestion_1 = list(df_form[cuestion])
@@ -388,16 +394,26 @@ def random(cuestion):
     value = randint(0,len(cuestion_1)-1)
     return cuestion_1[value]
 
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Referente a la pregunta de ¿Qué elegirías? se tienen razones como...</p',unsafe_allow_html=True)
-st.markdown("Inserte cualquier letra")
-order = st.text_input("**1-Random**")
-st.markdown("Respuesta: {}".format(random("¿Por qué?")))
+cuestion1, cuestion2 = st.tabs(["¿Qué elegirías?", "¿Buscarías a tu padre?"])
+with cuestion1:
+    st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Referente a la pregunta de <b style="color:#5665E2;">¿Qué elegirías?</b> se tienen razones como:</p',unsafe_allow_html=True)
+    st.button("Reset", type="primary", use_container_width=True)
+    if st.button("Respuesta aleatoria", use_container_width=True):
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué?")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
+    else:
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
+with cuestion2:
+    st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, finalmente, a la cuestión de <b style="color:#5665E2;">¿porqué buscarías o no a tu padre?</b> se tuvo que:</p',unsafe_allow_html=True)
+    st.button(" Reset ", type="primary", use_container_width=True)
+    if st.button(" Respuesta aleatoria ", use_container_width=True):
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué?.2")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
+    else:
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
+st.divider()
 
-st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, finalmente, ¿porqué buscarías o no a tu padre?..</p',unsafe_allow_html=True)
-st.markdown("Inserte cualquier letra")
-order2 = st.text_input("**3-Random**")
-st.markdown("Respuesta: {}".format(random("¿Por qué?.2")))
-
+st.markdown('<l style="font-family: serif;font-size:55px;"><b style="color:#236d7f;">Gracias por tu atención :)</b></l>', unsafe_allow_html=True)
 st.divider()
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:25px;"><b style="color:black;">Referencias</b></l></div', unsafe_allow_html=True)
