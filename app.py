@@ -15,12 +15,12 @@ import plotly.graph_objects as go
 from collections import Counter
 
 
-#Function to convert each dataframe to a downloadable csv
+# Function to convert each dataframe to a downloadable csv
 @st.cache_data
 def convert_df(df):
     return df.to_csv().encode("utf-8")
 
-#Function to skip initial space on csv's files
+# Function to skip initial space on csv's files
 def skipinitalspace_csv(path:str):
     from csv import reader, writer
     data = []
@@ -187,7 +187,7 @@ except Exception as e:
     
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> vivía con sus dos abuelos (Andrés y Marta), a quienes cuidaba con dedicación. Por otro lado, su madre trabajaba incansablemente para mantener a la familia, realizando diversos empleos temporales y precarios. Esta situación le permitía a <b style="color:#5665E2;">Perla</b>  enfocarse en sus estudios, pero también le enseñaba la importancia del trabajo duro y la perseverancia.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación era para <b style="color:#5665E2;">Perla</b>  su única salida real para mejorar su situación económica; trabajaba arduamente en sus estudios, sin embargo, la falta de recursos en el municipio afectaba significativamente su acceso a materiales didácticos y a profesores calificados. Su madre, aunque trabajadora incansable, encontraba empleos precarios y mal remunerados, esto llevó a <b style="color:#5665E2;">Perla</b> a reflexionar sobre la relación entre educación y empleo. Veía cómo su madre, con menos educación, tenía pocas opciones de trabajo mejor remunerado, mientras que ella, con más conocimientos, podría acceder a mejores oportunidades.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b>, en período de exámenes de ingreso, se sentía emocionada y un poco nerviosa al pensar en su futuro académico. Con un buen promedio en las pruebas de ingreso, tenía la oportunidad de elegir libremente su carrera universitaria. Sin embargo, esta decisión no era tan sencilla como parecía. Por un lado, siempre había soñado con estudiar en la capital del país,imaginaba caminar por las calles famosas, conocer gente de diferentes partes del mundo y tener acceso a recursos y experiencias que solo la capital podía ofrecer; pero al mismo tiempo, el pensamiento de dejar atrás a su familia y amigos en Rodas le causaba angustia.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b>, en período de exámenes de ingreso, se sentía emocionada y un poco nerviosa al pensar en su futuro académico. Con un buen promedio en las pruebas de ingreso, tenía la oportunidad de elegir libremente su carrera universitaria. Sin embargo, esta decisión no era tan sencilla como parecía. Por un lado, siempre había soñado con estudiar en la capital del país,imaginaba caminar por las calles famosas, conocer gente de diferentes partes del mundo y tener acceso a recursos y experiencias que solo la capital podía ofrecer; pero al mismo tiempo, el pensamiento de dejar atrás a su familia y amigos en <b style="color:#5665E2;">Rodas</b> le causaba angustia.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Mientras tanto, otra opción comenzaba a ganar terreno en su mente. En  <b style="color:#5665E2;">Cienfuegos</b>, específicamente en el municipio cabecera, se ofrecía la posibilidad de estudiar medicina veterinaria. Esta opción tenía algo especial para <b style="color:#5665E2;">Perla</b>: algunas asignaturas afines a sus gustos y pasiones, como los animales y la bioquímica.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con respecto a dicho asunto, se propone evaluar, mediante una visualización que nos muestre el contraste de matriculas iniciales en relación con los graduados de la educación superior en  <b style="color:#5665E2;">Cienfuegos</b>.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Alcanzando a reflejarse el poco volumen de matrículas y la enorme diferencia referente al número de graduados para cada año en una provincia cuyas unicas instituciones de educación superior radican en la cabecera, por lo que claramente las características del entorno para el escenario de quedarse en su provincia natal van esfumando toda idea o interés por seguir en ese sitio.</p>', unsafe_allow_html=True)
