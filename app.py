@@ -216,7 +216,7 @@ with st.popover("Filtrado de datos"):
     provincia = st.selectbox("Provincia", lista_prov,index = 3)
     year = st.select_slider("Año",[x for x in range(2012, 2023)])
     if year:
-        st.info('El año también varía para la gráfica de abajo', icon="ℹ️")
+        st.info('La provincia también varía para la gráfica de abajo', icon="ℹ️")
 st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Movimientos migratorios de {provincia} en el año {year}</b></l></div', unsafe_allow_html=True)
 def mapa(city:str,year:int):
         #Instanciando Mapa
