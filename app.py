@@ -67,7 +67,6 @@ files = ["app/data/csv/ Población residente según edad laboral por zonas urban
          "app/data/csv/Graduados educacion superiory matricula inicial.csv",
          "app/data/csv/Movimiento migratorio interno por sexos y provincias.csv",
          "app/data/csv/Salario medio mensual en entidades estatales y mixtas por provincias.csv",
-         "app/data/csv/Saldos migratorios y tasa de saldo migratorio total por provincias.csv",
          "app/data/csv/Saldos migratorios y tasas de migracion interna y externa por provincias-.csv",
          "app/data/csv/Saldos migratorios y tasas de migración interna y externa, por municipios.csv",
          "app/form/data/La-Perla-del-Sur-Form.csv"]
@@ -130,15 +129,11 @@ for df, year in list(zip(values, [x for x in range(2012, 2023)])):
 df_mun = pd.read_csv(files[-2])
 df_mun = migratory_movements(df_mun, "mun") #
 
-# Saldo & tasa de migracion interprovincial total
-df_smt = pd.read_csv(files[5])
-prov_order = list(df_smt.iloc[::13]["PROVINCIAS/AÑOS"])
-df_smt = migratory_movements(df_smt, 'etc')
-
 # Saldo & tasa de migracion interprovincial interno & externo
 skipinitalspace_csv(files[-3])
 df_sm = pd.read_csv(files[-3])
-df_sm = migratory_movements(df_sm, 'etc')#
+prov_order_2 = list(df_sm.iloc[::13]["PROVINCIAS/AÑOS"])[1:]
+df_sm = migratory_movements(df_sm, 'etc')[1:]#
 
 # Graduados y matrícula inicial 
 df_gm = pd.read_csv(files[2]) #
@@ -171,21 +166,22 @@ df_form = pd.read_csv(files[-1]) #
 
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En este contexto si consideramos los datos que nos ofrecen los anuarios estadísticos provinciales en la sección de distribución poblacional general de la provincia según edad laboral por grupos de zonas urbanas y rurales, se muestra de manera clara que más del <b style="color:#5665E2;">40%</b> de la población del municipio reside en la cabecera municipal (<b style="color:#5665E2;">Cienfuegos</b>), lo que indica una concentración significativa de habitantes en esta área. Este comportamiento resalta la atracción que ejerce la cabecera por ofrecer mayores oportunidades de empleo, educación y servicios en comparación con las zonas periféricas. A medida que se desciende en la jerarquía de los asentamientos, la población se dispersa, lo que sugiere que las localidades más alejadas enfrentan retos asociados a la falta de infraestructura y recursos. Esto se ve reflejado diréctamente para <b style="color:#5665E2;">Rodas</b>, que representa apenas un <b style="color:#5665E2;">40%</b> de la distribucion poblacional en edad laboral de ese territorio. Esta tendencia hacia la centralización demográfica resalta la importancia de desarrollar políticas que fomenten el crecimiento equilibrado y la mejora de las condiciones de vida en todas las áreas del municipio.</p>', unsafe_allow_html=True)
 
-yearr = st.select_slider("Año: ",[x for x in range(2019,2023)])
-if year in years[-4:]:
-    colors = ['#00a498','#002b43','#261c93','#2aecde','#5ba5cf', '#366078', '#1d2f39']
-    toggle3 = st.toggle("Edad laboral")
-    data_poblacion = np.transpose(df_poblacion[years[-4:].index(yearr)]).iloc[3,:] if toggle3 else np.transpose(df_poblacion[years[-4:].index(yearr)]).iloc[0,:]   
-    fig5 = go.Figure(data = go.Pie(labels=list(data_poblacion.index), values = data_poblacion, pull= 0.1, textposition="outside", hoverinfo='value',textinfo='label+percent', 
-        marker=dict(colors=colors, line=dict(color='black', width=3))))
-    fig5.update_layout(
-        width=1300,  
-        height=500,  
-        margin=dict(l=100, r=100, t=100, b=100))
-    try:
-        st.plotly_chart(fig5)
-    except Exception as e: 
-        raise(f"Error: {e}")
+mun_years = [x for x in range(2019,2023)]
+year_pobl = st.select_slider("Año: ",mun_years)
+
+colors = ['#00a498','#002b43','#261c93','#2aecde','#5ba5cf', '#366078', '#1d2f39']
+toggle3 = st.toggle("Edad laboral")
+data_poblacion = np.transpose(df_poblacion[mun_years.index(year_pobl)]).iloc[0,:] if toggle3 else np.transpose(df_poblacion[mun_years.index(year_pobl)]).iloc[3,:]   
+fig5 = go.Figure(data = go.Pie(labels=list(data_poblacion.index), values = data_poblacion, pull= 0.1, textposition="outside", hoverinfo='value',textinfo='label+percent', 
+    marker=dict(colors=colors, line=dict(color='black', width=3))))
+fig5.update_layout(
+    width=1300,  
+    height=500,  
+    margin=dict(l=100, r=100, t=100, b=100))
+try:
+    st.plotly_chart(fig5)
+except Exception as e: 
+    raise(f"Error: {e}")
     
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> vivía con sus dos abuelos (Andrés y Marta), a quienes cuidaba con dedicación. Por otro lado, su madre trabajaba incansablemente para mantener a la familia, realizando diversos empleos temporales y precarios. Esta situación le permitía a <b style="color:#5665E2;">Perla</b>  enfocarse en sus estudios, pero también le enseñaba la importancia del trabajo duro y la perseverancia.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación era para <b style="color:#5665E2;">Perla</b>  su única salida real para mejorar su situación económica; trabajaba arduamente en sus estudios, sin embargo, la falta de recursos en el municipio afectaba significativamente su acceso a materiales didácticos y a profesores calificados. Su madre, aunque trabajadora incansable, encontraba empleos precarios y mal remunerados, esto llevó a <b style="color:#5665E2;">Perla</b> a reflexionar sobre la relación entre educación y empleo. Veía cómo su madre, con menos educación, tenía pocas opciones de trabajo mejor remunerado, mientras que ella, con más conocimientos, podría acceder a mejores oportunidades.</p>', unsafe_allow_html=True)
@@ -211,6 +207,9 @@ st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="co
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> sabía que esta decisión iba a marcar un punto de inflexión importante en su vida. Mientras tanto, seguía cuidando a sus abuelos, ayudando a su madre con los trabajos domésticos y manteniendo sus estudios como prioridad. Con cada nuevo día, se acercaba más a tomar una decisión que cambiaría el rumbo de su futuro académico y profesional.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación, que siempre había sido su escapismo y su esperanza, ahora se convertía en un dilema personal y emocional. <b style="color:#5665E2;">¿Qué camino elegiría?</b>.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con el objetivo de abordar estas cuestiones se realiza un estudio provincial migratorio para abordar este tema que tanto carcome a la joven de <b style="color:#5665E2;">Perla</b>. Por ello es que se desarrollo este recurso interactivo para analizar de forma interactiva y con precision utilizando datos reales de parte de la cobertura anual de la Oficina Nacional de Estadísticas e Información (ONEI) y así apreciar mejor la situación.</p>', unsafe_allow_html=True)
+
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Entonces, en el contexto migratorio de  <b style="color:#5665E2;">Cienfuegos</b>, se observa que los flujos más significativos se dirigen principalmente hacia las provincias de  <b style="color:#d2952c;">Villa Clara</b>,  <b style="color:#d2952c;">Matanzas</b> y  <b style="color:#d2952c;">La Habana</b>.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">A diferencia de otras regiones de Cuba,  <b style="color:#5665E2;">Cienfuegos</b> presenta una notable estabilidad en su saldo migratorio interno, lo que significa que los movimientos migratorios interprovinciales se equilibran de manera más favorable en comparación con el típico saldo negativo que caracteriza al país en su conjunto de forma general.</p>', unsafe_allow_html=True)
 ids = ["art","cam","cav","cfg", "gra", "gtm", "hol" , "ijv" ,"lha","ltu" ,"mat","may","pri","ssp","stg","vcl"]
 with st.popover("Filtrado de datos"):
     provincia = st.selectbox("Provincia", lista_prov,index = 3)
@@ -259,18 +258,18 @@ def mapa(city:str,year:int):
     return st_folium(m, use_container_width=True, height=550)
     
 map_data = mapa(provincia, year) #Mapa
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">.</p>', unsafe_allow_html=True)
+
 #Scatter plot con tasas y saldos migrorios
 toggle = st.toggle("Tasa") # Interruptor para evaluar la tasa en lugar del saldo
 if toggle:
-    st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Tasa de migración interna y externa el año {year}</b></l></div', unsafe_allow_html=True)
-    fig = px.scatter(df_sm[prov_order.index(provincia)].iloc[:,1::2], color_discrete_sequence=["#f7eb5b", "#d2952c"],hover_name='value', hover_data={'variable':None,'value':None})
+    st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Tasa de migración interna y externa en {provincia}</b></l></div', unsafe_allow_html=True)
+    fig = px.scatter(df_sm[prov_order_2.index(provincia)].iloc[:,1::2], color_discrete_sequence=["#f7eb5b", "#d2952c"],hover_name='value', hover_data={'variable':None,'value':None})
     fig.update_layout(width=1200, height=400,
                                         yaxis_title = "Tasa de Migración",xaxis_title="Años",
                                         legend=dict(title=dict(text="Leyenda")))      
 else:
-    st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Saldos migratorios internos y externos el año {year}</b></l></div', unsafe_allow_html=True)
-    fig = px.scatter(df_sm[prov_order.index(provincia)].iloc[:,::2], color_discrete_sequence=["#0c367f", "#5b94f7"],hover_name='value', hover_data={'variable':None,'value':None})
+    st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Saldos migratorios internos y externos en {provincia}</b></l></div', unsafe_allow_html=True)
+    fig = px.scatter(df_sm[prov_order_2.index(provincia)].iloc[:,::2], color_discrete_sequence=["#0c367f", "#5b94f7"],hover_name='value', hover_data={'variable':None,'value':None})
     fig.update_layout(width=1200, height=400,
                                         yaxis_title = "Saldo migratorio",xaxis_title="Años",
                                         legend=dict(title=dict(text="Leyenda")))  
@@ -279,9 +278,29 @@ try:
 except Exception as e:
     raise(f"Error: {e}")
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">En el contexto migratorio de  <b style="color:#5665E2;">Cienfuegos</b>, se observa que los flujos más significativos se dirigen principalmente hacia las provincias de  <b style="color:#d2952c;">Villa Clara</b>,  <b style="color:#d2952c;">Matanzas</b> y  <b style="color:#d2952c;">La Habana</b>.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">A diferencia de otras regiones de Cuba,  <b style="color:#5665E2;">Cienfuegos</b> presenta una notable estabilidad en su saldo migratorio interno, lo que significa que los movimientos migratorios interprovinciales se equilibran de manera más favorable en comparación con el típico saldo negativo que caracteriza al país en su conjunto de forma general. Sin embargo, al analizar la dinámica migratoria a nivel municipal, se evidencia una tendencia significativa hacia el municipio de cabecera,  <b style="color:#5665E2;">Cienfuegos</b>, dominando la densidad poblacional del municipio agrupando a mas del  <b style="color:#5665E2;">40%</b> de la población residente. Este dato revela que, a pesar de la estabilidad general de  <b style="color:#5665E2;">Cienfuegos</b>, existe un posible desbalance intermunicipal que podría estar impulsado por la búsqueda de mejores oportunidades laborales, educación y calidad de vida.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Además, al considerar los diferentes tipos de saldos migratorios, se concluye que, en términos generales, el saldo externo es el que predomina. Esto sugiere que, si bien  <b style="color:#5665E2;">Cienfuegos</b> mantiene un equilibrio interno más sólido, la migración hacia el extranjero también juega un papel crucial en la configuración de su demografía y, por ende, en el futuro desarrollo de la región.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Sin embargo, al analizar la dinámica migratoria a nivel municipal, se evidencia una tendencia significativa hacia el municipio de cabecera,  <b style="color:#5665E2;">Cienfuegos</b>, dominando la densidad poblacional del municipio agrupando a mas del  <b style="color:#5665E2;">40%</b> de la población residente. Este dato revela que, a pesar de la estabilidad general de  <b style="color:#5665E2;">Cienfuegos</b>, existe un posible desbalance intermunicipal que podría estar impulsado por la búsqueda de mejores oportunidades laborales, educación y calidad de vida</p>', unsafe_allow_html=True)
+
+mun_year = st.select_slider("Año:  ", mun_years)
+#Scatter plot con tasas y saldos migrorios
+toggle_mun = st.toggle(" Tasa ") # Interruptor para evaluar la tasa en lugar del saldo
+if toggle_mun:
+    st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Tasa de migración interna y externa por municipios de Cienfuegos en el año {mun_year}</b></l></div', unsafe_allow_html=True)
+    figmun = px.scatter(df_mun[mun_years.index(mun_year)].iloc[:,1:-2:2], color_discrete_sequence=["#f7eb5b", "#d2952c"],hover_name='value', hover_data={'variable':None,'value':None})
+    figmun.update_layout(width=1200, height=400,
+                                        yaxis_title = "Tasa de Migración",xaxis_title="Municipio",
+                                        legend=dict(title=dict(text="Leyenda")))      
+else:
+    st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Saldos migratorios internos y externos por municipios de Cienfuegos en el año {mun_year}</b></l></div', unsafe_allow_html=True)
+    figmun = px.scatter(df_mun[mun_years.index(mun_year)].iloc[:,0:3:2], color_discrete_sequence=["#0c367f", "#5b94f7"],hover_name='value', hover_data={'variable':None,'value':None})
+    figmun.update_layout(width=1200, height=400,
+                                        yaxis_title = "Saldo migratorio",xaxis_title="Municipio",
+                                        legend=dict(title=dict(text="Leyenda")))  
+try:
+    st.plotly_chart(figmun)
+except Exception as e:
+    raise(f"Error: {e}")
+
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Además, al considerar los diferentes tipos de saldos migratorios, se concluye que, en términos generales, el saldo externo es el que se lleva la delantera con valores negativos (excluyendo la diferencia de saldo interno del municipio <b style="color:#5665E2;">Cienfuegos</b>). Esto sugiere que, si bien  <b style="color:#5665E2;">Cienfuegos</b> mantiene un equilibrio interno más sólido, la migración hacia el extranjero también juega un papel crucial en la configuración de su demografía y, por ende, en el futuro desarrollo de la región.</p>', unsafe_allow_html=True)
 df_sal_mun.index.name = "Municipio"
 df_sal_total.index.name = "Municipio"
 
@@ -426,10 +445,10 @@ st.markdown('* *Documentación de Streamlit [Entra aquí](https://docs.streamlit
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:25px;"><b style="color:gray;">Contenido descargable</b></l></div', unsafe_allow_html=True)
 
-csv1, csv2, csv3, csv4, csv5, csv6, csv7, csv8 = convert_df(pd.read_csv(files[0])), convert_df(pd.read_csv(files[1])), convert_df(pd.read_csv(files[2])), convert_df(pd.read_csv(files[3])), convert_df(pd.read_csv(files[4])), convert_df(pd.read_csv(files[5])), convert_df(pd.read_csv(files[6])), convert_df(pd.read_csv(files[7]))
+csv1, csv2, csv3, csv4, csv5, csv7, csv8 = convert_df(pd.read_csv(files[0])), convert_df(pd.read_csv(files[1])), convert_df(pd.read_csv(files[2])), convert_df(pd.read_csv(files[3])), convert_df(pd.read_csv(files[4])), convert_df(pd.read_csv(files[6])), convert_df(pd.read_csv(files[7]))
 with st.popover("Descargar CSV's",use_container_width=True):
     d1, d2, d3, d4 = st.columns(4)
-    d5, d6, d7, d8 = st.columns(4)
+    d5, d7, d8 = st.columns(3)
     with d1:
         st.download_button( 
             label="Poblacion residente",
@@ -459,13 +478,7 @@ with st.popover("Descargar CSV's",use_container_width=True):
             label="Salario por provincia",
             data=csv5,
             file_name="Salario medio por provincias.csv",
-            mime="text/csv")     
-    with d6:
-        st.download_button( 
-            label="Saldos&Tasa total",
-            data=csv6,
-            file_name="Saldo&Tasa por provincia total.csv",
-            mime="text/csv")     
+            mime="text/csv")        
     with d7:
         st.download_button( 
             label="Saldos&Tasa por tipos",
