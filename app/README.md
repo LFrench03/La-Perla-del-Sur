@@ -7,4 +7,3 @@
 - [Formulario de preguntas](form/README.md)
 - [Reporte](app/report/report.pdf)
 - [Presentación](report/presentation.pdf)
-- [App printed pdf's preview](<La Perla del Sur-Printed Preview.pdf>)
