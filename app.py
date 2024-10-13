@@ -65,7 +65,7 @@ st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="co
 # II - Data Initialice #
 ########################
 
-# CSV's rutas
+# Rutas de los csv
 files = ["app/data/csv/ Población residente según edad laboral por zonas urbana y rural (a) (cálculos al 31 de diciembre de 2019).csv",
          "app/data/csv/ Salario medio mensual en entidades estatales por municipios.csv",
          "app/data/csv/Graduados educacion superiory matricula inicial.csv",
