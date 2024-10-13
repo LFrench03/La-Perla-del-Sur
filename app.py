@@ -440,6 +440,9 @@ with cuestion2:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
+
+st.divider()
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">La toma de una decisión en una situación tan comprometida como la de  <b style="color:#5665E2;">Perla</b> es algo sumamente complejo, intervienen muchos factores y resulta inadecuado asumir o dar una respuesta genérica para este tipo de situaciones. Lo más adecuado en estos casos considero que sea consultarlo con familiares, amistades y evaluar bien cada factor para saber que riesgos se consideran asumir con objetivos claros. Las respuestas de los participantes sin duda contribuyeron a reafirmar por medio de terceros al proceso decisivo de  <b style="color:#5665E2;">Perla</b>, y además, el antecedente de su padre, quien como ella tuvo que tomar una decisión teniendo sus propias consideraciones, influyen directamente en su proceso. Pero, independientemente de cual sea el camino que elija, deseemosle la mejor de las suertes y éxitos a <b style="color:#5665E2;">Perla</b>.</p',unsafe_allow_html=True)
 st.divider()
 
 st.markdown('<l style="font-family: serif;font-size:55px;"><b style="color:#236d7f;">Gracias por tu atención :)</b></l>', unsafe_allow_html=True)
