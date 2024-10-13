@@ -135,10 +135,14 @@ df_mun = migratory_movements(df_mun, "mun") #
 # Saldo & tasa de migracion interprovincial interno & externo
 skipinitalspace_csv(files[-3])
 df_sm = pd.read_csv(files[-3])
-prov_order_2 = list(df_sm.iloc[::13]["PROVINCIAS/AÑOS"])[:-1]
+prov_order_2 = list(df_sm.iloc[::13]["PROVINCIAS/AÑOS"])
+prov_order_2[-1] = "Isla de la Juventud"
+last = df_sm.iloc[-12:,:]
+last.set_index("PROVINCIAS/AÑOS", inplace=True)
+last.index.name=None
 df_sm = migratory_movements(df_sm, 'etc')#
 df_sm[prov_order_2.index("Guantánamo")] = df_sm[prov_order_2.index("Guantánamo")].iloc[:-1,:]
-df_sm[prov_order_2.index("Guantánamo")] 
+df_sm.append(last)
 
 # Graduados & matrícula inicial 
 df_gm = pd.read_csv(files[2]) #
@@ -212,7 +216,7 @@ st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="co
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación, que siempre había sido su escapismo y su esperanza, ahora se convertía en un dilema personal y emocional. <b style="color:#5665E2;">¿Qué camino elegiría?</b>.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con el objetivo de abordar estas cuestiones se realiza un estudio provincial migratorio para abordar este tema que tanto carcome a la joven de <b style="color:#5665E2;">Perla</b>. Por ello es que se desarrollo este recurso interactivo para analizar de forma interactiva y con precision utilizando datos reales de parte de la cobertura anual de la Oficina Nacional de Estadísticas e Información (ONEI) y así apreciar mejor la situación.</p>', unsafe_allow_html=True)
 
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Entonces, en el contexto migratorio de  <b style="color:#5665E2;">Cienfuegos</b>, se observa que los flujos más significativos se dirigen principalmente hacia las provincias de  <b style="color:#d2952c;">Villa Clara</b>,  <b style="color:#d2952c;">Matanzas</b> y  <b style="color:#d2952c;">La Habana</b>.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Entonces, en el contexto migratorio desde  <b style="color:#5665E2;">Cienfuegos</b>, se observa que los flujos más significativos se dirigen principalmente hacia las provincias de  <b style="color:#d2952c;">Villa Clara</b>,  <b style="color:#d2952c;">Matanzas</b> y  <b style="color:#d2952c;">La Habana</b>. Por otro lado hacia <b style="color:#5665E2;">Cienfuegos</b> se tiene, en muy pocos volumenes, a provincias como <b style="color:#d2952c;">Sancti Spírictus</b>, <b style="color:#d2952c;">La Habana</b>, <b style="color:#d2952c;">Matanzas</b> y en mayores valores con <b style="color:#5665E2;">532 unidades para el año 2012</b> se encuentra <b style="color:#d2952c;">Villa Clara</b> como principal origen.</p>',  unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">A diferencia de otras regiones de Cuba,  <b style="color:#5665E2;">Cienfuegos</b> presenta una notable estabilidad en su saldo migratorio interno, lo que significa que los movimientos migratorios interprovinciales se equilibran de manera más favorable en comparación con el típico saldo negativo que caracteriza al país en su conjunto de forma general.</p>', unsafe_allow_html=True)
 ids = ["art","cam","cav","cfg", "gra", "gtm", "hol" , "ijv" ,"lha","ltu" ,"mat","may","pri","ssp","stg","vcl"]
 with st.popover("Filtrado de datos"):
@@ -339,6 +343,7 @@ with bar2:
 
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">En el ámbito de las oportunidades laborales,  <b style="color:#d2952c;">La Habana</b> se posiciona como un imán para quienes buscan una mejor calidad de trabajo y un nivel de vida más elevado. En comparación con  <b style="color:#5665E2;">Cienfuegos</b>, la capital ofrece mayores posibilidades de empleo, con una variedad más amplia de sectores y empresas que garantizan salarios medios más altos. Además, en  <b style="color:#d2952c;">La Habana</b>, es más común acceder a créditos y a una gama de servicios que facilitan el desarrollo personal y profesional, lo que atrae a muchos migrantes de otras provincias en busca de un futuro más prometedor.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Este contexto de oportunidades podría explicar, aunque de manera dolorosa, la decisión de Andrés, el padre de <b style="color:#5665E2;">Perla</b>, de abandonar a su familia. La búsqueda de una vida mejor, repleta de mayores oportunidades laborales y económicas, puede haberle hecho sentir que su única opción para subsistir y prosperar era dejar atrás su hogar en busca de esos beneficios en la capital. Su partida, aunque injusta para <b style="color:#5665E2;">Perla</b> y su madre, refleja una realidad compleja en la que la atracción de  <b style="color:#d2952c;">La Habana</b> por sus mejores condiciones de trabajo y calidad de vida puede haber superado su responsabilidad familiar, llevándolo a tomar una decisión que dejó una marca profunda en su familia.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">De igual forma se puede decir si consideramos las diferencias intermunicipales, que se mantienen con ligera superioridad general los valores de media salarial para la cabeza del municipio, resaltando en parte nuevamente el desblanace estructural de distribución de recursos municipales existente en dicho territorio.</p>', unsafe_allow_html=True)
 st.divider()
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">La búsqueda de mejores oportunidades de empleo y educación es un impulso fundamental que motiva a las personas a migrar, tanto a nivel interno como externo. Este fenómeno refleja no solo la aspiración individual de alcanzar una vida más digna y satisfactoria, sino también un contexto socioeconómico que, en muchos casos, limita el desarrollo personal y profesional en sus lugares de origen. La decisión de emprender este camino, aunque a menudo dolorosa y compleja, simboliza la lucha por la superación y el deseo de construir un futuro mejor. Al mismo tiempo, pone de manifiesto las disparidades entre regiones, donde lugares como La Habana ofrecen un abanico más amplio de oportunidades comparado con provincias como <b style="color:#5665E2;">Cienfuegos</b>. En última instancia, este deseo de progreso se convierte en una fuerza dinámica que puede transformar realidades, tanto para los individuos como para las comunidades a las que pertenecen.</p>', unsafe_allow_html=True)
 st.divider()

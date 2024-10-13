@@ -1,149 +1,114 @@
 \documentclass{beamer}
-% Theme choice:
+
 \usetheme{Madrid}
-% Title page details: 
-\title{Comunicación de Ciencia de Datos} 
-\subtitle{Proyecto Final}
-\author{Ganadería en Cuba}
+ 
+\title{\textbf{Introduccióna la Ciencia de Datos}} 
+\subtitle{\textbf{Proyecto Final}}
+\author{\emph{Procesos migratorios en Cienfuegos}}
 \date{\today}
 
 \begin{document}
 
-% Title page frame
+
 \begin{frame}
-    \titlepage 
-    \underline{\textbf{Integrantes: }}\\
-    Luis Ernesto Serras Rimada \\ Yulia Karla Felipe Quintana
+    \titlepage
+    \begin{center} 
+    \textbf{\large{Autor:}}\\
+    \emph{Luis Ernesto Serras Rimada}
+    \end{center}
 \end{frame}
 
-% Outline frame
+
 \begin{frame}{Introducción}
-    Los procesos pecuarios en Cuba han estado sometidos a constantes cambios y experimentación
-desde antes del triunfo de la revolución. De forma general cada acontecimiento signicativo de
-la historia ha inluido en su desarrollo, desde el triunfo de la revolución, la caída de la sociedad
-soviética y el endurecimiento de las políticas del bloqueo ecónomico por parte de Estados Unidos,
-hasta la aún reciente pandemia. 
+    La búsqueda de mejores oportunidades de empleo y educación es un impulso fundamental que motiva a las personas a migrar, tanto a nivel interno como externo. \\
+\begin{itemize}
+    \item Este fenómeno refleja no solo la aspiración individual de alcanzar una vida más digna y satisfactoria, sino también un contexto socioeconómico que, en muchos casos, limita el desarrollo personal y profesional en sus lugares de origen.\\
+    \item Al mismo tiempo, pone de manifiesto las disparidades entre regiones, donde lugares como La Habana ofrecen un abanico más amplio de oportunidades comparado con provincias como Cienfuegos.\\\\
+    \item En última instancia, este deseo de progreso se convierte en una fuerza dinámica que puede transformar realidades, tanto para los individuos como para las comunidades a las que pertenecen.
+\end{itemize}
 \end{frame}
 
-
-
-\section{Dataproduct}
+\section{Recopilación y procesamiento de los Datos}
 \begin{frame}
-\begin{block}{Dataproduct}
-    \textit{¿Qué se puede encontrar en nuestro DataProduct?}
+\begin{block}{Datos y su procesamiento}
+    \begin{itemize}
+        \item La fuente principal de los datos manejados fueron las series estadísticas y anuarios de la \textcolor{blue}{Oficina Nacional de Estadosisticas e Información (ONEI)}.
+        \item El análisis en su totalidad fue realizado manejando datos procesados y cargados unicamente desde la manipulación directa de los \textcolor{green}{csv} por medio del módulo de \textcolor{blue}{pandas}.
+    \end{itemize}
 \end{block}
-\includegraphics[width=1.0\textwidth]{img/dataprod.png}
 \end{frame}
 
-\section{Visualizaciones}
+
 \begin{frame}
-    \begin{block}{Existencia por tipos de ganado}
-        \dots
+    \begin{block}{Datos y su procesamiento}
+        \begin{itemize}
+            Para manejar los datos se hizo uso de la historia de \textcolor{blue}{Perla}, una joven cienfueguera quien (como parte de su desarollo como estudiante de 12mo grado de Preuniversitario, situación familiar y residencial) se enfrenta a los dilemas que se desean exponer, y de esa forma según se avanza en la historia se van presentando los datos visualizandolos de forma natural e interactiva siguiendo su historia.módulo de \textcolor{blue}{pandas}.
+        \end{itemize}
     \end{block}
-\includegraphics[width=1.0\textwidth]{img/2.1.png}
+
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{img/perla4.jpeg}
+    \end{center}
+\end{frame}
+\begin{frame}{Visualizaciones}
+    \begin{block}{Población}
+    \begin{center}
+        \includegraphics[width=1.0\textwidth]{img/fig1.png}
+    \end{center}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{Existencia por tipos productores aislados}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/plots_exist.png}
-\end{frame}\begin{frame}
-
-\begin{block}{Producción leche}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/lechee.png}
+    \begin{block}{Educación Superior}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/fig2.png}
+    \end{center}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{Producción de leche por sectores}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/7.png}
-\includegraphics[width=1.0\textwidth]{img/8.png}
+    \begin{block}{Movimientos migratorios}
+        \begin{center}
+            \includegraphics[width=1.0\textwidth]{img/fig3.png}
+        \end{center}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{Producción total de huevos}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/11.png}
+    \begin{block}{Saldo y tasa de migración provincial}
+        \begin{center}
+            \includegraphics[width=1.0\textwidth]{img/fig4.png}
+        \end{center}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{Alimentación}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/1.png}
+    \begin{block}{Saldo y tasa de migración municipal}
+        \begin{center}
+            \includegraphics[width=1.0\textwidth]{img/fig5.png}
+        \end{center}
+        \end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{Entidades}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/mapa.png}
+    \begin{block}{Salario medio por provincias}
+        \begin{center}
+            \includegraphics[width=1.0\textwidth]{img/fig6.png}
+        \end{center}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{Cooperativas}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/coop.png}
-\end{frame}
-
-\section{Historia}
-\begin{frame}
-\begin{block}{Historia del proceso ganadero cubano}
-    \textit{Timeline desde antes del triunfo de la revolución}
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/history.png}
+    \begin{block}{Salario medio por municipios}
+        \begin{center}
+            \includegraphics[width=1.0\textwidth]{img/fig7.png}
+        \end{center}
+    \end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{La historia de Luis}
-    \dots
+\begin{block}{Fin}
+    Muchísimas gracias. :)
 \end{block}
-\includegraphics[width=1.0\textwidth]{img/luis.png}
 \end{frame}
-
-
-\begin{frame}
-\begin{block}{Podcast RadioPecuario}
-\emphh{Temáticas:}
-\begin{itemize}
-    \item Desafíos generales de la ganadería.
-    \item Mejoramiento genético
-    \item Alimentación del ganado
-\end{itemize}
-\textit{Perspectiva del período de la crisis económica de 1990}
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/web2.png}
-\end{frame}
-
-
-\begin{frame}
-\begin{block}{DataPecuario Website}
-    \dots
-\end{block}
-\includegraphics[width=1.0\textwidth]{img/web1.png}
-\end{frame}
-
-\begin{section}{Conclusiones}
-\begin{frame}
-\begin{block}{Conclusiones y recomendaciones}
-\begin{itemize}
-    \item Dependencia de importaciones
-    \item Deficit alimentario
-    \item Diversificación de la producción
-    \item Inversión en tecnologías y practicas sostenibles
-    \item Fomento del desarrollo rural
-    \item Mejorar la infraestructura agricola y ganadera
-    \item Mayor aprovechamiento de los recursos locales, autosuficiencia alimentaria y una industria ganadera más robusta y competitiva
-\end{itemize}
-\end{block}
-Muchísimas gracias. :)
-\end{frame}
-
-
 \end{document}

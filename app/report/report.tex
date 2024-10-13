@@ -55,7 +55,7 @@
 \end{titlepage}
 \newpage
 \section{Introducción}
-La búsqueda de mejores oportunidades de empleo y educación es un impulso fundamental que motiva a las personas a migrar, tanto a nivel interno como externo. Este fenómeno refleja no solo la aspiración individual de alcanzar una vida más digna y satisfactoria, sino también un contexto socioeconómico que, en muchos casos, limita el desarrollo personal y profesional en sus lugares de origen. La decisión de emprender este camino, aunque a menudo dolorosa y compleja, simboliza la lucha por la superación y el deseo de construir un futuro mejor. Al mismo tiempo, pone de manifiesto las disparidades entre regiones, donde lugares como La Habana ofrecen un abanico más amplio de oportunidades comparado con provincias como \textcolor{blue}{Cienfuegos}. En última instancia, este deseo de progreso se convierte en una fuerza dinámica que puede transformar realidades, tanto para los individuos como para las comunidades a las que pertenecen.
+La búsqueda de mejores oportunidades de empleo y educación es un impulso fundamental que motiva a las personas a migrar, tanto a nivel interno como externo. Este fenómeno refleja no solo la aspiración individual de alcanzar una vida más digna y satisfactoria, sino también un contexto socioeconómico que, en muchos casos, limita el desarrollo personal y profesional en sus lugares de origen. La decisión de emprender este camino, aunque a menudo dolorosa y compleja, simboliza la lucha por la superación y el deseo de construir un futuro mejor. Al mismo tiempo, pone de manifiesto las disparidades entre regiones, donde lugares como \textcolor{orange}{La Habana} ofrecen un abanico más amplio de oportunidades comparado con provincias como \textcolor{blue}{Cienfuegos}. En última instancia, este deseo de progreso se convierte en una fuerza dinámica que puede transformar realidades, tanto para los individuos como para las comunidades a las que pertenecen.
 
 
 \section{Desarrollo}
@@ -114,9 +114,9 @@ def skipinitalspace_csv(path:str):
     return dfs
 \end{lstlisting}
 
-Para manejar los datos se hizo uso de la historia de \textcolor{blue}{Perla}, una joven cienfueguera quien; como parte de su desarollo como estudiante de 12mo grado de Preuniversitario, situación familiar y residencial; se enfrenta a los dilemas que se desean exponer, y de esa forma según se avanza en la historia se van presentando los datos visualizandolos de forma natural interactiva siguiendo su historia.\\\\
+Para manejar los datos se hizo uso de la historia de \textcolor{blue}{Perla}, una joven cienfueguera quien (como parte de su desarollo como estudiante de 12mo grado de Preuniversitario, situación familiar y residencial) se enfrenta a los dilemas que se desean exponer, y de esa forma según se avanza en la historia se van presentando los datos visualizandolos de forma natural e interactiva siguiendo su historia.\\\\
 
-Y finalmente para el mapa de densidad se trabajó con la fuente del repositorio de \textcolor{orange}{geojsons} de Cuba de \textcolor{blue}{Yudivian Almeida}. A partir de ellos, además de establecer 
+Y finalmente para el mapa de densidad se trabajó con la fuente del repositorio de \textcolor{orange}{geojsons} de Cuba de \textcolor{blue}{Yudivián Almeida}. A partir de ellos, además de establecer 
 las divisiones del territorio nacional y por provincias, se fueron agregando los valores que se quisieron representar en el mapa y en el tooltip por medio del siguiente script:
 \begin{lstlisting}[language=Python, caption=Script para agregar valores al geojson]
     import json 
@@ -181,67 +181,54 @@ Como parte principal de este análisis se procede a visualizar los datos recopil
 
 \subsubsection{Población}
 \includegraphics[width=1.0\textwidth]{img/fig1.png}
-Se desea partir de analizar la distribución territorial del municipio que se quiere estudiar, por lo que con esta representación \textcolor{blue}{(dividida por edad laboral a la izquierda y edad no laboral a la derecha)} se descubre el predominio de densidad del municipio cabecera con respecto al resto reflejando un claro desblanace de gestión de recursos municipales.
+Se desea partir de analizar la distribución territorial del municipio que se quiere estudiar, por lo que con esta representación \textcolor{blue}{(dividida por edad no laboral a la izquierda y edad laboral a la derecha)} se descubre el predominio de densidad del municipio cabecera con respecto al resto reflejando un claro desblanace de gestión de recursos municipales.
 
-\subsubsection{Educación superior en Cienfuegos}
+\subsubsection{Educación superior}
 Siguiendo el devenir de la narrativa expuesta se introduce una observación referente al número de matriculas iniciales y graduados en comparación para cada año en \textcolor{blue}{Cienfuegos} de la educación superior (la cual cabe resaltar que sólo cuenta con 3 universidades y todas en el municipio cabecera)\\\\
 Alcanzando a reflejarse el poco volumen de matrículas y la enorme diferencia referente al número de graduados para cada año en una provincia cuyas unicas instituciones de educación superior radican en la cabecera, por lo que claramente las características del entorno para el escenario de quedarse en su provincia natal van esfumando toda idea o interés por seguir en ese sitio.
+En medio de esta problemática nace la problemática de la toma de una decisión crucial para la chica, estudiar en la capital lo que quiere o conformarse con lo que su municipio le ofrece, cada alternativa con sus características particulares descritas.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{img/fig2.png}
 \end{center}
-En medio de esta problemática nace la problemática de la toma de una decisión crucial para la chica, estudiar en la capital lo que quiere o conformarse con lo que su municipio le ofrece, cada alternativa con sus características particulares descritas.\\\\
-
 Luego, acto seguido a introducir al personaje del padre de la joven, con su acción de migrar en el pasado, se procede a analizar los procesos migratorios del territorio cubano, y del municipio en profundidad.
-\subsubsection{Procesos migratorios}
-Dentro de este apartado se plantea comenzar analizando los movimientos migratorios en la isla por provincias para así evaluar de forma nacional y realizar comparaciones aprovechando la interactividad del recurso presentado en un mapa de densidad desarrollado con el módulo \textcolor{blue}{folium} con el \textcolor{orange}{geojson} anteriormente obtenido.
 \subsubsection{Movimientos migratorios}
-
+Dentro de este apartado se plantea comenzar analizando los movimientos migratorios en la isla por provincias para así evaluar de forma nacional y realizar comparaciones aprovechando la interactividad del recurso presentado en un mapa de densidad desarrollado con el módulo \textcolor{blue}{folium} con el \textcolor{orange}{geojson} anteriormente obtenido.
 \begin{center}
-    \includegraphics[width=1.0\textwidth]{img/lechee.png}
+    \includegraphics[width=0.9\textwidth]{img/fig3.png}
 \end{center}
-\begin{itemize}
-    \item Predominio del sector no estatal para ambos grupos a partir del 93 para los vacunos y 99 para las cabras, como resultante de la flexibilización de las regulaciones sobre la producción y comercialización de productos lácteos por parte del gobierno cubano, 
-    permitiendo a los productores no estatales operar más libremente.
-    \item Disminución general vacuna y crecimiento casi constante en cabras. 
-\end{itemize}
-Sin embargo, el rendimiento anual de vacas de ordeño se mantuvo relativamente semejante en ambos sectores desde 1993, anteriormente se tenían menos libertades para con el rebaño por lo que impería el sector estatal.\\\\
-Por otro lado, con respecto a los huevos, su producir tuvo un recorrido general estable y tendiendo al crecimiento hasta la segunda mitad de la segunda década de los años 2000 (exceptuando el período de decrecimiento monstruoso de los 90 por la crisis). Desde ese momento en adelante se ha mantenido oscilando la línea de su desarrollo, principalmente producto de la intensificación del hurto, los sacrificios, la caza y demás factores.
-\begin{center}
-    \includegraphics[width=1.0\textwidth]{img/11.png}
-\end{center}
-La producción de carne en general sufrió fue uno de las consecuencias de los valores de existencia y entregas a sacrificio de forma general, siguiendo una línea de disminución por todos los factores influyentes en la isla.
 \newpage
-\subsubsection{Alimentación}
-Acerca de este tema, las fuentes principales de forma general se centraban en los residuos de caña, miel, urea, cachaza, el agua, y la mayor problemática hoy en día, el pienso.
+Se observa que los flujos más significativos se dirigen principalmente hacia las provincias de \textcolor{orange}{Villa Clara}, \textcolor{orange}{Matanzas} y \textcolor{orange}{La Habana}. Por otro lado hacia \textcolor{blue}{Cienfuegos} se tiene, en muy pocos volumenes, a provincias como \textcolor{orange}{Sancti Spírictus}, \textcolor{orange}{La Habana}, \textcolor{orange}{Matanzas} y en mayores valores con \textcolor{blue}{532 unidades para el año 2012} se encuentra \textcolor{orange}{Villa Clara} como principal origen.
+\subsubsection{Saldo y tasa de migración}
+Luego, se aprecia que a diferencia de otras regiones de Cuba, \textcolor{blue}{Cienfuegos} presenta una notable estabilidad en su saldo migratorio interno, lo que significa que los movimientos migratorios interprovinciales se equilibran de manera más favorable en comparación con el típico saldo negativo que caracteriza al país en su conjunto de forma general.
 \begin{center}
-    \includegraphics[width=1.0\textwidth]{img/1.png}
+    \includegraphics[width=1.0\textwidth]{img/fig4.png}
 \end{center}
-Para años posteriores a la crisis, con las diferentes relaciones, acuerdos y demás medidas del país se han logrado conseguir algunas fuentes de entrada pero de la misma manera ha subido el valor, por el exceso de demanda de después de la crisis, por lo que la situación 
-para los productores no ha sido particularmente sencilla. Y además para despues del 2016 la situación vuelve a decaer producto de intentos del país de diversificar su economía y de complejidades burocráticas con su valor.
-\subsubsection{Entidades}
-Una de las medidas principales en el campo agrícola fue el surgimiento de la Cooperativa de Crédito y Servicio (CCS) como una herramienta estatal para organizar la producción de los pequeños propietarios rurales y integrarlos activamente en la vida política 
-del país. La Asociación Nacional de Agricultores Pequeños (ANAP) jugó un papel crucial en la promoción y apoyo a estas cooperativas. Posteriormente, en el periodo 1975-1985 se expandió la industrialización de la economía cubana, estimulada por la cooperación 
-con los países del campo socialista. Como parte de ese proceso, en el Primer Congreso del Partido Comunista de Cuba (PCC) (1975) se planteó como prioridad acelerar el movimiento cooperativo, pero sobre todo encaminarlo a la integración de los campesinos de las 
-CCS a lo que se denominó CPA, las cuales socializan los medios de producción, entre ellos la tierra, que deja de ser propiedad privada individual y pasa a ser propiedad colectiva. Tiempo después como contramedida a las repercusiones de la próxima crisis económica de 
-1990 se fundan las Unidades Básicas de Producción Cooperativa (UBPC), constituidas en 1993
-
+Sin embargo, al analizar la dinámica migratoria a nivel municipal, se evidencia una tendencia significativa hacia el municipio de cabecera, \textcolor{blue}{Cienfuegos}, dominando la densidad poblacional del municipio agrupando a más del 40\% de la población residente. Este dato revela que, a pesar de la estabilidad general de \textcolor{blue}{Cienfuegos}, existe un posible desbalance intermunicipal que podría estar impulsado por la búsqueda de mejores oportunidades laborales, educación y calidad de vida\\\\
+Además, al considerar los diferentes tipos de saldos migratorios, se concluye que, en términos generales, el saldo externo es el que se lleva la delantera con valores negativos (excluyendo la diferencia de saldo interno del municipio \textcolor{blue}{Cienfuegos}). Esto sugiere que, si bien \textcolor{blue}{Cienfuegos} mantiene un equilibrio interno más sólido, la migración hacia el extranjero también juega un papel crucial en la configuración de su demografía y, por ende, en el futuro desarrollo de la región.
+\begin{center}
+    \includegraphics[width=1.0\textwidth]{img/fig5.png}
+\end{center}
+\subsubsection{Salario medio y empleos}
+En el ámbito de las oportunidades laborales (desarrollando en base al contexto de la narración en busca de intentar explicar o hallarle un motor a de Andrés, el padre de Perla, de abandonar a su familia), se tiene a \textcolor{orange}{La Habana} se posiciona como un imán para quienes buscan una mejor calidad de trabajo y un nivel de vida más elevado. En comparación con \textcolor{blue}{Cienfuegos}, la capital ofrece mayores posibilidades de empleo, con una variedad más amplia de sectores y empresas que garantizan salarios medios más altos. Además, en \textcolor{orange}{La Habana}, es más común acceder a créditos y a una gama de servicios que facilitan el desarrollo personal y profesional, lo que atrae a muchos migrantes de otras provincias en busca de un futuro más prometedor.\\
+Entonces se decide evaluar (con el fin de minimizar el número de líneas, excluyendo las que no nos aporten al análisis siguiendo el hilo de desarrollo), considerando únicamente las provincias que se conoce que imperan como mayoria como destino de las migraciones desde \textcolor{blue}{Cienfuegos}, quedándose por debajo con respecto al resto de provincias. 
+\begin{center}
+    \includegraphics[width=1.0\textwidth]{img/fig6.png}
+\end{center}
+De igual forma se puede decir, si consideramos las diferencias intermunicipales, que se mantienen con ligera superioridad general los valores de media salarial para la cabeza del municipio, resaltando una vez más el desblanace estructural de distribución de recursos municipales existente en dicho territorio.
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{img/fig7.png}
+\end{center}
+\emph{\textcolor{blue}{Cabe mencionar que aunque ciertamente esta representación a priori puede que no presente un caracter visualmente significativo, se considera emplear este recurso y la interactividad del mismo para aprovechar el formato de pila barras y reflejar las diferencias de cada municipio con respecto al resto (y de forma general también el desarrollo anual del salario medio del municipio entre los considerados).}}
 \clearpage
-Desde ese instante se mantuvo dicha estructura hasta el 2011 que surgen las Cooperativas no Agropecuarias para asentarse en el 2013.
-\begin{center}
-    \includegraphics[width=1.0\textwidth]{img/mapa.png}
-\end{center}
-Cómo se puede observar en el mapa, la distribución espacial de las instituciones de forma general siempre ha estado concentrada en la capital, y, al excluirla, se aprecia como estas entidades se concentran en mayores cantidades hacia la zona más oriental del país (y Camagüey),
-Pinar del Río y Villa Clara en la zona central. Y con una concentración general de un 46,5\%, 35,6\% y 17.1\% de CCS, UBPC y CPA respectivamente para un total de 5688 unidades cooperativas en el año 2012.\\\\
+\section{Encuesta}
+Con el objetivo de recopilar perspectivas sobre el tema en cuestión, se llevó a cabo una encuesta online utilizando la aplicación forms.app, la cual fue realizada por 45 personas. Aunque es importante señalar que los resultados de esta encuesta no poseen valor estadístico general debido a su carácter no representativo, no obstante la cantidad de participantes y la estructura intuitiva del cuestionario fomentaron interacciones valiosas y significativas.\\\\
+La encuesta fue diseñada para facilitar la participación y animar a los encuestados a compartir sus opiniones, lo que permitió obtener una variedad de respuestas que enriquecen el análisis del tema. A pesar de no ser un conjunto de datos estadísticamente válido, la diversidad de voces y experiencias recogidas brinda un panorama interesante que puede ser considerado para profundizar en la discusión.\\
+\begin{itemize}
+    \item El desarrollo del formulario planteado sigue el siguiente flujo: \url{https://github.com/LFrench03/La-Perla-del-Sur/tree/main/app/form}
+    \item Para ver más detalles (audiencia, respuestas y opiniones) ver en la web: \url{https://la-perla-del-sur.streamlit.app/}
+\end{itemize}
 
-Por otro lado, entrando en un contexto mas contemporaneo, cabe mencionar que las complicaciones y obstaculos (climáticos, epidemiologicas, económicos, etc) que se han ido presentado estos últimos años (sumado a algunos estructurales que se han ido arrastrando desde años atras como la dependencia de importaciones y el impacto 
-del bloqueo económico comercial por parte de los Estados Unidos) persisten en la actualidad y se ven reflejadas en todas las carencias de distribución a la poblacion, por parte de la producción, existencia, alimentación del ganado y desarrollo general e institucional. La situación es crítica, pero se puede aprender de la historia
-tomando todo este proceso de transición como referencia y antecedente para seguir probando alternativas que nos puedan conducir a un mejor desarrollo como país.
+\section{Conclusiones y referencias}
+En conclusión, el estudio de los procesos migratorios en \textcolor{blue}{Cienfuegos} es crucial para comprender las dinámicas de movilidad poblacional y sus repercusiones socioeconómicas. Las observaciones revelan que la migración hacia la cabecera municipal está motivada por factores como la búsqueda de empleo, acceso a servicios y mayores oportunidades educativas. Sin embargo, esta concentración demográfica también genera desafíos en términos de infraestructura y sostenibilidad. Se recomienda implementar políticas que no solo fortalezcan la infraestructura de la cabecera, sino que también promuevan el desarrollo de las áreas periféricas, garantizando la equidad en el acceso a recursos y oportunidades. Asimismo, es esencial establecer mecanismos de monitoreo para evaluar continuamente el impacto de la migración y ajustar las estrategias en función de las necesidades cambiantes de la población.
 
-\section{Conclusiones y recomendaciones}
-Concluyendo el análisis sobre la ganadería en Cuba, podemos afirmar que el sector enfrenta desafíos significativos pero también oportunidades para su desarrollo. Por un lado, Cuba en algunos momentos ha logrado ciertos avances en la producción de carne y productos lácteos, lo que sugiere una cierta 
-resiliencia del sistema agropecuario. Sin embargo, la dependencia de importaciones y el déficit alimentario persisten, que a pesar de presentarse en algún punto de mejoría, se mantienen como problemas estructurales que requieren atención urgente por la situación del deficit general en el sector ganadero cubano.
-
-Para mejorar la situación se recomiendan estrategias de diversificación productiva, inversión en tecnologías y prácticas sostenibles, y fomento del desarrollo rural. Además, es crucial fortalecer las capacidades técnicas y empresariales de los productores, 
-así como mejorar la infraestructura agrícola y ganadera. También sería beneficioso revisar y ajustar políticas públicas para alinearlas más estrechamente con las necesidades y posibilidades del sector privado, potenciando su contribución al desarrollo económico y social del país. 
-Finalmente, se debe abordar la transición hacia una economía más circular y resiliente, aprovechando recursos locales y reduciendo la dependencia de importaciones, lo cual podría llevar a una mayor autosuficiencia alimentaria y a una industria ganadera más robusta y competitiva.
 \end{document}
