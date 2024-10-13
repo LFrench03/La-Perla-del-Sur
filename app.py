@@ -422,10 +422,11 @@ st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b 
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Se considera dedicar un apartado específico para las opiniones particulares de los internautas, empleando un sistema de selección aleatoria para mostrar algunas de las razones y luces de los participantes en el cuestionario.</p>',unsafe_allow_html=True)
 
 def random(cuestion:str) -> str:
-    cuestion = [x for x in list(df_form[cuestion]) if x!="-"]
+    # Funcion para devolver respuesta aleatoria
+    cuestion = [x for x in list(df_form[cuestion]) if x!="-"] # Saltar las respuestas vacias
     value = randint(0,len(cuestion)-1)
     return cuestion[value]
-
+# Opiniones aleatorias
 cuestion1, cuestion2 = st.tabs(["¿Qué elegirías?", "¿Buscarías a tu padre?"])
 with cuestion1:
     st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Referente a la pregunta de <b style="color:#5665E2;">¿Qué elegirías?</b> se tienen razones como:</p',unsafe_allow_html=True)
