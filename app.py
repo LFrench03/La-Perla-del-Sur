@@ -15,12 +15,12 @@ import plotly.graph_objects as go
 from collections import Counter
 
 
-# Function to convert each dataframe to a downloadable csv
+# Funcion para descargar csv's
 @st.cache_data
 def convert_df(df):
     return df.to_csv().encode("utf-8")
 
-# Function to skip initial space on csv's files
+# Funcion para eliminar espacios adicionales en los csv
 def skipinitalspace_csv(path:str):
     from csv import reader, writer
     data = []
@@ -32,16 +32,17 @@ def skipinitalspace_csv(path:str):
         writer = writer(f)
         writer.writerows(data)
 
-# Page configuration
+# Configuracion de la pagina
 st.set_page_config(page_title="La Perla del Sur", page_icon="app/img/perla.jpeg", layout="centered")
 
-# Header
+# Encabezado
 st.markdown('<h1 align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=60&duration=4000&lines=La+Perla+del+Sur+⚪️;" /> </h1>',unsafe_allow_html=True)
 with st.container(border=True):
     st.image(image="app/img/perla4.jpeg", use_column_width=True)
     st.markdown('<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#236d7f;">Un análisis de los procesos migratorios de la provincia de Cienfuegos. <br><l style= "color:gray;font-size:15px;">Los factores del empleo, la educación y la familia.</l></b></l></div', unsafe_allow_html=True)
     st.divider()
     st.markdown("",unsafe_allow_html=True)
+    # Conceptos
     with st.expander("**Conceptos**", icon="📚"):
         tab1, tab2, tab3 = st.tabs(["Población", "Educación", "Salario"])
         with tab1:
@@ -64,7 +65,7 @@ st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="co
 # II - Data Initialice #
 ########################
 
-# CSV's paths
+# CSV's rutas
 files = ["app/data/csv/ Población residente según edad laboral por zonas urbana y rural (a) (cálculos al 31 de diciembre de 2019).csv",
          "app/data/csv/ Salario medio mensual en entidades estatales por municipios.csv",
          "app/data/csv/Graduados educacion superiory matricula inicial.csv",
@@ -78,7 +79,7 @@ files = ["app/data/csv/ Población residente según edad laboral por zonas urban
 df_mm = pd.read_csv(files[3]) #Read csv
 
 def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd.core.frame.DataFrame]:
-    #Funcion para el procesamiento de los datos
+    # Funcion para el procesamiento de los datos y particion de dataframes
     if type == "prov":
         year2012, year2013, year2014, year2015, year2016, year2017, year2018, year2019, year2020, year2021, year2022 = 0,0,0,0,0,0,0,0,0,0,0
         dfs = [year2012, year2013, year2014, year2015, year2016, year2017, year2018, year2019, year2020, year2021, year2022]
@@ -113,7 +114,7 @@ def migratory_movements(df: pd.core.frame.DataFrame, type:str="prov") -> list[pd
 
 df_mm = migratory_movements(df_mm) #DataFrame Movimientos migratorios
 
-#Load Geojson 
+# Cargar Geojson 
 with open("app/data/geojsons/cuba.geojson") as json_file:
     data = load(json_file)
 
@@ -142,7 +143,7 @@ last.set_index("PROVINCIAS/AÑOS", inplace=True)
 last.index.name=None
 df_sm = migratory_movements(df_sm, 'etc')#
 df_sm[prov_order_2.index("Guantánamo")] = df_sm[prov_order_2.index("Guantánamo")].iloc[:-1,:]
-df_sm.append(last)
+df_sm.append(last) # All this to correct an exception where the province of Isla de la Juventud is missed
 
 # Graduados & matrícula inicial 
 df_gm = pd.read_csv(files[2]) #
@@ -180,6 +181,7 @@ year_pobl = st.select_slider("Año: ",mun_years)
 colors = ['#00a498','#002b43','#261c93','#2aecde','#5ba5cf', '#366078', '#1d2f39']
 toggle3 = st.toggle("Edad laboral")
 data_poblacion = np.transpose(df_poblacion[mun_years.index(year_pobl)]).iloc[0,:] if toggle3 else np.transpose(df_poblacion[mun_years.index(year_pobl)]).iloc[3,:]   
+# Pie chart para la densidad poblacional dividida en edad laboral y no laboral
 fig5 = go.Figure(data = go.Pie(labels=list(data_poblacion.index), values = data_poblacion, pull= 0.1, textposition="outside", hoverinfo='value',textinfo='label+percent', 
     marker=dict(colors=colors, line=dict(color='black', width=3))))
 fig5.update_layout(
@@ -201,6 +203,7 @@ st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="co
 
 df_gm = np.transpose(df_gm)
 df_gm.index.name = "Curso"
+# Grafico de area para graduados & matriculas iniciales 
 fig4 = px.area(df_gm,markers=True,color_discrete_sequence=["#0c367f", "#5b94f7"], hover_name='value', hover_data={'value':None})
 fig4.update_layout(width=1300, height=600, 
         yaxis_title = "Cantidad", xaxis_title = "Cursos", 
@@ -226,7 +229,7 @@ with st.popover("Filtrado de datos"):
         st.info('La provincia también varía para la gráfica de abajo', icon="ℹ️")
 st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Movimientos migratorios de {provincia} en el año {year}</b></l></div', unsafe_allow_html=True)
 def mapa(city:str,year:int):
-        #Instanciando Mapa
+    # Instanciando Mapa
     m = Map(location=[21.3, -79.6], tiles="CartoDB positron", zoom_start=6, no_touch=True)        
 
     mapdata = {}
@@ -247,7 +250,7 @@ def mapa(city:str,year:int):
             reset=True,
             control=False
         ).add_to(m)     
-    #Tooltip
+    # Tooltip
     geo_data = read_file("app/data/geojsons/cuba.geojson")
     geodf = GeoDataFrame.from_features(geo_data)
     geodf.crs = "EPSG:4326"    
@@ -265,9 +268,9 @@ def mapa(city:str,year:int):
     
     return st_folium(m, use_container_width=True, height=550)
     
-map_data = mapa(provincia, year) #Mapa
+map_data = mapa(provincia, year) # Mapa de densidad
 
-#Scatter plot con tasas y saldos migrorios
+# Scatter plot con tasas y saldos migrorios
 toggle = st.toggle("Tasa") # Interruptor para evaluar la tasa en lugar del saldo
 if toggle:
     st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Tasa de migración interna y externa en {provincia}</b></l></div', unsafe_allow_html=True)
@@ -289,7 +292,7 @@ except Exception as e:
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Sin embargo, al analizar la dinámica migratoria a nivel municipal, se evidencia una tendencia significativa hacia el municipio de cabecera,  <b style="color:#5665E2;">Cienfuegos</b>, dominando la densidad poblacional del municipio agrupando a más del  <b style="color:#5665E2;">40%</b> de la población residente. Este dato revela que, a pesar de la estabilidad general de  <b style="color:#5665E2;">Cienfuegos</b>, existe un posible desbalance intermunicipal que podría estar impulsado por la búsqueda de mejores oportunidades laborales, educación y calidad de vida</p>', unsafe_allow_html=True)
 
 mun_year = st.select_slider("Año:  ", mun_years)
-#Scatter plot con tasas y saldos migrorios
+# Scatter plot con tasas y saldos migrorios por municipios
 toggle_mun = st.toggle(" Tasa ") # Interruptor para evaluar la tasa en lugar del saldo
 if toggle_mun:
     st.markdown(f'<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#56654;">Tasa de migración interna y externa por municipios de Cienfuegos en el año {mun_year}</b></l></div', unsafe_allow_html=True)
@@ -311,7 +314,7 @@ except Exception as e:
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Además, al considerar los diferentes tipos de saldos migratorios, se concluye que, en términos generales, el saldo externo es el que se lleva la delantera con valores negativos (excluyendo la diferencia de saldo interno del municipio <b style="color:#5665E2;">Cienfuegos</b>). Esto sugiere que, si bien  <b style="color:#5665E2;">Cienfuegos</b> mantiene un equilibrio interno más sólido, la migración hacia el extranjero también juega un papel crucial en la configuración de su demografía y, por ende, en el futuro desarrollo de la región.</p>', unsafe_allow_html=True)
 df_sal_mun.index.name = "Municipio"
 df_sal_total.index.name = "Municipio"
-
+# Grafico de barra para salarios medios por municipios y de linea para por provincias
 bar1, bar2 = st.tabs(["Por municipios", "Por provincias"])
 with bar1:
     toggle2 = st.toggle("Excluir año 2021")
