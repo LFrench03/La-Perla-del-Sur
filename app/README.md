@@ -1,5 +1,6 @@
-# <div align=center> <h style= "color:SkyBlue;">[**Preview**](app)</h></div>
-![capt](img/capt.png)
+# <div align=center> <h style= "color:SkyBlue;">[**Preview**](https://la-perla-del-sur.streamlit.app/)</h></div>
+<div align=center><img src = "img/capt.png"></div>
+
 ### <div align=center> <h3 style= "color:SkyBlue;">**Contents**</h3> 
 - [Datos utilizados](data)
 - [Scripts](scripts)
