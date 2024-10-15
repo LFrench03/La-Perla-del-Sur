@@ -37,7 +37,7 @@ def skipinitalspace_csv(path:str):
 st.set_page_config(page_title="La Perla del Sur", page_icon="app/img/perla.jpeg", layout="centered")
 
 # Encabezado
-st.markdown('<h1 align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=60&duration=4000&lines=La+Perla+del+Sur+⚪️;" /> </h1>',unsafe_allow_html=True)
+st.markdown('<h1 align="center"><img src="https://readme-typing-svg.herokuapp.comfont=Righteous&size=35&center=true&vCenter=true&width=500&height=60&duration=4000&lines=La+Perla+del+Sur+⚪️;" /> </h1>',unsafe_allow_html=True)
 with st.container(border=True):
     st.image(image="app/img/perla4.jpeg", use_column_width=True)
     st.markdown('<div align=center><l style="font-family: serif;font-size:17px;"><b style="color:#236d7f;">Un análisis de los procesos migratorios de la provincia de Cienfuegos. <br><l style= "color:gray;font-size:15px;">Los factores del empleo, la educación y la familia.</l></b></l></div', unsafe_allow_html=True)
@@ -214,10 +214,10 @@ try:
 except Exception as e: 
     raise(f"Error: {e}")
 
-st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;"><b style="color:#5665E2;">¿Podría encontrar mejores oportunidades en la capital que en <b style="color:#5665E2;">Cienfuegos</b>? ¿Qué impacto tendría esta elección en su futuro personal y profesional?</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;"><b style="color:#5665E2;">¿Podría encontrar mejores oportunidades en la capital que en <b style="color:#5665E2;">Cienfuegos</b> ¿Qué impacto tendría esta elección en su futuro personal y profesional</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Mientras reflexionaba sobre estas opciones, <b style="color:#5665E2;">Perla</b> no podía evitar pensar en su padre, Andrés, quien desde que ella era pequeña no ha vuelto a verla. Se rumoreaba que se había trasladado a otra región del país por trabajo, dejando atrás a su familia sin explicaciones. Esta ausencia había marcado profundamente la infancia y adolescencia de <b style="color:#5665E2;">Perla</b>, por lo que la idea de estudiar en la capital parecía representar una especie de escapismo, alejándola de las heridas del pasado y ofreciendo nuevas posibilidades. Por otro lado, quedarse en  <b style="color:#5665E2;">Cienfuegos</b> representaba una conexión más fuerte con su familia y su historia personal, pero también podía significar quedarse atrás en términos profesionales.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;"><b style="color:#5665E2;">Perla</b> sabía que esta decisión iba a marcar un punto de inflexión importante en su vida. Mientras tanto, seguía cuidando a sus abuelos, ayudando a su madre con los trabajos domésticos y manteniendo sus estudios como prioridad. Con cada nuevo día, se acercaba más a tomar una decisión que cambiaría el rumbo de su futuro académico y profesional.</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación, que siempre había sido su escapismo y su esperanza, ahora se convertía en un dilema personal y emocional. <b style="color:#5665E2;">¿Qué camino elegiría?</b>.</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">La educación, que siempre había sido su escapismo y su esperanza, ahora se convertía en un dilema personal y emocional. <b style="color:#5665E2;">¿Qué camino elegiría</b>.</p>', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Con el objetivo de abordar estas cuestiones se realiza un estudio provincial migratorio para abordar este tema que tanto carcome a la joven de <b style="color:#5665E2;">Perla</b>. Por ello es que se desarrollo este recurso interactivo para analizar de forma interactiva y con precision utilizando datos reales de parte de la cobertura anual de la Oficina Nacional de Estadísticas e Información (ONEI) y así apreciar mejor la situación.</p>', unsafe_allow_html=True)
 
 st.markdown('<p style="font-size:14px;font-weight:bold;color:gray;"><b style="color:gray;">Entonces, en el contexto migratorio desde  <b style="color:#5665E2;">Cienfuegos</b>, se observa que los flujos más significativos se dirigen principalmente hacia las provincias de  <b style="color:#d2952c;">Villa Clara</b>,  <b style="color:#d2952c;">Matanzas</b> y  <b style="color:#d2952c;">La Habana</b>. Por otro lado hacia <b style="color:#5665E2;">Cienfuegos</b> se tiene, en muy pocos volumenes, a provincias como <b style="color:#d2952c;">Sancti Spírictus</b>, <b style="color:#d2952c;">La Habana</b>, <b style="color:#d2952c;">Matanzas</b> y en mayores valores con <b style="color:#5665E2;">532 unidades para el año 2012</b> se encuentra <b style="color:#d2952c;">Villa Clara</b> como principal origen.</p>',  unsafe_allow_html=True)
@@ -367,7 +367,7 @@ with st.expander("**Diagrama de flujo de la encuesta**"):
 %%{init:{'theme':'base', 'themeVariables':{'primaryColor': '#5665E2','edgeLabelBackground': '#236d7f', 'primaryTextColor': '#ffffff', 'lineColor': 'gray','primaryBorderColor': '#ffffff', 'font-size':'20px','font-family':'monospace, monaco'}}}%%
 graph TD
 Y[Comienzo]-->A[Rango de Edad]
-A--1016-->B{Cuál es tu género?}
+A--10-16-->B{Cuál es tu género}
 A--17-25-->B
 A--26-50-->B
 A--51-66-->B
@@ -375,21 +375,21 @@ A--68 o más-->B
 B--Masculino-->C[Historia de Perla y decisión de carrera]
 B--Femenino-->C
 B--Otro-->C
-C--Lic. Bioquímica en la UH-->D{Qué elegirías?}
+C--Lic. Bioquímica en la UH-->D{Qué elegirías}
 C--Medicina Veterinaria en Cienfuegos-->D
 C--Otro-->D
-D--Por qué?-->E{Estaría en tus planes futuros emigrar en algún momento?}
-E--Sí... Por qué?-->F{Cómo sería tu proceso migratorio?}
-E--No... Por qué?-->K{Buscarías a tu padre?}
-F--Interno-->G{Intermunicipal o interprovincial?}
-F--Externo-->M{Hacia dónde irías?}
-G--Intermunicipal-->L{Cuál sería tu lugar de destino?}
-G--Interprovincial-->H{Cuál sería tu destino?}
-H--Provincia-->I{Por qué? crees que decidirías emigrar?}
-I-->J{Cómo les ofrecerías apoyo a la familia?}
+D--Por qué-->E{Estaría en tus planes futuros emigrar en algún momento}
+E--Sí... Por qué-->F{Cómo sería tu proceso migratorio}
+E--No... Por qué-->K{Buscarías a tu padre}
+F--Interno-->G{Intermunicipal o interprovincial}
+F--Externo-->M{Hacia dónde irías}
+G--Intermunicipal-->L{Cuál sería tu lugar de destino}
+G--Interprovincial-->H{Cuál sería tu destino}
+H--Provincia-->I{Por qué crees que decidirías emigrar}
+I-->J{Cómo les ofrecerías apoyo a la familia}
 J-->K
-K--Sí...Por qué?-->N{Te llamó la atención la imagen de la chica al principio del cuestionario?}
-K--No...Por qué?-->N
+K--Sí...Por qué-->N{Te llamó la atención la imagen de la chica al principio del cuestionario}
+K--No...Por qué-->N
 N-->X[FIN]
 L--La capital de mi provincia natal-->I
 L--Otro municipio-->I
@@ -418,8 +418,8 @@ try:
 except Exception as e: 
     raise(f"Error: {e}")
 try:
-    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Cuál es tu género?</b></l></div', unsafe_allow_html=True)
-    st.plotly_chart(form_chart("¿Cuál es tu género?"))
+    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Cuál es tu género</b></l></div', unsafe_allow_html=True)
+    st.plotly_chart(form_chart("¿Cuál es tu género"))
 except Exception as e: 
     raise(f"Error: {e}")
 st.divider()
@@ -427,29 +427,29 @@ st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b 
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Con respecto al tema de los resultados se tienen a las preguntas referentes a la naturaleza de la problemática en cuestión obteniendose que prefirieron optar por el futuro académico de <b style="color:#5665E2;">Perla</b> con una mayoría de votos para la <b style="color:#5665E2;">Licenciatura en Bioquimica</b> en <b style="color:#5665E2;">LaUniversidad de La Habana</b>.</p',unsafe_allow_html=True)
 
 try:
-    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Qué elegirías?</b></l></div', unsafe_allow_html=True)
-    st.plotly_chart(form_chart("¿Qué elegirías?"))
+    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Qué elegirías</b></l></div', unsafe_allow_html=True)
+    st.plotly_chart(form_chart("¿Qué elegirías"))
 except Exception as e: 
     raise(f"Error: {e}")
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">En un contexto más personal, para descubrir el caracter de las inclinaciones de la audiencia con respecto a la migración, se tuvo que el <b style="color:#5665E2;">93.6%</b> de las personas presentaban intereses migratorios, resaltando el deseo común de mejora mencionado anteriormente.</p',unsafe_allow_html=True)
 
 try:
-    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Estaría en tus planes futuros emigrar en algún momento?</b></l></div', unsafe_allow_html=True)
-    st.plotly_chart(form_chart("¿Estaría en tus planes futuros emigrar en algún momento?"))
+    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Estaría en tus planes futuros emigrar en algún momento</b></l></div', unsafe_allow_html=True)
+    st.plotly_chart(form_chart("¿Estaría en tus planes futuros emigrar en algún momento"))
 except Exception as e: 
     raise(f"Error: {e}")
 
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Luego, con fines de ahondar más en el asunto de los intereses migratorios de la audiencia se tuvo (al no considerar los "-" -respuestas vacias-) que alrededor de un <b style="color:#5665E2;">95%</b> prefirieron un carácter <b style="color:#5665E2;">externo</b>, algo bastante normal considerando la situación de descontento general de la población del país y que se evidencia además en los hallazgos referentes a nuestro objeto de estudio.</p',unsafe_allow_html=True)
 try:
-    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Cómo seria tu proceso migratorio?</b></l></div', unsafe_allow_html=True)
-    st.plotly_chart(form_chart("¿Cómo seria tu proceso migratorio?"))
+    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">¿Cómo seria tu proceso migratorio</b></l></div', unsafe_allow_html=True)
+    st.plotly_chart(form_chart("¿Cómo seria tu proceso migratorio"))
 except Exception as e: 
     raise(f"Error: {e}")
 
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, para concluir con las respuestas se le quiso plantear al público, en función de evaluar desde el punto de la historia como seguirían su desarrollo en el ambiente delicado que se presentó y así ver reflejadas de forma general que dirección predomina. De esta forma se tuvo una respuesta equilibrada a la consideración de la situación futura su padre Andrés, con una ligera superioridad resultante de un <b style="color:#5665E2;">52.3f%</b> de afirmación al deseo de reencontrarse con el.</p>',unsafe_allow_html=True)
 try:
-    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">Y por último, ¿buscarías a tu padre?</b></l></div', unsafe_allow_html=True)
-    st.plotly_chart(form_chart("¿Buscarías a tu padre?"))
+    st.markdown('<div align=center><l style="font-family: serif;font-size:20px;"><b style="color:#5665E2;">Y por último, ¿buscarías a tu padre</b></l></div', unsafe_allow_html=True)
+    st.plotly_chart(form_chart("¿Buscarías a tu padre"))
 except Exception as e: 
     raise(f"Error: {e}")
 st.divider()
@@ -462,20 +462,20 @@ def random(cuestion:str) -> str:
     value = randint(0,len(cuestion)-1)
     return cuestion[value]
 # Opiniones aleatorias
-cuestion1, cuestion2 = st.tabs(["¿Qué elegirías?", "¿Buscarías a tu padre?"])
+cuestion1, cuestion2 = st.tabs(["¿Qué elegirías", "¿Buscarías a tu padre"])
 with cuestion1:
-    st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Referente a la pregunta de <b style="color:#5665E2;">¿Qué elegirías?</b> se tienen razones como:</p',unsafe_allow_html=True)
+    st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Referente a la pregunta de <b style="color:#5665E2;">¿Qué elegirías</b> se tienen razones como:</p',unsafe_allow_html=True)
     st.button("Reset", type="primary", use_container_width=True)
     if st.button("Respuesta aleatoria", use_container_width=True):
-        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué??")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué")),unsafe_allow_html=True)
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
 with cuestion2:
-    st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, finalmente, a la cuestión de <b style="color:#5665E2;">¿porqué buscarías o no a tu padre?</b> se tuvo que:</p',unsafe_allow_html=True)
+    st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, finalmente, a la cuestión de <b style="color:#5665E2;">¿porqué buscarías o no a tu padre</b> se tuvo que:</p',unsafe_allow_html=True)
     st.button(" Reset ", type="primary", use_container_width=True)
     if st.button(" Respuesta aleatoria ", use_container_width=True):
-        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué??.2")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué.2")),unsafe_allow_html=True)
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
@@ -497,7 +497,7 @@ st.markdown('* *Repositorio del proyecto [Entrar aquí](https://github.com/LFren
 st.markdown('* *Sitio web de la Oficina Nacional de Estadísticas e Información [Entrar aquí](https://www.onei.gob.cu/)*')
 st.markdown('* *Repositorio de Yudivian Almeida con los datos geolocalizables en formato geojson de las provincias y municipios de Cuba [Entrar aquí](https://github.com/yudivian/cuba-geojsons/tree/master)*')
 st.markdown('* *Documentación de Plotly [Entra aquí](https://plotly.com/python/)*')
-st.markdown("* *Panorámica del comportamiento de la movilidad intermunicipal en la provincia de Cienfuegos.[Entra aquí](http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S1817-40782021000100038#B10)*")
+st.markdown("* *Panorámica del comportamiento de la movilidad intermunicipal en la provincia de Cienfuegos.[Entra aquí](http://scielo.sld.cu/scielo.phpscript=sci_arttext&pid=S1817-40782021000100038#B10)*")
 st.markdown('* *Documentación de Streamlit [Entra aquí](https://docs.streamlit.io/develop/api-reference)*')
 st.divider()
 
