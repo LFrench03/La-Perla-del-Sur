@@ -367,7 +367,7 @@ with st.expander("**Diagrama de flujo de la encuesta**"):
 %%{init:{'theme':'base', 'themeVariables':{'primaryColor': '#5665E2','edgeLabelBackground': '#236d7f', 'primaryTextColor': '#ffffff', 'lineColor': 'gray','primaryBorderColor': '#ffffff', 'font-size':'20px','font-family':'monospace, monaco'}}}%%
 graph TD
 Y[Comienzo]-->A[Rango de Edad]
-A--10-16-->B{Cuál es tu género?}
+A--10-16-->B{Cuál es tu género}
 A--17-25-->B
 A--26-50-->B
 A--51-66-->B
@@ -375,21 +375,21 @@ A--68 o más-->B
 B--Masculino-->C[Historia de Perla y decisión de carrera]
 B--Femenino-->C
 B--Otro-->C
-C--Lic. Bioquímica en la UH-->D{Qué elegirías?}
+C--Lic. Bioquímica en la UH-->D{Qué elegirías}
 C--Medicina Veterinaria en Cienfuegos-->D
 C--Otro-->D
-D--Por qué?-->E{Estaría en tus planes futuros emigrar en algún momento?}
-E--Sí... Por qué?-->F{Cómo sería tu proceso migratorio?}
-E--No... Por qué?-->K{Buscarías a tu padre?}
-F--Interno-->G{Intermunicipal o interprovincial?}
-F--Externo-->M{Hacia dónde irías?}
-G--Intermunicipal-->L{Cuál sería tu lugar de destino?}
-G--Interprovincial-->H{Cuál sería tu destino?}
-H--Provincia-->I{Por qué? crees que decidirías emigrar?}
-I-->J{Cómo les ofrecerías apoyo a la familia?}
+D--Por qué-->E{Estaría en tus planes futuros emigrar en algún momento}
+E--Sí... Por qué-->F{Cómo sería tu proceso migratorio}
+E--No... Por qué-->K{Buscarías a tu padre}
+F--Interno-->G{Intermunicipal o interprovincial}
+F--Externo-->M{Hacia dónde irías}
+G--Intermunicipal-->L{Cuál sería tu lugar de destino}
+G--Interprovincial-->H{Cuál sería tu destino}
+H--Provincia-->I{Por qué crees que decidirías emigrar}
+I-->J{Cómo les ofrecerías apoyo a la familia}
 J-->K
-K--Sí...Por qué?-->N{Te llamó la atención la imagen de la chica al principio del cuestionario?}
-K--No...Por qué?-->N
+K--Sí...Por qué-->N{Te llamó la atención la imagen de la chica al principio del cuestionario}
+K--No...Por qué-->N
 N-->X[FIN]
 L--La capital de mi provincia natal-->I
 L--Otro municipio-->I
