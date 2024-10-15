@@ -3,6 +3,7 @@
 ###################
 
 import streamlit as st
+from streamlit_mermaid import st_mermaid
 from json import load
 from streamlit_folium import st_folium
 import pandas as pd
@@ -361,6 +362,40 @@ st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:60px;"><b style="color:#236d7f;">Encuesta</b></l></div', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Con el objetivo de recopilar perspectivas sobre el tema en cuestión, se llevó a cabo una encuesta online utilizando la aplicación <b style="color:#5665E2;">forms.app</b>, la cual fue realizada por <b style="color:#5665E2;">45 personas</b>. Aunque es importante señalar que los resultados de esta encuesta no poseen valor estadístico general debido a su carácter no representativo, no obstante la cantidad de participantes y la estructura intuitiva del cuestionario fomentaron interacciones valiosas y significativas.</p',unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">La encuesta fue diseñada para facilitar la participación y animar a los encuestados a compartir sus opiniones, lo que permitió obtener una variedad de respuestas que enriquecen el análisis del tema. A pesar de no ser un conjunto de datos estadísticamente válido, la diversidad de voces y experiencias recogidas brinda un panorama interesante que puede ser considerado para profundizar en la discusión. A continuación, procederé a presentar los resultados y las opiniones surgidas durante este ejercicio, resaltando las temáticas que han captado más atención entre los participantes y las luces que aportan al entendimiento del fenómeno estudiado.</p',unsafe_allow_html=True)
+with st.expander("**Diagrama de flujo de la encuesta**"):
+    mermaid_code = """
+%%{init:{'theme':'base', 'themeVariables':{'primaryColor': '#5665E2','edgeLabelBackground': '#236d7f', 'primaryTextColor': '#ffffff', 'lineColor': 'gray','primaryBorderColor': '#ffffff', 'font-size':'20px','font-family':'monospace, monaco'}}}%%
+graph TD
+Y[Comienzo]-->A[Rango de Edad]
+A--1016-->B{Cuál es tu género?}
+A--17-25-->B
+A--26-50-->B
+A--51-66-->B
+A--68 o más-->B
+B--Masculino-->C[Historia de Perla y decisión de carrera]
+B--Femenino-->C
+B--Otro-->C
+C--Lic. Bioquímica en la UH-->D{Qué elegirías?}
+C--Medicina Veterinaria en Cienfuegos-->D
+C--Otro-->D
+D--Por qué?-->E{Estaría en tus planes futuros emigrar en algún momento?}
+E--Sí... Por qué?-->F{Cómo sería tu proceso migratorio?}
+E--No... Por qué?-->K{Buscarías a tu padre?}
+F--Interno-->G{Intermunicipal o interprovincial?}
+F--Externo-->M{Hacia dónde irías?}
+G--Intermunicipal-->L{Cuál sería tu lugar de destino?}
+G--Interprovincial-->H{Cuál sería tu destino?}
+H--Provincia-->I{Por qué? crees que decidirías emigrar?}
+I-->J{Cómo les ofrecerías apoyo a la familia?}
+J-->K
+K--Sí...Por qué?-->N{Te llamó la atención la imagen de la chica al principio del cuestionario?}
+K--No...Por qué?-->N
+N-->X[FIN]
+L--La capital de mi provincia natal-->I
+L--Otro municipio-->I
+M-- Región-->I
+"""
+    st_mermaid(mermaid_code, height="500px")
 st.divider()
 st.markdown('<div align=center><l style="font-family: serif;font-size:40px;"><b style="color:#236d7f;">Audiencia</b></l></div', unsafe_allow_html=True)
 st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Como parte de la audiencia, como fue comentado anteriormente, se contó con la participación de 45 personas con interacciones completas para la mayoría. De ellas se tiene que, en respuesta a las primeras preguntas de identificación, hubo un predominio de edad entre los <b style="color:#5665E2;">17-25</b> años y de <b style="color:#5665E2;">masculino</b> como parte del género. Como se observa visualmente presentado por la órden de las preguntas como encabezado.</p',unsafe_allow_html=True)
@@ -432,7 +467,7 @@ with cuestion1:
     st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Referente a la pregunta de <b style="color:#5665E2;">¿Qué elegirías?</b> se tienen razones como:</p',unsafe_allow_html=True)
     st.button("Reset", type="primary", use_container_width=True)
     if st.button("Respuesta aleatoria", use_container_width=True):
-        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué?")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué??")),unsafe_allow_html=True)
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
@@ -440,7 +475,7 @@ with cuestion2:
     st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, finalmente, a la cuestión de <b style="color:#5665E2;">¿porqué buscarías o no a tu padre?</b> se tuvo que:</p',unsafe_allow_html=True)
     st.button(" Reset ", type="primary", use_container_width=True)
     if st.button(" Respuesta aleatoria ", use_container_width=True):
-        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué?.2")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué??.2")),unsafe_allow_html=True)
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
