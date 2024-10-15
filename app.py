@@ -393,7 +393,7 @@ K--No...Por qué-->N
 N-->X[FIN]
 L--La capital de mi provincia natal-->I
 L--Otro municipio-->I
-M-- Región-->I
+M--Región-->I
 """
     st_mermaid(mermaid_code, height="500px")
 st.divider()
@@ -467,7 +467,7 @@ with cuestion1:
     st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Referente a la pregunta de <b style="color:#5665E2;">¿Qué elegirías?</b> se tienen razones como:</p',unsafe_allow_html=True)
     st.button("Reset", type="primary", use_container_width=True)
     if st.button("Respuesta aleatoria", use_container_width=True):
-        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué??")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué?")),unsafe_allow_html=True)
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
@@ -475,7 +475,7 @@ with cuestion2:
     st.markdown('<p style="font-size:14px;font-weight:bold;"><b style="color:gray;">Y, finalmente, a la cuestión de <b style="color:#5665E2;">¿porqué buscarías o no a tu padre?</b> se tuvo que:</p',unsafe_allow_html=True)
     st.button(" Reset ", type="primary", use_container_width=True)
     if st.button(" Respuesta aleatoria ", use_container_width=True):
-        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué??.2")),unsafe_allow_html=True)
+        st.markdown('<p style="font-size:16px;font-weight:bold;color:black;">Respuesta: <b style="color:#236d7f;"> {} </b></p>'.format(random("¿Por qué?.2")),unsafe_allow_html=True)
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Reset</b> para empezar de nuevo o el botón <b style="color:#236d7f;">Respuesta Aleatoria</b> para recibir otra respuesta.</p>',unsafe_allow_html=True)
     else:
         st.markdown('<p style="font-size:16px;font-weight:bold;color:gray;">Pulsa el botón <b style="color:#236d7f;">Respuesta aleatoria</b> para comenzar.</p>',unsafe_allow_html=True) 
